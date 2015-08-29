@@ -95,10 +95,8 @@
     t.textAlignment = NSTextAlignmentCenter;
     t.text = @"承兑贴现计算";
     self.navigationItem.titleView = t;
-
-	
-	
-	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241/255.0f green:38/255.0f blue:25/255.0f alpha:1.0f]];
+    
+//	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241/255.0f green:38/255.0f blue:25/255.0f alpha:1.0f]];
 
 	UIBarButtonItem *righth = [[UIBarButtonItem alloc] initWithTitle:@"历史记录" style:UIBarButtonItemStylePlain
 															  target:self action:@selector(showHistory)];

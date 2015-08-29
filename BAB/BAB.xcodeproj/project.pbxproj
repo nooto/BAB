@@ -32,7 +32,6 @@
 		3E81A20918F3CAF800A42207 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A20818F3CAF800A42207 /* main.m */; };
 		3E81A20D18F3CAF800A42207 /* CAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A20C18F3CAF800A42207 /* CAppDelegate.m */; };
 		3E81A20F18F3CAF800A42207 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E81A20E18F3CAF800A42207 /* Images.xcassets */; };
-		3E81A21618F3CAF800A42207 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A21518F3CAF800A42207 /* XCTest.framework */; };
 		3E81A21718F3CAF900A42207 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A1FC18F3CAF800A42207 /* Foundation.framework */; };
 		3E81A21818F3CAF900A42207 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A20018F3CAF800A42207 /* UIKit.framework */; };
 		3E81A22018F3CAF900A42207 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E81A21E18F3CAF900A42207 /* InfoPlist.strings */; };
@@ -44,6 +43,7 @@
 		3EC0C9A918FEEA23005C778E /* CHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0C9A718FEEA23005C778E /* CHistoryViewController.xib */; };
 		3EC0C9AD18FEEE0E005C778E /* CHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0C9AB18FEEE0E005C778E /* CHistoryViewCell.m */; };
 		3EC0C9AE18FEEE0E005C778E /* CHistoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0C9AC18FEEE0E005C778E /* CHistoryViewCell.xib */; };
+		E2432DF21B9188C1003293F8 /* BABNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2432DF11B9188C1003293F8 /* BABNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +75,7 @@
 		3E16CB471907973000C64E8D /* bt_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bt_button.png; sourceTree = "<group>"; };
 		3E16CB481907973000C64E8D /* bt_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bt_button@2x.png"; sourceTree = "<group>"; };
 		3E75635D18F6F6D1008F7B6B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		3E81A1F918F3CAF800A42207 /* 承兑贴现免费.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "承兑贴现免费.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E81A1F918F3CAF800A42207 /* BAB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E81A1FC18F3CAF800A42207 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3E81A1FE18F3CAF800A42207 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3E81A20018F3CAF800A42207 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -87,7 +87,6 @@
 		3E81A20C18F3CAF800A42207 /* CAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAppDelegate.m; sourceTree = "<group>"; };
 		3E81A20E18F3CAF800A42207 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E81A21418F3CAF800A42207 /* BABTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BABTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E81A21518F3CAF800A42207 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3E81A21D18F3CAF900A42207 /* BABTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BABTests-Info.plist"; sourceTree = "<group>"; };
 		3E81A21F18F3CAF900A42207 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3E81A22118F3CAF900A42207 /* BABTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BABTests.m; sourceTree = "<group>"; };
@@ -102,6 +101,8 @@
 		3EC0C9AA18FEEE0E005C778E /* CHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHistoryViewCell.h; sourceTree = "<group>"; };
 		3EC0C9AB18FEEE0E005C778E /* CHistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHistoryViewCell.m; sourceTree = "<group>"; };
 		3EC0C9AC18FEEE0E005C778E /* CHistoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHistoryViewCell.xib; sourceTree = "<group>"; };
+		E2432DF01B9188C1003293F8 /* BABNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABNavigationController.h; sourceTree = "<group>"; };
+		E2432DF11B9188C1003293F8 /* BABNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E81A21618F3CAF800A42207 /* XCTest.framework in Frameworks */,
 				3E81A21818F3CAF900A42207 /* UIKit.framework in Frameworks */,
 				3E81A21718F3CAF900A42207 /* Foundation.framework in Frameworks */,
 			);
@@ -166,7 +166,7 @@
 		3E81A1FA18F3CAF800A42207 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E81A1F918F3CAF800A42207 /* 承兑贴现免费.app */,
+				3E81A1F918F3CAF800A42207 /* BAB.app */,
 				3E81A21418F3CAF800A42207 /* BABTests.xctest */,
 			);
 			name = Products;
@@ -179,7 +179,6 @@
 				3E81A1FC18F3CAF800A42207 /* Foundation.framework */,
 				3E81A1FE18F3CAF800A42207 /* CoreGraphics.framework */,
 				3E81A20018F3CAF800A42207 /* UIKit.framework */,
-				3E81A21518F3CAF800A42207 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,6 +190,8 @@
 				3E81A26318F4500400A42207 /* RFDatePickerView.h */,
 				3E81A26418F4500400A42207 /* RFDatePickerView.m */,
 				3E81A20B18F3CAF800A42207 /* CAppDelegate.h */,
+				E2432DF01B9188C1003293F8 /* BABNavigationController.h */,
+				E2432DF11B9188C1003293F8 /* BABNavigationController.m */,
 				3E81A20C18F3CAF800A42207 /* CAppDelegate.m */,
 				3E81A22B18F3CB1600A42207 /* CMainViewController.h */,
 				3E81A22C18F3CB1600A42207 /* CMainViewController.m */,
@@ -253,7 +254,7 @@
 			);
 			name = BAB;
 			productName = BAB;
-			productReference = 3E81A1F918F3CAF800A42207 /* 承兑贴现免费.app */;
+			productReference = 3E81A1F918F3CAF800A42207 /* BAB.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3E81A21318F3CAF800A42207 /* BABTests */ = {
@@ -355,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2432DF21B9188C1003293F8 /* BABNavigationController.m in Sources */,
 				3E81A26518F4500400A42207 /* RFDatePickerView.m in Sources */,
 				3EC0C9AD18FEEE0E005C778E /* CHistoryViewCell.m in Sources */,
 				3E81A20D18F3CAF800A42207 /* CAppDelegate.m in Sources */,
@@ -418,7 +420,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -436,6 +439,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -456,7 +460,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -467,6 +472,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -475,14 +481,14 @@
 		3E81A22618F3CAF900A42207 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: ang gao (4F4ZGG335A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ang gao (4F4ZGG335A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "承兑贴现免费";
-				PROVISIONING_PROFILE = "965a7959-da96-4b5f-a210-60eb30c9b78d";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = BAB;
+				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -490,13 +496,13 @@
 		3E81A22718F3CAF900A42207 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: ang gao (4F4ZGG335A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "承兑贴现免费";
-				PROVISIONING_PROFILE = "965a7959-da96-4b5f-a210-60eb30c9b78d";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				PRODUCT_NAME = BAB;
+				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

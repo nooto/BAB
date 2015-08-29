@@ -8,7 +8,7 @@
 
 #import "CAppDelegate.h"
 #import "CMainViewController.h"
-
+#import "BABNavigationController.h"
 @implementation CAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,9 +17,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
 	CMainViewController *listViewController = [[CMainViewController alloc] initWithNibName:@"CMainViewController" bundle:[NSBundle mainBundle]];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:listViewController];
+    BABNavigationController *navigationController = [[BABNavigationController alloc] initWithRootViewController:listViewController];
     self.window.rootViewController = navigationController;
-        [self.window makeKeyAndVisible];
+    [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    [navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    
     return YES;
 }
 

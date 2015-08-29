@@ -40,14 +40,14 @@
 
 	
 	UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"返回"
-															 style:UIBarButtonItemStyleBordered
+															 style:UIBarButtonItemStylePlain
 															target:self
 															action:@selector(cancelAction:)];
 	[left setTintColor:[UIColor blackColor]];
     self.navigationItem.leftBarButtonItem =left;
 	
 	
-	UIBarButtonItem *right =  [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStyleBordered target:self action:@selector(clearHistory:)];
+	UIBarButtonItem *right =  [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clearHistory:)];
 	[right setTintColor:[UIColor blackColor]];
 	self.navigationItem.rightBarButtonItem =right;
 	
@@ -57,12 +57,12 @@
 	self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
     // Do any additional setup after loading the view from its nib.
 	
-	UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
-										   initWithTarget:self
-										   action:@selector(handleSwipeLeft)];
-	swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
-	[self.listView addGestureRecognizer:swipeLeft];
-	[self.emptyView addGestureRecognizer:swipeLeft];
+//	UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
+//										   initWithTarget:self
+//										   action:@selector(handleSwipeLeft)];
+//	swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
+//	[self.listView addGestureRecognizer:swipeLeft];
+//	[self.emptyView addGestureRecognizer:swipeLeft];
     
     [self.view addSubview:self.bannerView];
     self.bannerView.delegate = self;
