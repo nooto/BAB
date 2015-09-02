@@ -11,7 +11,7 @@
 
 #import "CHistoryViewController.h"
 @interface CHistoryViewController ()
-
+@property (nonatomic, weak) UIImageView  *mBgView;
 @end
 
 @implementation CHistoryViewController
@@ -30,25 +30,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	UILabel *t = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4, 44)];
-    t.font = [UIFont systemFontOfSize:20];
-    t.textColor = [UIColor blackColor];
-    t.backgroundColor = [UIColor clearColor];
-    t.textAlignment = NSTextAlignmentCenter;
-    t.text = @"历史记录";
-    self.navigationItem.titleView = t;
-
+    self.title = @"记录";
 	
 	UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"返回"
 															 style:UIBarButtonItemStylePlain
 															target:self
 															action:@selector(cancelAction:)];
-	[left setTintColor:[UIColor blackColor]];
+	[left setTintColor:[UIColor colorWithWhite:1 alpha:0.8f]];
     self.navigationItem.leftBarButtonItem =left;
 	
 	
 	UIBarButtonItem *right =  [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStylePlain target:self action:@selector(clearHistory:)];
-	[right setTintColor:[UIColor blackColor]];
+	[right setTintColor:[UIColor colorWithWhite:1 alpha:0.8f]];
 	self.navigationItem.rightBarButtonItem =right;
 	
 	
@@ -64,31 +57,37 @@
 //	[self.listView addGestureRecognizer:swipeLeft];
 //	[self.emptyView addGestureRecognizer:swipeLeft];
     
-    [self.view addSubview:self.bannerView];
-    self.bannerView.delegate = self;
+//    [self.view addSubview:self.bannerView];
+//    self.bannerView.delegate = self;
+
+    [self.listView setBackgroundColor:[UIColor clearColor]];
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    [image setFrame:self.view.bounds];
+    [self.view addSubview:image];
+    self.mBgView = image;
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 //	adView.delegate = self;
-	UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
-										   initWithTarget:self
-										   action:@selector(handleSwipeLeft)];
-	swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
+//	UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
+//										   initWithTarget:self
+//										   action:@selector(handleSwipeLeft)];
+//	swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
 
 	if ([self.arrHistory count] > 0) {
-		[self.listView addGestureRecognizer:swipeLeft];
+//		[self.listView addGestureRecognizer:swipeLeft];
 		[self.emptyView setHidden:YES];
 	}
 	else{
-		[self.emptyView addGestureRecognizer:swipeLeft];
+//		[self.emptyView addGestureRecognizer:swipeLeft];
 		[self.emptyView setHidden:NO];
 	}
 }
--(void)handleSwipeLeft{
-	[self.navigationController popViewControllerAnimated:YES];
-}
+//-(void)handleSwipeLeft{
+//	[self.navigationController popViewControllerAnimated:YES];
+//}
 
 -(void)cancelAction:(id)sender{
 	[self.navigationController popViewControllerAnimated:YES];
@@ -113,11 +112,11 @@
 }
 
 #pragma mark  ADBannerView
-- (void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    [self.listView setFrame:CGRectMake(0, self.listView.frame.origin.x, ScreenWidth, ScreenHeight - 44)];
-    [self.emptyView setFrame:self.listView.frame];
-    [self.bannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
-}
+//- (void)bannerViewWillLoadAd:(ADBannerView *)banner{
+//    [self.listView setFrame:CGRectMake(0, self.listView.frame.origin.x, ScreenWidth, ScreenHeight - 44)];
+//    [self.emptyView setFrame:self.listView.frame];
+//    [self.bannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
+//}
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
@@ -142,11 +141,9 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    _mBgView.hidden = arrHistory.count > 0 ? NO:YES;
+//    _mBgView.hidden = arrHistory.count > 0 ? NO:YES;
     return [arrHistory count];
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

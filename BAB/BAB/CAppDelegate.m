@@ -22,9 +22,41 @@
     [self.window makeKeyAndVisible];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    [[UINavigationBar appearance] setBackgroundImage:[self imageFromColor:[UIColor colorWithWhite:255/255 alpha:0.1f] withSize:self.window.frame.size] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
+
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor clearColor]];
+//    [[UINavigationBar appearance] setTintColor:[UIColor clearColor]];
+//    [[UINavigationBar appearance] setBackgroundColor:[UIColor clearColor]];
+    
+//     UIImageView *imageView = (UIImageView *)[nav.navigationBar viewWithTag:100];
+//    if (imageView == nil)
+//    {
+//        imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"top_bar"]];
+//        [imageView setFrame:CGRectMake(0, -20, SCREEN_W, NAVBAR_H)];
+//        [imageView setTag:100];
+//        [nav.navigationBar insertSubview:imageView atIndex:0];
+//    }
+//    
+//    if ([UINavigationBar instancesRespondToSelector:@selector(setShadowImage:)])
+//    {
+//        [[UINavigationBar appearance] setShadowImage:[EHCommonMethod imageFromColor:[UIColor clearColor] withSize:CGSizeMake(SCREEN_W, 1)]];
+//    }
+
     
     return YES;
+}
+
+- (UIImage *)imageFromColor:(UIColor *)color withSize:(CGSize)size{
+    CGRect rect = CGRectMake(0, 0, size.width, size.height);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    if (context) {
+        CGContextSetFillColorWithColor(context, [color CGColor]);
+        CGContextFillRect(context, rect);
+    }
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -90,7 +90,7 @@
 //	self.title = @"承兑贴现计算";
 	UILabel *t = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4, 44)];
     t.font = [UIFont systemFontOfSize:20];
-    t.textColor = [UIColor blackColor];
+    t.textColor = [UIColor colorWithWhite:1 alpha:0.8f];
     t.backgroundColor = [UIColor clearColor];
     t.textAlignment = NSTextAlignmentCenter;
     t.text = @"承兑贴现计算";
@@ -98,9 +98,9 @@
     
 //	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241/255.0f green:38/255.0f blue:25/255.0f alpha:1.0f]];
 
-	UIBarButtonItem *righth = [[UIBarButtonItem alloc] initWithTitle:@"历史记录" style:UIBarButtonItemStylePlain
+	UIBarButtonItem *righth = [[UIBarButtonItem alloc] initWithTitle:@"记录" style:UIBarButtonItemStylePlain
 															  target:self action:@selector(showHistory)];
-	[righth setTintColor:[UIColor blackColor]];
+	[righth setTintColor:[UIColor colorWithWhite:1 alpha:0.6f]];
 	self.navigationItem.rightBarButtonItem = righth;
 
 	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
@@ -389,8 +389,8 @@
 -(void)showHistory{
 	CHistoryViewController *conroller = [[CHistoryViewController alloc] initWithNibName:@"CHistoryViewController" bundle:nil];
 	
-	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
-	[self.navigationController.navigationBar.backItem setTitle:@"返回"];
+//	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
+//	[self.navigationController.navigationBar.backItem setTitle:@"返回"];
 	[self.navigationController pushViewController:conroller animated:YES];
 }
 

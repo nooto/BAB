@@ -17,5 +17,5 @@
 @property (nonatomic, strong) NSMutableArray *arrHistory;
 @property (nonatomic, strong) IBOutlet UIView  *emptyView;
 
-@property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
+//@property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
 @end
