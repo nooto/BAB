@@ -7,50 +7,9 @@
 //
 
 #import "CMainViewController.h"
+#import "BABData.h"
 
-@implementation CBABData: NSObject
-@synthesize txje, txlx, txrq, tzts,pmje ,yll, dqrq,jxts, txrqstr, dqrqstr, jssj;
--(CBABData*)init{
-	if (self = [super init]) {
-		
-	}
-	return self;
-}
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super init]) {
-		self.pmje = [aDecoder decodeObjectForKey:@"pmje"];
-        self.yll = [aDecoder decodeObjectForKey:@"yll"];
-		self.txrqstr = [aDecoder decodeObjectForKey:@"txrqstr"];
-        self.dqrqstr = [aDecoder decodeObjectForKey:@"dqrqstr"];
-        self.tzts = [aDecoder decodeObjectForKey:@"tzts"];
-        
-        self.txje = [aDecoder decodeObjectForKey:@"txje"];
-        self.txlx = [aDecoder decodeObjectForKey:@"txlx"];
-        self.jxts = [aDecoder decodeObjectForKey:@"jxts"];
-        self.jssj = [aDecoder decodeObjectForKey:@"time"];
-    }
-    return  self;
-}
-
-
--(void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeObject:self.pmje forKey:@"pmje"];
-    [aCoder encodeObject:self.yll forKey:@"yll"];
-    [aCoder encodeObject:self.txrqstr forKey:@"txrqstr"];
-    [aCoder encodeObject:self.dqrqstr forKey:@"dqrqstr"];
-    [aCoder encodeObject:self.tzts forKey:@"tzts"];
-
-    [aCoder encodeObject:self.jxts forKey:@"jxts"];
-    [aCoder encodeObject:self.txlx forKey:@"txlx"];
-    [aCoder encodeObject:self.txje forKey:@"txje"];
-	
-	[aCoder encodeObject:self.jssj forKey:@"time"];
-}
-
-@end
-
+#import "MJExtension.h"
 
 @interface CMainViewController ()
 
@@ -106,11 +65,11 @@
 	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
 	
 	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSData *saveAccount = [defaults objectForKey:@"history"];
-	if (saveAccount) {
-		self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
-	}
+//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//	NSData *saveAccount = [defaults objectForKey:@"history"];
+//	if (saveAccount) {
+//		self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
+//	}
 
 	[self.calculateButton setEnabled:NO];
 	[self.clearnButton setEnabled:NO];
@@ -156,10 +115,14 @@
 
 -(void)viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
-	[self.arrHistory removeAllObjects];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSData *saveAccount = [defaults objectForKey:@"history"];
-	self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
+//	[self.arrHistory removeAllObjects];
+//    
+//
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSData *saveAccount = [defaults objectForKey:@"history"];
+//        self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
+//    });
 }
 
 
@@ -355,11 +318,16 @@
 	self.babData.txje = [NSString stringWithFormat:@"%.2f", temp3];
 	[self.txjeTextField setText:babData.txje];
 	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	[self.arrHistory insertObject:self.babData atIndex:0];
-	NSData *list = [NSKeyedArchiver archivedDataWithRootObject:arrHistory];
-	[defaults setObject:list forKey:@"history"];
-	[defaults synchronize];
+    NSArray *arr  = nil;
+    arr = [NSObject keyValuesArrayWithObjectArray:self.arrHistory];
+    NSDictionary *dict = [self.arrHistory keyValues];
+    NSLog(@"%@",dict);
+    
+//	NSData *list = [NSKeyedArchiver archivedDataWithRootObject:arrHistory];
+//	[defaults setObject:list forKey:@"history"];
+//	[defaults synchronize];
 }
 
 -(IBAction)clearButtonAction:(id)sender{

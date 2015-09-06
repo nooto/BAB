@@ -10,22 +10,7 @@
 #import "RFDatePickerView.h"
 #import "CHistoryViewController.h"
 #import <iAd/iAd.h>
-@interface CBABData : NSObject
-
-@property (nonatomic, strong)  NSString*  pmje;
-@property (nonatomic, strong) NSString*  yll;
-@property (nonatomic, strong) NSDate*  txrq;
-@property (nonatomic, strong) NSString*  txrqstr;
-@property (nonatomic, strong) NSDate*  dqrq;
-@property (nonatomic, strong) NSString*  dqrqstr;
-@property (nonatomic, strong) NSString*  tzts;
-@property (nonatomic, strong) NSString*  jxts;
-@property (nonatomic, strong) NSString*  txlx;
-@property (nonatomic, strong) NSString* txje;
-
-@property (nonatomic, strong) NSString* jssj;
-
-@end
+#import "BABData.h"
 
 @interface CMainViewController : UIViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
 {
