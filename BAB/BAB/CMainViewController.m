@@ -10,6 +10,7 @@
 #import "BABData.h"
 
 #import "MJExtension.h"
+#import "EHDataMgrModule.h"
 
 @interface CMainViewController ()
 
@@ -46,6 +47,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[EHDataMgrModule shareInstance] initQueue];
+    
 //	self.title = @"承兑贴现计算";
 	UILabel *t = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4, 44)];
     t.font = [UIFont systemFontOfSize:20];
@@ -66,7 +69,10 @@
 	
 	
 //	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//	NSData *saveAccount = [defaults objectForKey:@"history"];
+//	id saveAccount = [defaults objectForKey:@"history"];
+//    if ([saveAccount isKindOfClass:[NSDictionary class]]) {
+//            self.arrHistory = saveAccount keyao
+//    }
 //	if (saveAccount) {
 //		self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
 //	}
@@ -318,12 +324,13 @@
 	self.babData.txje = [NSString stringWithFormat:@"%.2f", temp3];
 	[self.txjeTextField setText:babData.txje];
 	
+    [DBHelper inserTtBABData:self.babData];
 //	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	[self.arrHistory insertObject:self.babData atIndex:0];
-    NSArray *arr  = nil;
-    arr = [NSObject keyValuesArrayWithObjectArray:self.arrHistory];
-    NSDictionary *dict = [self.arrHistory keyValues];
-    NSLog(@"%@",dict);
+//	[self.arrHistory insertObject:self.babData atIndex:0];
+//    NSArray *arr  = nil;
+//    arr = [NSObject keyValuesArrayWithObjectArray:self.arrHistory];
+//    NSDictionary *dict = [self.arrHistory keyValues];
+//    NSLog(@"%@",dict);
     
 //	NSData *list = [NSKeyedArchiver archivedDataWithRootObject:arrHistory];
 //	[defaults setObject:list forKey:@"history"];

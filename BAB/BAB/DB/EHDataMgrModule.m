@@ -1,6 +1,7 @@
 
 
 #import "EHDataMgrModule.h"
+#import "MJExtension.h"
 
 @interface EHDataMgrModule ()
 
@@ -72,7 +73,7 @@ __strong static id sharedInstance = nil;
 }*/
 
 - (void)deleteDB{
-//    [[NSFileManager defaultManager] removeItemAtPath:DBPath error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:[self dbpath] error:nil];
     _mQueue = nil;
 
 }
@@ -136,42 +137,69 @@ __strong static id sharedInstance = nil;
     return devices;
 }
 
-
 - (void)createHistoryTable:(FMDatabase *)db{
     if (![[db tableNames] containsObject:@""]) {
         NSError *error;
         [db createTableWithName: (NSString *)kDatabaseHistoryTableName
-                        columns: @[ @"user_id TEXT PRIMARY KEY",
-                                    @"username TEXT",
-                                    @"userType INTEGER",
-                                    @"name TEXT",
-                                    @"email TEXT",
-                                    @"phone TEXT",
-                                    @"avatar TEXT",
-                                    @"md5_file TEXT",
-                                    @"user_token TEXT",
-                                    @"autoLogin INTEGER",
-                                    @"urgency_contact TEXT",
-                                    @"urgency_contact_phone TEXT"
+                        columns: @[ @"pmje TEXT PRIMARY KEY",
+                                    @"yll TEXT",
+                                    @"txrq INTEGER",
+                                    @"txrqstr TEXT",
+                                    @"dqrq TEXT",
+                                    
+                                    @"dqrqstr TEXT",
+                                    @"tzts TEXT",
+                                    @"jxts TEXT",
+                                    @"txlx TEXT",
+                                    @"txje TEXT",
+                                    
+                                    @"jssj TEXT"
                                     ]
                     constraints: nil
                           error: &error];
-        
-        //        [dict setValue:_user.username        forKey: KUserName];
-        //        [dict setValue:_user.userId          forKey: KUserId];
-        //        [dict setValue:@(_user.userType)     forKey: KUserType];
-        //        [dict setValue:_user.name            forKey: KName];
-        //        [dict setValue:_user.email           forKey: KEmail];
-        //        [dict setValue:_user.phone           forKey: KPhone];
-        //
-        //        [dict setValue:_user.avatar          forKey: KAvatar];
-        //        [dict setValue:_user.md5File         forKey: KMd5File];
-        //        [dict setValue:_user.userToken       forKey: KUserToken];
-        //        [dict setValue:@(_user.autoLogin)    forKey: KAutoLogin];
-        //        [dict setValue:_user.urgencyPhone    forKey: KUrgencyPhone];
-        //        [dict setValue:_user.urgencyContact  forKey: KUrgencyContact];
     }
 }
+
+-(BOOL)inserTtBABData:(CBABData *)data{
+    if (!data) {
+        return NO;
+    }
+    // 用户不存在，插入数据
+    __block BOOL insertSucceed = NO;
+    [self.mQueue inDatabase:^(FMDatabase *db) {
+        NSDictionary *valueDict = [data keyValues];
+        
+        NSError *error;
+        NSNumber *insertNumber = [db insertInto: (NSString *)kDatabaseHistoryTableName
+                                            row: valueDict
+                                          error: &error];
+        
+        if (([insertNumber integerValue] >= 1) && (error == nil)) {
+            insertSucceed = YES;
+            return;
+        }
+    }];
+    
+    return insertSucceed;
+    
+}
+
+-(NSArray*)babdataFromDB{
+    __block NSArray *result = nil;
+    [self.mQueue inDatabase:^(FMDatabase *db) {
+        
+        NSError *error;
+        NSArray * records = [db selectResultsFrom: (NSString *)kDatabaseHistoryTableName
+                                   matchingValues: nil
+                                          orderBy: nil
+                                            error: &error].allRecords;
+
+        if (([records count] >= 1) && (error == nil)) {
+            result = [CBABData objectArrayWithKeyValuesArray:records];
+        }
+    }];
+    
+    return result;}
 
 
 @end

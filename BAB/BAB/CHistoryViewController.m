@@ -8,7 +8,7 @@
 
 #define ScreenWidth                      [[UIScreen mainScreen] bounds].size.width
 #define ScreenHeight                     [[UIScreen mainScreen] bounds].size.height
-
+#import "EHDataMgrModule.h"
 #import "CHistoryViewController.h"
 @interface CHistoryViewController ()
 @property (nonatomic, weak) UIImageView  *mBgView;
@@ -44,10 +44,10 @@
 	[right setTintColor:[UIColor colorWithWhite:1 alpha:0.8f]];
 	self.navigationItem.rightBarButtonItem =right;
 	
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSData *saveAccount = [defaults objectForKey:@"history"];
-	self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
+    [self.arrHistory addObjectsFromArray:[DBHelper babdataFromDB]];
+//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//	NSData *saveAccount = [defaults objectForKey:@"history"];
+//	self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
     // Do any additional setup after loading the view from its nib.
 	
 //	UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
