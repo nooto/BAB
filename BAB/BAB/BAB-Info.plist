@@ -9,26 +9,9 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>bank_80_80</string>
-				<string>bank_58_58</string>
-				<string>bank_29_29</string>
-				<string>bank_114_114</string>
-				<string>bank_120_120</string>
-				<string>bank_57_57</string>
-				<string>bank_80_80</string>
-				<string>bank_120_120</string>
-				<string>bank_58_58</string>
-				<string>bank_29_29</string>
-				<string>bank_114_114</string>
-				<string>bank_57_57</string>
-			</array>
-		</dict>
-	</dict>
+	<dict/>
+	<key>CFBundleIcons~ipad</key>
+	<dict/>
 	<key>CFBundleIdentifier</key>
 	<string>com.1719.babAD</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -45,8 +28,6 @@
 	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchImageFile</key>
-	<string>Default</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

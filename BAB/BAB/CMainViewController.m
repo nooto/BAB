@@ -79,8 +79,8 @@
 
 	[self.calculateButton setEnabled:NO];
 	[self.clearnButton setEnabled:NO];
+    
 	self.babData.txrq = [NSDate date];
-	
 	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
 	[formattter setDateFormat:@"yyyy年MM月dd日"];
 	NSString* temp = [formattter stringFromDate:[NSDate date]];
@@ -92,21 +92,21 @@
 	
     // Do any additional setup after loading the view from its nib.
 	
-	datePickerBgBtn = [[UIButton alloc] initWithFrame:self.view.frame];
-	datePickerBgBtn.userInteractionEnabled = YES;
-	[datePickerBgBtn setBackgroundColor:[UIColor grayColor]];
-	[datePickerBgBtn addTarget:self action:@selector(bgButtonAciton:) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:datePickerBgBtn];
-	datePickerBgBtn.alpha = 0;
+//	datePickerBgBtn = [[UIButton alloc] initWithFrame:self.view.frame];
+//	datePickerBgBtn.userInteractionEnabled = YES;
+//	[datePickerBgBtn setBackgroundColor:[UIColor grayColor]];
+//	[datePickerBgBtn addTarget:self action:@selector(bgButtonAciton:) forControlEvents:UIControlEventTouchUpInside];
+////	[self.view addSubview:datePickerBgBtn];
+//	datePickerBgBtn.alpha = 0;
 	
 	//
-	[self.view addSubview:datePickerBgBtn];
-	[self.view addSubview:pmjeTextField];
-	[self.view addSubview:yllTextField];
-	[self.view addSubview:dqrqButton];
-	[self.view addSubview:txrqButton];
-	[self.view addSubview:tztsTextField];
-    [self.view addSubview:self.bannerView];
+//	[self.view addSubview:datePickerBgBtn];
+//	[self.view addSubview:pmjeTextField];
+//	[self.view addSubview:yllTextField];
+//	[self.view addSubview:dqrqButton];
+//	[self.view addSubview:txrqButton];
+//	[self.view addSubview:tztsTextField];
+//    [self.view addSubview:self.bannerView];
     
 	if (datePickerView == Nil) {
 		datePickerView = [[RFDatePickerView alloc] initWithFrame:CGRectMake(0,
@@ -138,7 +138,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    if (self.datePickerView.isShow) {
+        [self.datePickerView showDatePickerView:NO];
+    }
+}
 -(void)showBglabel:(BOOL)show{
 	[UIView beginAnimations:Nil context:nil];
 	[UIView setAnimationDuration:0.3f];
@@ -153,7 +157,7 @@
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
- 
+    [datePickerView showDatePickerView:NO];
 	datePickerBgBtn.alpha = 0.1f;
 	return YES;
 }

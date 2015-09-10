@@ -199,7 +199,6 @@ withParameterDictionary:(NSDictionary *)arguments
   return tableNames;
 }
 
-
 - (NSSet *)indexNamesOnTable:(NSString *)tableName
 {
   FMResultSet * schema = [self getSchema];

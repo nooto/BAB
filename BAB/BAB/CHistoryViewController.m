@@ -16,7 +16,7 @@
 
 @implementation CHistoryViewController
 @synthesize listView,arrHistory;
-@synthesize emptyView;
+//@synthesize emptyView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,12 +61,18 @@
 //    self.bannerView.delegate = self;
 
     [self.listView setBackgroundColor:[UIColor clearColor]];
-    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
-    [image setFrame:self.view.bounds];
-    [self.view addSubview:image];
-    self.mBgView = image;
+//    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+//    [image setFrame:self.view.bounds];
+////    [self.view addSubview:image];
+////    [self.view insertSubview:image atIndex:0];
+//    self.mBgView = image;
 }
-
+-(NSMutableArray*)arrHistory{
+    if (!arrHistory) {
+        arrHistory = [NSMutableArray array];
+    }
+    return arrHistory;
+}
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
@@ -78,11 +84,11 @@
 
 	if ([self.arrHistory count] > 0) {
 //		[self.listView addGestureRecognizer:swipeLeft];
-		[self.emptyView setHidden:YES];
+//		[self.emptyView setHidden:YES];
 	}
 	else{
 //		[self.emptyView addGestureRecognizer:swipeLeft];
-		[self.emptyView setHidden:NO];
+//		[self.emptyView setHidden:NO];
 	}
 }
 //-(void)handleSwipeLeft{
@@ -101,7 +107,7 @@
 	[defaults synchronize];
 	[self.listView reloadData];
 	
-	[self.emptyView setHidden:NO];
+//	[self.emptyView setHidden:NO];
 	
 }
 
@@ -142,7 +148,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    _mBgView.hidden = arrHistory.count > 0 ? NO:YES;
-//    _mBgView.hidden = arrHistory.count > 0 ? NO:YES;
     return [arrHistory count];
 }
 
@@ -157,32 +162,27 @@
 
     if (!cell) {
         NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"CHistoryViewCell" owner:self options:nil];
-#ifdef __IPHONE_2_1
         cell = [nib objectAtIndex:0];
-#else
-        cell = [nib objectAtIndex:1];
-#endif
 		[cell.textLabel setBackgroundColor:[UIColor clearColor]];
 		[cell.textLabel setFont:[UIFont systemFontOfSize:16.0f]];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
-		
-		if (indexPath.row >= 0 && indexPath.row < [arrHistory count]) {
-			CBABData *data = (CBABData*)[arrHistory objectAtIndex:indexPath.row];
-			[cell.pmje setText:[NSString stringWithFormat:@"%@万元",data.pmje]];
-			[cell.yll setText:[NSString stringWithFormat:@"%@‰",data.yll]];
-			[cell.txrq setText:data.txrqstr];
-			[cell.dqrq setText:data.dqrqstr];
-			[cell.tzts setText:data.tzts? [NSString stringWithFormat:@"%@天",data.tzts]: @"无"];
-			
-			[cell.jxts setText:[NSString stringWithFormat:@"%@ 天",data.jxts]];
-			[cell.txlx setText:[NSString stringWithFormat:@"%@ 元",data.txlx]];
-			[cell.txje setText:[NSString stringWithFormat:@"%@ 元",data.txje]];
-			
-			[cell.jssj setText:data.jssj];
-		}
-		[cell setBackgroundView:nil];
-		[cell setBackgroundColor:[UIColor clearColor]];
-
+        [cell setBackgroundView:nil];
+        [cell setBackgroundColor:[UIColor clearColor]];
+    }
+    
+    if (indexPath.row >= 0 && indexPath.row < [arrHistory count]) {
+        CBABData *data = (CBABData*)[arrHistory objectAtIndex:indexPath.row];
+        [cell.pmje setText:[NSString stringWithFormat:@"%@万元",data.pmje]];
+        [cell.yll setText:[NSString stringWithFormat:@"%@‰",data.yll]];
+        [cell.txrq setText:data.txrqstr];
+        [cell.dqrq setText:data.dqrqstr];
+        [cell.tzts setText:data.tzts? [NSString stringWithFormat:@"%@天",data.tzts]: @"无"];
+        
+        [cell.jxts setText:[NSString stringWithFormat:@"%@ 天",data.jxts]];
+        [cell.txlx setText:[NSString stringWithFormat:@"%@ 元",data.txlx]];
+        [cell.txje setText:[NSString stringWithFormat:@"%@ 元",data.txje]];
+        
+        [cell.jssj setText:data.jssj];
     }
     
     return cell;

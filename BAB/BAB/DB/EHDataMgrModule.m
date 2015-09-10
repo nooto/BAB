@@ -138,7 +138,7 @@ __strong static id sharedInstance = nil;
 }
 
 - (void)createHistoryTable:(FMDatabase *)db{
-    if (![[db tableNames] containsObject:@""]) {
+    if (![[db tableNames] containsObject:kDatabaseHistoryTableName]) {
         NSError *error;
         [db createTableWithName: (NSString *)kDatabaseHistoryTableName
                         columns: @[ @"pmje TEXT PRIMARY KEY",

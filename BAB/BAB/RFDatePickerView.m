@@ -48,6 +48,7 @@
 		mDatePikcer.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
 			mDatePikcer.datePickerMode = UIDatePickerModeDate;
 		[mDatePikcer setDate:[NSDate date]];
+        [mDatePikcer addTarget:self action:@selector(valuechange:) forControlEvents:UIControlEventValueChanged];
 		[self addSubview:mDatePikcer];
     }
     return self;
@@ -68,6 +69,12 @@
 		[m_delegate datePickerViewSeldate:mCurDate];
 	}
 
+}
+-(void)valuechange:(UIDatePicker*)sender{
+    mCurDate = mDatePikcer.date;
+    if (m_delegate && [m_delegate respondsToSelector:@selector(datePickerViewSeldate:)]) {
+        [m_delegate datePickerViewSeldate:mCurDate];
+    }
 }
 
 
