@@ -15,6 +15,7 @@
 {
     // Initialization code
 	bgView.layer.cornerRadius = 20.0f;
+    self.yll.textColor = txje.textColor = txlx.textColor = txrq.textColor = dqrq.textColor = pmje.textColor = tzts.textColor = jxts.textColor = [UIColor colorWithWhite:1 alpha:0.5];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

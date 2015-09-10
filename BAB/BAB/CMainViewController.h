@@ -14,7 +14,6 @@
 
 @interface CMainViewController : UIViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
 {
-	UIButton* datePickerBgBtn;
 	BOOL bannerIsVisible;
 }
 

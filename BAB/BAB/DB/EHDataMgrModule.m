@@ -75,7 +75,6 @@ __strong static id sharedInstance = nil;
 - (void)deleteDB{
     [[NSFileManager defaultManager] removeItemAtPath:[self dbpath] error:nil];
     _mQueue = nil;
-
 }
 
 - (NSArray *)valuesForCloumns: (NSString *)cloumnName matching:(NSDictionary *)matching tableName:(NSString *)table{

@@ -48,7 +48,7 @@
 {
     [super viewDidLoad];
     [[EHDataMgrModule shareInstance] initQueue];
-    
+
 //	self.title = @"承兑贴现计算";
 	UILabel *t = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4, 44)];
     t.font = [UIFont systemFontOfSize:20];
@@ -57,108 +57,49 @@
     t.textAlignment = NSTextAlignmentCenter;
     t.text = @"承兑贴现计算";
     self.navigationItem.titleView = t;
-    
-//	[[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:241/255.0f green:38/255.0f blue:25/255.0f alpha:1.0f]];
-
 	UIBarButtonItem *righth = [[UIBarButtonItem alloc] initWithTitle:@"记录" style:UIBarButtonItemStylePlain
 															  target:self action:@selector(showHistory)];
 	[righth setTintColor:[UIColor colorWithWhite:1 alpha:0.6f]];
 	self.navigationItem.rightBarButtonItem = righth;
-
 	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
-	
-	
-//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//	id saveAccount = [defaults objectForKey:@"history"];
-//    if ([saveAccount isKindOfClass:[NSDictionary class]]) {
-//            self.arrHistory = saveAccount keyao
-//    }
-//	if (saveAccount) {
-//		self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
-//	}
 
-	[self.calculateButton setEnabled:NO];
-	[self.clearnButton setEnabled:NO];
-    
-	self.babData.txrq = [NSDate date];
-	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-	[formattter setDateFormat:@"yyyy年MM月dd日"];
-	NSString* temp = [formattter stringFromDate:[NSDate date]];
-	[self.txrqTextField setText:temp];
-	[self.dqrqTextField setText:temp];
-	self.babData.dqrqstr =temp;
-	self.babData.txrqstr = temp;
-	self.babData.dqrq = [NSDate date];
-	
-    // Do any additional setup after loading the view from its nib.
-	
-//	datePickerBgBtn = [[UIButton alloc] initWithFrame:self.view.frame];
-//	datePickerBgBtn.userInteractionEnabled = YES;
-//	[datePickerBgBtn setBackgroundColor:[UIColor grayColor]];
-//	[datePickerBgBtn addTarget:self action:@selector(bgButtonAciton:) forControlEvents:UIControlEventTouchUpInside];
-////	[self.view addSubview:datePickerBgBtn];
-//	datePickerBgBtn.alpha = 0;
-	
-	//
-//	[self.view addSubview:datePickerBgBtn];
-//	[self.view addSubview:pmjeTextField];
-//	[self.view addSubview:yllTextField];
-//	[self.view addSubview:dqrqButton];
-//	[self.view addSubview:txrqButton];
-//	[self.view addSubview:tztsTextField];
-//    [self.view addSubview:self.bannerView];
-    
-	if (datePickerView == Nil) {
+	if (datePickerView == nil) {
 		datePickerView = [[RFDatePickerView alloc] initWithFrame:CGRectMake(0,
 																			[UIScreen mainScreen].bounds.size.height,
 																			[UIScreen mainScreen].bounds.size.width,246)];
 		datePickerView.m_delegate = self;
 	}
 	[self.view addSubview:datePickerView];
-	
-//	adView.delegate = self;
+    
+    [self initViewAndData];
+    
+    txrqButton.showsTouchWhenHighlighted = dqrqButton.showsTouchWhenHighlighted = YES;
 }
 
--(void)viewDidAppear:(BOOL)animated{
-	[super viewDidAppear:animated];
-//	[self.arrHistory removeAllObjects];
-//    
-//
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//        NSData *saveAccount = [defaults objectForKey:@"history"];
-//        self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
-//    });
+-(void)initViewAndData{
+    [self.calculateButton setEnabled:NO];
+    [self.clearnButton setEnabled:NO];
+
+    self.babData.txrq = [NSDate date];
+    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+    [formattter setDateFormat:@"yyyy年MM月dd日"];
+    NSString* temp = [formattter stringFromDate:[NSDate date]];
+    [self.txrqTextField setText:temp];
+    [self.dqrqTextField setText:temp];
+    self.babData.dqrqstr =temp;
+    self.babData.txrqstr = temp;
+    self.babData.dqrq = [NSDate date];
 }
 
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if (self.datePickerView.isShow) {
         [self.datePickerView showDatePickerView:NO];
     }
-}
--(void)showBglabel:(BOOL)show{
-	[UIView beginAnimations:Nil context:nil];
-	[UIView setAnimationDuration:0.3f];
-	if (show) {
-		datePickerBgBtn.alpha = 0.5f;
-	}
-	else{
-		datePickerBgBtn.alpha = 0.0f;
-	}
-	[UIView commitAnimations];
-	
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [datePickerView showDatePickerView:NO];
-	datePickerBgBtn.alpha = 0.1f;
 	return YES;
 }
 
@@ -237,7 +178,6 @@
 
 //  ‰// %
 -(void)datePickerViewSeldate:(NSDate*)date{
-	[self showBglabel:NO];
   	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
 	[formattter setDateFormat:@"yyyy年MM月dd日"];
 	if (datePickerView.tag == 1) {
@@ -259,14 +199,12 @@
 
 	datePickerView.tag = 1;
 	[datePickerView showDatePickerView:YES];
-	[self showBglabel:YES];
 }
 
 -(IBAction)dqrqButtonAction:(id)sender{
 	[self closeKeyBoarad];
 	datePickerView.tag = 2;
 	[datePickerView showDatePickerView:YES];
-	[self showBglabel:YES];
 }
 
 -(IBAction)calculateButtonAction:(id)sender{
@@ -329,56 +267,21 @@
 	[self.txjeTextField setText:babData.txje];
 	
     [DBHelper inserTtBABData:self.babData];
-//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//	[self.arrHistory insertObject:self.babData atIndex:0];
-//    NSArray *arr  = nil;
-//    arr = [NSObject keyValuesArrayWithObjectArray:self.arrHistory];
-//    NSDictionary *dict = [self.arrHistory keyValues];
-//    NSLog(@"%@",dict);
-    
-//	NSData *list = [NSKeyedArchiver archivedDataWithRootObject:arrHistory];
-//	[defaults setObject:list forKey:@"history"];
-//	[defaults synchronize];
 }
+
 
 -(IBAction)clearButtonAction:(id)sender{
 	[self closeKeyBoarad];
-	[self.clearnButton setEnabled:NO];
-	self.babData = nil;
-	
-	
-	[self.pmjeTextField setText:@""];
-	[self.yllTextField setText:@""];
-	[self.tztsTextField setText:@""];
-
-	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-	[formattter setDateFormat:@"yyyy年MM月dd日"];
-	NSString* temp = [formattter stringFromDate:[NSDate date]];
-	[self.txrqTextField setText:temp];
-	[self.dqrqTextField setText:temp];
-	self.babData.dqrqstr =temp;
-	self.babData.txrqstr = temp;
-
-	
-	[self.jxtsTextField setText:@""];
-	[self.txlxTextField setText:@""];
-	[self.txjeTextField setText:@""];
-	
+    [self initViewAndData];
 }
 -(void)showHistory{
 	CHistoryViewController *conroller = [[CHistoryViewController alloc] initWithNibName:@"CHistoryViewController" bundle:nil];
-	
-//	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
-//	[self.navigationController.navigationBar.backItem setTitle:@"返回"];
 	[self.navigationController pushViewController:conroller animated:YES];
 }
 
 -(void)bgButtonAciton:(id)sender{
 	[self closeKeyBoarad];
-
 	[datePickerView showDatePickerView:NO];
-	[self showBglabel:NO];
-
 }
 
 -(void)closeKeyBoarad{

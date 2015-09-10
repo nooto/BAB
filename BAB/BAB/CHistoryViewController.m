@@ -10,8 +10,10 @@
 #define ScreenHeight                     [[UIScreen mainScreen] bounds].size.height
 #import "EHDataMgrModule.h"
 #import "CHistoryViewController.h"
+#import "EHPromptView.h"
 @interface CHistoryViewController ()
 @property (nonatomic, weak) UIImageView  *mBgView;
+@property (nonatomic, strong) EHPromptView *mPromptView;
 @end
 
 @implementation CHistoryViewController
@@ -27,11 +29,16 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    self.title = @"记录";
-	
+    UILabel *t = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4, 44)];
+    t.font = [UIFont systemFontOfSize:20];
+    t.textColor = [UIColor colorWithWhite:1 alpha:0.8f];
+    t.backgroundColor = [UIColor clearColor];
+    t.textAlignment = NSTextAlignmentCenter;
+    t.text = @"记录";
+    self.navigationItem.titleView = t;
+    
 	UIBarButtonItem *left = [[UIBarButtonItem alloc] initWithTitle:@"返回"
 															 style:UIBarButtonItemStylePlain
 															target:self
@@ -45,27 +52,11 @@
 	self.navigationItem.rightBarButtonItem =right;
 	
     [self.arrHistory addObjectsFromArray:[DBHelper babdataFromDB]];
-//	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//	NSData *saveAccount = [defaults objectForKey:@"history"];
-//	self.arrHistory = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:saveAccount];
-    // Do any additional setup after loading the view from its nib.
-	
-//	UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc]
-//										   initWithTarget:self
-//										   action:@selector(handleSwipeLeft)];
-//	swipeLeft.direction = UISwipeGestureRecognizerDirectionRight;
-//	[self.listView addGestureRecognizer:swipeLeft];
-//	[self.emptyView addGestureRecognizer:swipeLeft];
-    
-//    [self.view addSubview:self.bannerView];
-//    self.bannerView.delegate = self;
 
     [self.listView setBackgroundColor:[UIColor clearColor]];
-//    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
-//    [image setFrame:self.view.bounds];
-////    [self.view addSubview:image];
-////    [self.view insertSubview:image atIndex:0];
-//    self.mBgView = image;
+    self.listView.rowHeight = 300;
+    self.listView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.mPromptView];
 }
 -(NSMutableArray*)arrHistory{
     if (!arrHistory) {
@@ -73,6 +64,15 @@
     }
     return arrHistory;
 }
+
+-(EHPromptView*)mPromptView{
+    if (!_mPromptView) {
+        _mPromptView = [[EHPromptView alloc] initWithPromptString:@"还没有数据哦..." image:@"ic_failed" complete:^{
+        }];
+    }
+    return _mPromptView;
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
@@ -87,13 +87,8 @@
 //		[self.emptyView setHidden:YES];
 	}
 	else{
-//		[self.emptyView addGestureRecognizer:swipeLeft];
-//		[self.emptyView setHidden:NO];
 	}
 }
-//-(void)handleSwipeLeft{
-//	[self.navigationController popViewControllerAnimated:YES];
-//}
 
 -(void)cancelAction:(id)sender{
 	[self.navigationController popViewControllerAnimated:YES];
@@ -101,10 +96,7 @@
 
 -(void)clearHistory:(id)sender{
 	[self.arrHistory removeAllObjects];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSData *list = [NSKeyedArchiver archivedDataWithRootObject:arrHistory];
-	[defaults setObject:list forKey:@"history"];
-	[defaults synchronize];
+    [DBHelper deleteDB];
 	[self.listView reloadData];
 	
 //	[self.emptyView setHidden:NO];
@@ -147,12 +139,8 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    _mBgView.hidden = arrHistory.count > 0 ? NO:YES;
+    self.mPromptView.hidden = arrHistory.count > 0 ? YES : NO;
     return [arrHistory count];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 300;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -64,6 +64,7 @@
 		E21BB2121B9C64FC0020ECA4 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = E21BB2091B9C64FC0020ECA4 /* NSObject+MJCoding.m */; };
 		E21BB2131B9C64FC0020ECA4 /* NSObject+MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = E21BB20B1B9C64FC0020ECA4 /* NSObject+MJIvar.m */; };
 		E21BB2141B9C64FC0020ECA4 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = E21BB20D1B9C64FC0020ECA4 /* NSObject+MJKeyValue.m */; };
+		E24177FC1BA17C0E00F9D37F /* EHPromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = E24177FB1BA17C0E00F9D37F /* EHPromptView.m */; };
 		E2432DF21B9188C1003293F8 /* BABNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2432DF11B9188C1003293F8 /* BABNavigationController.m */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +163,8 @@
 		E21BB20B1B9C64FC0020ECA4 /* NSObject+MJIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJIvar.m"; sourceTree = "<group>"; };
 		E21BB20C1B9C64FC0020ECA4 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
 		E21BB20D1B9C64FC0020ECA4 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		E24177FA1BA17C0E00F9D37F /* EHPromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHPromptView.h; sourceTree = "<group>"; };
+		E24177FB1BA17C0E00F9D37F /* EHPromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHPromptView.m; sourceTree = "<group>"; };
 		E2432DF01B9188C1003293F8 /* BABNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABNavigationController.h; sourceTree = "<group>"; };
 		E2432DF11B9188C1003293F8 /* BABNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -249,6 +252,8 @@
 		3E81A20218F3CAF800A42207 /* BAB */ = {
 			isa = PBXGroup;
 			children = (
+				E24177FA1BA17C0E00F9D37F /* EHPromptView.h */,
+				E24177FB1BA17C0E00F9D37F /* EHPromptView.m */,
 				E21BB1FE1B9C64FC0020ECA4 /* MJExtension */,
 				E21BB1D01B9C60C00020ECA4 /* DB */,
 				3E16CB22190793D300C64E8D /* Resource */,
@@ -533,6 +538,7 @@
 				E21BB1FD1B9C63780020ECA4 /* BABData.m in Sources */,
 				E21BB1F01B9C60C00020ECA4 /* FMDatabaseQueue.m in Sources */,
 				E21BB2131B9C64FC0020ECA4 /* NSObject+MJIvar.m in Sources */,
+				E24177FC1BA17C0E00F9D37F /* EHPromptView.m in Sources */,
 				E21BB1F11B9C60C00020ECA4 /* FMResultSet.m in Sources */,
 				E21BB2101B9C64FC0020ECA4 /* MJIvar.m in Sources */,
 				E21BB1EF1B9C60C00020ECA4 /* FMDatabasePool.m in Sources */,

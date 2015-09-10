@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3910A469-0E3A-4E2A-811E-37D8E778DD23</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BAB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>56F249B7DB0C2BF26ADFC69C936CBD544297FF09</key>
+		<string>github.com:nooto/SMSTimers.git</string>
+		<key>DA0BCF56EE81816C23699902967DC08E81EADF88</key>
+		<string>github.com:nooto/BAB.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BAB/BAB.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>56F249B7DB0C2BF26ADFC69C936CBD544297FF09</key>
+		<string>../../../..</string>
+		<key>DA0BCF56EE81816C23699902967DC08E81EADF88</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:nooto/BAB.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DA0BCF56EE81816C23699902967DC08E81EADF88</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>56F249B7DB0C2BF26ADFC69C936CBD544297FF09</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DA0BCF56EE81816C23699902967DC08E81EADF88</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BAB</string>
+		</dict>
+	</array>
+</dict>
+</plist>
