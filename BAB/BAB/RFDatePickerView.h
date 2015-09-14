@@ -23,6 +23,8 @@
 @property (nonatomic, assign) BOOL isShow;
 @property (nonatomic, retain) NSDate *mCurDate;
 @property(nonatomic, assign) id<RFDatePickerViewDelegate> m_delegate;
+- (void)setDatePickerMinData:(NSDate*)date;
+- (void)setDatePickerMaxData:(NSDate*)date;
 -(void)showDatePickerView:(BOOL)show;
 -(void)showDatePickerView:(BOOL)show WithDate:(NSDate*)date;
 @end

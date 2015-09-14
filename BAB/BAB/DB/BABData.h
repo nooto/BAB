@@ -21,7 +21,7 @@
 @property (nonatomic, strong) NSString* txje;
 
 @property (nonatomic, strong) NSString* jssj;
-- (CBABData *)initWithDictionary: (NSDictionary *)userInfoDict;
+//- (CBABData *)initWithDictionary: (NSDictionary *)userInfoDict;
 
 /**
  *  将用户对象的属性转换为字典，方便保存

@@ -80,6 +80,12 @@
     [self.calculateButton setEnabled:NO];
     [self.clearnButton setEnabled:NO];
 
+    [self.pmjeTextField setText:nil];
+    self.yllTextField.text = nil;
+    self.tztsTextField.text = nil;
+    self.jxtsTextField.text = nil;
+    self.txlxTextField.text = nil;
+    self.txjeTextField.text = nil;
     self.babData.txrq = [NSDate date];
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
     [formattter setDateFormat:@"yyyy年MM月dd日"];
@@ -194,17 +200,30 @@
 	}
 }
 
--(IBAction)txrqButtonAction:(id)sender{
+-(IBAction)txrqButtonAction:(UIButton*)sender{
 	[self closeKeyBoarad];
-
+//    self.txrqTextField.text;
+    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+    [formattter setDateFormat:@"yyyy年MM月dd日"];
+    NSDate *date = [formattter dateFromString:self.txrqTextField.text];
 	datePickerView.tag = 1;
-	[datePickerView showDatePickerView:YES];
+    [datePickerView showDatePickerView:YES WithDate:date];
+    
+    date = [formattter dateFromString:self.dqrqTextField.text];
+    [datePickerView setDatePickerMaxData:date];
 }
 
--(IBAction)dqrqButtonAction:(id)sender{
+-(IBAction)dqrqButtonAction:(UIButton*)sender{
 	[self closeKeyBoarad];
+    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+    [formattter setDateFormat:@"yyyy年MM月dd日"];
+    NSDate *date = [formattter dateFromString:self.dqrqTextField.text];
 	datePickerView.tag = 2;
-	[datePickerView showDatePickerView:YES];
+	[datePickerView showDatePickerView:YES WithDate:date];
+
+    date = [formattter dateFromString:self.txrqTextField.text];
+    [datePickerView setDatePickerMinData:date];
+
 }
 
 -(IBAction)calculateButtonAction:(id)sender{

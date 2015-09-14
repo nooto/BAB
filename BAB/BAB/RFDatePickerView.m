@@ -54,6 +54,15 @@
     return self;
 }
 
+-(void)setDatePickerMaxData:(NSDate *)date{
+    [mDatePikcer setMinimumDate:[NSDate dateWithTimeIntervalSinceNow:-60 * 60 *24 * 365 * 5]];
+    [mDatePikcer setMaximumDate:date];
+}
+-(void)setDatePickerMinData:(NSDate *)date{
+    [mDatePikcer setMinimumDate:date];
+    [mDatePikcer setMaximumDate:[NSDate dateWithTimeIntervalSinceNow:60 * 60 *24 * 365 * 5]];
+}
+
 -(void)leftButtonAction{
 	if (m_delegate && [m_delegate respondsToSelector:@selector(datePickerViewSeldate:)]) {
 		[m_delegate datePickerViewSeldate:nil];
