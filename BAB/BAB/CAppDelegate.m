@@ -21,6 +21,37 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     
+    
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:4];
+    
+    
+    UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+                                        [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+    
+    [arr addObject:item];
+    
+    UIApplicationShortcutItem * item1 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+                                        [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+    
+    [arr addObject:item1];
+    
+    UIApplicationShortcutItem * item2 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+                                        [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+    
+    [arr addObject:item2];
+    
+    UIApplicationShortcutItem * item3 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+                                        [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+    
+    [arr addObject:item3];
+    
+    UIApplicationShortcutItem * item4 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+                                        [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+    
+    [arr addObject:item4];
+
+    [UIApplication sharedApplication].shortcutItems = arr;
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setBackgroundImage:[self imageFromColor:[UIColor colorWithWhite:255/255 alpha:0.1f] withSize:self.window.frame.size] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];
 
