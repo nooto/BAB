@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BABData.h"
 @interface TWMessageViewCell : UICollectionViewCell
-
+@property (nonatomic, weak) CBABData *mCurBabData;
 @end

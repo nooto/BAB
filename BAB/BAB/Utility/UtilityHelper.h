@@ -6,6 +6,12 @@
 //  Copyright © 2015年 GaoAng. All rights reserved.
 //
 
+#import "Macro.h"
+
+#import "EHSysProperty.h"
+#import "EHSysScreen.h"
+
+
 #import "Font_Color.h"
 #import "NSDictionary+Category.h"
 #import "NSDate+Category.h"
@@ -18,6 +24,8 @@
 #import "UILabel+AutoSize.h"
 #import "UITextField+Placeholder.h"
 #import "UIView+Frame.h"
+
+
 #import "MJConst.h"
 #import "MJExtension.h"
-#import "Macro.h"
+

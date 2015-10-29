@@ -6,10 +6,11 @@
 //  Copyright (c) 2015年 wondershare. All rights reserved.
 //
 
-#define SCREEN_W  [UIApplication sharedApplication].keyWindow.bounds.size.width
-#define SCREEN_H  [UIApplication sharedApplication].keyWindow.bounds.size.height
+//#define SCREEN_W  [UIApplication sharedApplication].keyWindow.bounds.size.width
+//#define SCREEN_H  [UIApplication sharedApplication].keyWindow.bounds.size.height
 
 #import "EHPromptView.h"
+#import "EHSysScreen.h"
 @interface EHPromptView ()
 @property (nonatomic, strong) UILabel *mTipLabel;
 @property (nonatomic, copy) void(^finished)();

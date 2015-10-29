@@ -9,14 +9,19 @@
 #import "HistoryViewController.h"
 #import "TWMessageViewCell.h"
 #import "TWSpringyFlowLayout.h"
+#import "UtilityHelper.h"
+#import "EHSysProperty.h"
+#import "EHSysScreen.h"
+#import "EHDataMgrModule.h"
 // Strings
 NSString * const kTWMessageViewControllerCellIdentifier = @"kTWMessageViewControllerCellIdentifier";
 // Numerics
 CGFloat const kTWMessageViewControllerCellPadding = 10;
-CGFloat const kTWMessageViewControllerCellHeight = 50;
+CGFloat const kTWMessageViewControllerCellHeight = 296;
 
 @interface HistoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView  *mCollectionView;
+@property (nonatomic, strong) NSArray *mSourceDatas;
 @end
 
 @implementation HistoryViewController
@@ -28,6 +33,13 @@ CGFloat const kTWMessageViewControllerCellHeight = 50;
     self.view.backgroundColor = [UIColor grayColor];
 }
 
+
+-(NSArray*)mSourceDatas{
+    if (!_mSourceDatas) {
+        _mSourceDatas = [[NSArray alloc] initWithArray:[DBHelper babdataFromDB]];
+    }
+    return _mSourceDatas;
+}
 -(UICollectionView*)mCollectionView{
     if (!_mCollectionView) {
         _mCollectionView  = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) collectionViewLayout:[[TWSpringyFlowLayout alloc] init]];
@@ -48,13 +60,16 @@ CGFloat const kTWMessageViewControllerCellHeight = 50;
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return self.mSourceDatas.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TWMessageViewCell *cell = (TWMessageViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kTWMessageViewControllerCellIdentifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+    if (indexPath.item >= 0 && indexPath.item < self.mSourceDatas.count) {
+        [cell setMCurBabData:[self.mSourceDatas objectAtIndex:indexPath.item]];
+    }
     return cell;
 }
 

@@ -11,7 +11,7 @@
 
 #import "MJExtension.h"
 #import "EHDataMgrModule.h"
-
+#import "HistoryViewController.h"
 @interface CMainViewController ()
 
 @end
@@ -294,8 +294,10 @@
     [self initViewAndData];
 }
 -(void)showHistory{
-	CHistoryViewController *conroller = [[CHistoryViewController alloc] initWithNibName:@"CHistoryViewController" bundle:nil];
-	[self.navigationController pushViewController:conroller animated:YES];
+    HistoryViewController *vc = [[HistoryViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+//	CHistoryViewController *conroller = [[CHistoryViewController alloc] initWithNibName:@"CHistoryViewController" bundle:nil];
+//	[self.navigationController pushViewController:conroller animated:YES];
 }
 
 -(void)bgButtonAciton:(id)sender{
