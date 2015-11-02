@@ -29,8 +29,15 @@ CGFloat const kTWMessageViewControllerCellHeight = 296;
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+//    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"记录";
+    self.mNavBarView.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *mBgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [mBgView setImage:[UIImage imageNamed:@"bg"]];
+    [self.view addSubview:mBgView];
+    
     [self.view addSubview:self.mCollectionView];
-    self.view.backgroundColor = [UIColor grayColor];
 }
 
 
@@ -42,11 +49,13 @@ CGFloat const kTWMessageViewControllerCellHeight = 296;
 }
 -(UICollectionView*)mCollectionView{
     if (!_mCollectionView) {
-        _mCollectionView  = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) collectionViewLayout:[[TWSpringyFlowLayout alloc] init]];
+        _mCollectionView  = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVBAR_H, SCREEN_W, SCREEN_H - NAVBAR_H) collectionViewLayout:[[TWSpringyFlowLayout alloc] init]];
         _mCollectionView.backgroundColor = [UIColor clearColor];
         [_mCollectionView registerClass:[TWMessageViewCell class] forCellWithReuseIdentifier:kTWMessageViewControllerCellIdentifier];
         _mCollectionView.delegate = self;
         _mCollectionView.dataSource = self;
+        
+//        _mCollectionView.h
     }
     return _mCollectionView;
 }
@@ -66,7 +75,7 @@ CGFloat const kTWMessageViewControllerCellHeight = 296;
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TWMessageViewCell *cell = (TWMessageViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kTWMessageViewControllerCellIdentifier forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+//    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     if (indexPath.item >= 0 && indexPath.item < self.mSourceDatas.count) {
         [cell setMCurBabData:[self.mSourceDatas objectAtIndex:indexPath.item]];
     }

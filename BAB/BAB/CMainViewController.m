@@ -48,21 +48,17 @@
 {
     [super viewDidLoad];
     [[EHDataMgrModule shareInstance] initQueue];
+    [self setTitle:@"承兑贴现计算"];
+    [self hiddeBackButton];
+    
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];
+    rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    [rightBtn setTitle:@"记录" forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(showHistory) forControlEvents:UIControlEventTouchUpInside];
+    rightBtn.titleLabel.font = Font17;
+    [self addRightButton:rightBtn];
 
-//	self.title = @"承兑贴现计算";
-	UILabel *t = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/4, 44)];
-    t.font = [UIFont systemFontOfSize:20];
-    t.textColor = [UIColor colorWithWhite:1 alpha:0.8f];
-    t.backgroundColor = [UIColor clearColor];
-    t.textAlignment = NSTextAlignmentCenter;
-    t.text = @"承兑贴现计算";
-    self.navigationItem.titleView = t;
-	UIBarButtonItem *righth = [[UIBarButtonItem alloc] initWithTitle:@"记录" style:UIBarButtonItemStylePlain
-															  target:self action:@selector(showHistory)];
-	[righth setTintColor:[UIColor colorWithWhite:1 alpha:0.6f]];
-	self.navigationItem.rightBarButtonItem = righth;
-	[self.navigationItem.backBarButtonItem setTitle:@"返回"];
-
+    
 	if (datePickerView == nil) {
 		datePickerView = [[RFDatePickerView alloc] initWithFrame:CGRectMake(0,
 																			[UIScreen mainScreen].bounds.size.height,
@@ -74,6 +70,12 @@
     [self initViewAndData];
     
     txrqButton.showsTouchWhenHighlighted = dqrqButton.showsTouchWhenHighlighted = YES;
+    
+    [self autoLayOutView];
+}
+
+-(void)autoLayOutView{
+    self.mBgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
 
 -(void)initViewAndData{

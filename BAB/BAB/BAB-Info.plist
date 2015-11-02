@@ -5,18 +5,18 @@
 	<key> UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>计算</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypePlay</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>计算</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>计算</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>纪录</string>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeCompose</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>纪录</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>记录</string>
 		</dict>
@@ -51,6 +51,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<false/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

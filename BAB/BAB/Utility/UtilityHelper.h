@@ -7,6 +7,7 @@
 //
 
 #import "Macro.h"
+#import "Utility.h"
 
 #import "EHSysProperty.h"
 #import "EHSysScreen.h"

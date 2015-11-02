@@ -11,8 +11,8 @@
 #import "CHistoryViewController.h"
 #import <iAd/iAd.h>
 #import "BABData.h"
-
-@interface CMainViewController : UIViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
+#import "UIBaseViewController.h"
+@interface CMainViewController : UIBaseViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
 {
 	BOOL bannerIsVisible;
 }
@@ -36,6 +36,7 @@
 
 @property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
 
+@property (nonatomic, weak) IBOutlet UIImageView *mBgView;
 @property (nonatomic, strong) 	CBABData* babData;
 @property (nonatomic, strong) NSMutableArray *arrHistory;
 @end

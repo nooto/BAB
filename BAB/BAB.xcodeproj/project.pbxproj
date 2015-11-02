@@ -84,6 +84,11 @@
 		E26F058F1BE1F55A007918B2 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058A1BE1F55A007918B2 /* HistoryViewController.m */; };
 		E26F05901BE1F55A007918B2 /* TWMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */; };
 		E26F05911BE1F55A007918B2 /* TWSpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */; };
+		E2C7D0611BE785DC0017C04F /* UIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7D0601BE785DC0017C04F /* UIBaseViewController.m */; };
+		E2C7D06B1BE787C70017C04F /* btn_login_back_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C7D0651BE787C70017C04F /* btn_login_back_normal@3x.png */; };
+		E2C7D06C1BE787C70017C04F /* btn_login_back_pressed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C7D0661BE787C70017C04F /* btn_login_back_pressed@3x.png */; };
+		E2C7D06D1BE787C70017C04F /* EHCustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7D0681BE787C70017C04F /* EHCustomNavBar.m */; };
+		E2C7D06E1BE787C70017C04F /* EHNavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7D06A1BE787C70017C04F /* EHNavButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -224,6 +229,14 @@
 		E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageViewCell.m; sourceTree = "<group>"; };
 		E26F058D1BE1F55A007918B2 /* TWSpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSpringyFlowLayout.h; sourceTree = "<group>"; };
 		E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSpringyFlowLayout.m; sourceTree = "<group>"; };
+		E2C7D05F1BE785DC0017C04F /* UIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseViewController.h; sourceTree = "<group>"; };
+		E2C7D0601BE785DC0017C04F /* UIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseViewController.m; sourceTree = "<group>"; };
+		E2C7D0651BE787C70017C04F /* btn_login_back_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_login_back_normal@3x.png"; sourceTree = "<group>"; };
+		E2C7D0661BE787C70017C04F /* btn_login_back_pressed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_login_back_pressed@3x.png"; sourceTree = "<group>"; };
+		E2C7D0671BE787C70017C04F /* EHCustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHCustomNavBar.h; sourceTree = "<group>"; };
+		E2C7D0681BE787C70017C04F /* EHCustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHCustomNavBar.m; sourceTree = "<group>"; };
+		E2C7D0691BE787C70017C04F /* EHNavButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHNavButton.h; sourceTree = "<group>"; };
+		E2C7D06A1BE787C70017C04F /* EHNavButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHNavButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +322,7 @@
 		3E81A20218F3CAF800A42207 /* BAB */ = {
 			isa = PBXGroup;
 			children = (
+				E2C7D0581BE785AB0017C04F /* EHCustomNavBar */,
 				E26F05881BE1F55A007918B2 /* ListView */,
 				E24796041BD9EE1C0040D410 /* Utility */,
 				E24177FA1BA17C0E00F9D37F /* EHPromptView.h */,
@@ -317,6 +331,8 @@
 				3E16CB22190793D300C64E8D /* Resource */,
 				3E81A26318F4500400A42207 /* RFDatePickerView.h */,
 				3E81A26418F4500400A42207 /* RFDatePickerView.m */,
+				E2C7D05F1BE785DC0017C04F /* UIBaseViewController.h */,
+				E2C7D0601BE785DC0017C04F /* UIBaseViewController.m */,
 				3E81A20B18F3CAF800A42207 /* CAppDelegate.h */,
 				E2432DF01B9188C1003293F8 /* BABNavigationController.h */,
 				E2432DF11B9188C1003293F8 /* BABNavigationController.m */,
@@ -536,6 +552,27 @@
 			path = ListView;
 			sourceTree = "<group>";
 		};
+		E2C7D0581BE785AB0017C04F /* EHCustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				E2C7D0641BE787C70017C04F /* EHCustomNavBar */,
+			);
+			path = EHCustomNavBar;
+			sourceTree = "<group>";
+		};
+		E2C7D0641BE787C70017C04F /* EHCustomNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				E2C7D0651BE787C70017C04F /* btn_login_back_normal@3x.png */,
+				E2C7D0661BE787C70017C04F /* btn_login_back_pressed@3x.png */,
+				E2C7D0671BE787C70017C04F /* EHCustomNavBar.h */,
+				E2C7D0681BE787C70017C04F /* EHCustomNavBar.m */,
+				E2C7D0691BE787C70017C04F /* EHNavButton.h */,
+				E2C7D06A1BE787C70017C04F /* EHNavButton.m */,
+			);
+			name = EHCustomNavBar;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -619,9 +656,11 @@
 				3E16CB491907973000C64E8D /* bt_button.png in Resources */,
 				3E16CB4A1907973000C64E8D /* bt_button@2x.png in Resources */,
 				3E16CB44190793D300C64E8D /* rf_cancel_sel.png in Resources */,
+				E2C7D06B1BE787C70017C04F /* btn_login_back_normal@3x.png in Resources */,
 				3E16CB40190793D300C64E8D /* Default~iphone.png in Resources */,
 				3E16CB38190793D300C64E8D /* bank_57_57.png in Resources */,
 				3E16CB35190793D300C64E8D /* bank_114_114.png in Resources */,
+				E2C7D06C1BE787C70017C04F /* btn_login_back_pressed@3x.png in Resources */,
 				3E81A20718F3CAF800A42207 /* InfoPlist.strings in Resources */,
 				3E16CB46190793D300C64E8D /* rf_sure_sel.png in Resources */,
 				3E16CB3A190793D300C64E8D /* bank_80_80.png in Resources */,
@@ -676,10 +715,12 @@
 				E24796391BD9EE1C0040D410 /* NSDateFormatter+Category.m in Sources */,
 				3E81A22E18F3CB1600A42207 /* CMainViewController.m in Sources */,
 				E21BB1F51B9C60C00020ECA4 /* FMResultSet+FMDBHelpers.m in Sources */,
+				E2C7D06E1BE787C70017C04F /* EHNavButton.m in Sources */,
 				E247964C1BD9EE1C0040D410 /* SFHFKeychainUtils.m in Sources */,
 				E24796381BD9EE1C0040D410 /* NSDate+Category.m in Sources */,
 				E247963E1BD9EE1C0040D410 /* NSTimer+HCTTimerHelp.m in Sources */,
 				E247964A1BD9EE1C0040D410 /* NSObject+MJIvar.m in Sources */,
+				E2C7D0611BE785DC0017C04F /* UIBaseViewController.m in Sources */,
 				E24796421BD9EE1C0040D410 /* UIView+Frame.m in Sources */,
 				E24796491BD9EE1C0040D410 /* NSObject+MJCoding.m in Sources */,
 				E26F05901BE1F55A007918B2 /* TWMessageViewCell.m in Sources */,
@@ -699,6 +740,7 @@
 				E24796471BD9EE1C0040D410 /* MJIvar.m in Sources */,
 				E21BB1EE1B9C60C00020ECA4 /* FMDatabaseAdditions.m in Sources */,
 				E21BB1F41B9C60C00020ECA4 /* FMDatabase+FMDBHelpers.m in Sources */,
+				E2C7D06D1BE787C70017C04F /* EHCustomNavBar.m in Sources */,
 				E21BB1FA1B9C61FF0020ECA4 /* EHDataMgrModule.m in Sources */,
 				E24796461BD9EE1C0040D410 /* MJFoundation.m in Sources */,
 			);

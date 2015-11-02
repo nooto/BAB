@@ -30,8 +30,8 @@
         UIView *bgView = [[UIView alloc] initWithFrame:self.bounds];
         bgView.backgroundColor = Color_gray_343F52;
         bgView.layer.cornerRadius = 15.0f;
-        bgView.layer.borderWidth = 1.0f;
-        bgView.layer.borderColor = Color_greed_normal.CGColor;
+//        bgView.layer.borderWidth = 1.0f;
+//        bgView.layer.borderColor = Color_greed_normal.CGColor;
         [self.contentView addSubview:bgView];
         
         //---1
