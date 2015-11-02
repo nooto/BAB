@@ -17,7 +17,7 @@
 NSString * const kTWMessageViewControllerCellIdentifier = @"kTWMessageViewControllerCellIdentifier";
 // Numerics
 CGFloat const kTWMessageViewControllerCellPadding = 10;
-CGFloat const kTWMessageViewControllerCellHeight = 296;
+CGFloat const kTWMessageViewControllerCellHeight = 260;
 
 @interface HistoryViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView  *mCollectionView;
@@ -29,7 +29,6 @@ CGFloat const kTWMessageViewControllerCellHeight = 296;
 
 -(void)viewDidLoad{
     [super viewDidLoad];
-//    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"记录";
     self.mNavBarView.backgroundColor = [UIColor clearColor];
     
@@ -49,7 +48,7 @@ CGFloat const kTWMessageViewControllerCellHeight = 296;
 }
 -(UICollectionView*)mCollectionView{
     if (!_mCollectionView) {
-        _mCollectionView  = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVBAR_H, SCREEN_W, SCREEN_H - NAVBAR_H) collectionViewLayout:[[TWSpringyFlowLayout alloc] init]];
+        _mCollectionView  = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NAVBAR_H+10, SCREEN_W, SCREEN_H - NAVBAR_H-20) collectionViewLayout:[[TWSpringyFlowLayout alloc] init]];
         _mCollectionView.backgroundColor = [UIColor clearColor];
         [_mCollectionView registerClass:[TWMessageViewCell class] forCellWithReuseIdentifier:kTWMessageViewControllerCellIdentifier];
         _mCollectionView.delegate = self;
