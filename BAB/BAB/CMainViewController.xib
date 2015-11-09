@@ -271,7 +271,7 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-            <point key="canvasLocation" x="-241" y="-229"/>
+            <point key="canvasLocation" x="-335" y="-221"/>
         </view>
     </objects>
     <resources>
