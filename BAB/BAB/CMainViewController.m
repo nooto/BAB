@@ -8,11 +8,11 @@
 
 #import "CMainViewController.h"
 #import "BABData.h"
-
+#import "EHSharePageView.h"
 #import "MJExtension.h"
 #import "EHDataMgrModule.h"
 #import "HistoryViewController.h"
-@interface CMainViewController ()
+@interface CMainViewController () <EHSharePageViewdDelegate>
 
 @end
 
@@ -77,7 +77,8 @@
 }
 
 -(void)backBtnPressed:(UIButton *)sender{
-    
+    EHSharePageView *view = [[EHSharePageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) withDelegate:self];
+    [view showSharePageView:YES];
 }
 
 -(void)autoLayOutView{

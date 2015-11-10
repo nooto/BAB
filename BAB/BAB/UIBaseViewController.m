@@ -55,6 +55,9 @@
 }
 -(void)setBackButtonImage:(UIImage *)image{
     [self.mNavBarView.mLeftButton setImage:image forState:UIControlStateNormal];
+    [self.mNavBarView.mLeftButton setImage:image forState:UIControlStateHighlighted];
+    [self.mNavBarView.mLeftButton setImage:image forState:UIControlStateSelected];
+    [self.mNavBarView.mLeftButton setImage:image forState:UIControlStateDisabled];
 }
 
 -(void)setBackButtonText:(NSString *)text{
