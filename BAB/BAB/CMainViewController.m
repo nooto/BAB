@@ -49,7 +49,9 @@
     [super viewDidLoad];
     [[EHDataMgrModule shareInstance] initQueue];
     [self setTitle:@"承兑贴现计算"];
-    [self hiddeBackButton];
+//    [self hiddeBackButton];
+    [self setBackButtonImage:nil];
+    [self setBackButtonText:@"分享"];
     
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -72,6 +74,10 @@
     txrqButton.showsTouchWhenHighlighted = dqrqButton.showsTouchWhenHighlighted = YES;
     
     [self autoLayOutView];
+}
+
+-(void)backBtnPressed:(UIButton *)sender{
+    
 }
 
 -(void)autoLayOutView{

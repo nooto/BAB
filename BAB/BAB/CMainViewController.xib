@@ -35,19 +35,15 @@
                     <variation key="heightClass=regular" preservesSuperviewLayoutMargins="YES"/>
                     <variation key="widthClass=regular" preservesSuperviewLayoutMargins="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="票面金额:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="PJ9-Bx-0oC">
-                    <rect key="frame" x="25" y="86" width="95" height="14"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="万" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rew-q8-tzl">
                     <rect key="frame" x="286" y="85" width="21" height="16"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="279" y="85" width="21" height="16"/>
+                    </variation>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRD-A3-eFv">
                     <rect key="frame" x="287" y="394" width="21" height="21"/>
@@ -83,16 +79,10 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.99560053661616166" green="0.99560053661616166" blue="0.99560053661616166" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="283" y="121" width="21" height="16"/>
+                    </variation>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jul-8w-sWV">
-                    <rect key="frame" x="148" y="78" width="133" height="30"/>
-                    <animations/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="PyV-EA-BQt"/>
-                    </connections>
-                </textField>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="月利率: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLc-7R-26f">
                     <rect key="frame" x="25" y="119" width="69" height="20"/>
                     <animations/>
@@ -112,6 +102,9 @@
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="139" y="147" width="133" height="30"/>
+                    </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="AdC-jN-ha8"/>
                     </connections>
@@ -244,6 +237,9 @@
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="137" y="148" width="138" height="28"/>
+                    </variation>
                     <connections>
                         <action selector="txrqButtonAction:" destination="-1" eventType="touchUpInside" id="7WA-sl-WbO"/>
                     </connections>
@@ -254,6 +250,9 @@
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="129" y="182" width="155" height="31"/>
+                    </variation>
                     <connections>
                         <action selector="dqrqButtonAction:" destination="-1" eventType="touchUpInside" id="QWD-rm-RPH"/>
                     </connections>
@@ -263,14 +262,64 @@
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="141" y="114" width="133" height="30"/>
+                    </variation>
                     <connections>
                         <outlet property="delegate" destination="-1" id="LIC-eE-OrM"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="票面金额:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="95" translatesAutoresizingMaskIntoConstraints="NO" id="PJ9-Bx-0oC">
+                    <rect key="frame" x="25" y="86" width="95" height="14"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jul-8w-sWV">
+                    <rect key="frame" x="148" y="78" width="133" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                    <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                        <rect key="frame" x="142" y="78" width="133" height="30"/>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="PyV-EA-BQt"/>
                     </connections>
                 </textField>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DlG-17-h6L" firstAttribute="top" secondItem="Jul-8w-sWV" secondAttribute="bottom" id="5Ma-Z3-rlQ"/>
+                <constraint firstItem="rew-q8-tzl" firstAttribute="leading" secondItem="Jul-8w-sWV" secondAttribute="trailing" constant="20" id="doY-tw-GAC"/>
+                <constraint firstItem="Jul-8w-sWV" firstAttribute="leading" secondItem="PJ9-Bx-0oC" secondAttribute="trailing" constant="20" id="eoS-8F-uJM"/>
+                <constraint firstItem="rew-q8-tzl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ijk-ut-grL"/>
+                <constraint firstItem="Jul-8w-sWV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="iu8-Lg-nsQ"/>
+                <constraint firstItem="ElO-Av-f1o" firstAttribute="top" secondItem="rew-q8-tzl" secondAttribute="bottom" id="lFp-Su-02r"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="eoS-8F-uJM"/>
+                    <exclude reference="iu8-Lg-nsQ"/>
+                    <exclude reference="5Ma-Z3-rlQ"/>
+                    <exclude reference="doY-tw-GAC"/>
+                    <exclude reference="ijk-ut-grL"/>
+                    <exclude reference="lFp-Su-02r"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="constraints">
+                    <include reference="eoS-8F-uJM"/>
+                    <include reference="iu8-Lg-nsQ"/>
+                    <include reference="5Ma-Z3-rlQ"/>
+                    <include reference="doY-tw-GAC"/>
+                    <include reference="ijk-ut-grL"/>
+                    <include reference="lFp-Su-02r"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="-335" y="-221"/>
         </view>
     </objects>
