@@ -43,6 +43,12 @@
 	}
 	return babData;
 }
+-(TTTAttributedLabel*)resultLabel{
+    if (!_resultLabel) {
+        _resultLabel = [[ TTTAttributedLabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.clearnButton.frame) + 40, SCREEN_W - 40, SCREEN_H - (CGRectGetMaxY(self.clearnButton.frame) + 40))];
+    }
+    return _resultLabel;
+}
 
 - (void)viewDidLoad
 {
@@ -59,7 +65,8 @@
     [rightBtn addTarget:self action:@selector(showHistory) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.titleLabel.font = Font17;
     [self addRightButton:rightBtn];
-
+    
+    [self.view addSubview:self.resultLabel];
     
 	if (datePickerView == nil) {
 		datePickerView = [[RFDatePickerView alloc] initWithFrame:CGRectMake(0,

@@ -110,6 +110,7 @@
 		E2985CB61BF1D91E0060D167 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB51BF1D91E0060D167 /* MessageUI.framework */; };
 		E2985CB81BF1D9290060D167 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB71BF1D9290060D167 /* libstdc++.6.0.9.tbd */; };
 		E2985CBA1BF1D9310060D167 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB91BF1D9310060D167 /* libsqlite3.0.tbd */; };
+		E2985CBE1BF1E8A10060D167 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2985CBD1BF1E8A10060D167 /* TTTAttributedLabel.m */; };
 		E2C7D0611BE785DC0017C04F /* UIBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7D0601BE785DC0017C04F /* UIBaseViewController.m */; };
 		E2C7D06B1BE787C70017C04F /* btn_login_back_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C7D0651BE787C70017C04F /* btn_login_back_normal@3x.png */; };
 		E2C7D06C1BE787C70017C04F /* btn_login_back_pressed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2C7D0661BE787C70017C04F /* btn_login_back_pressed@3x.png */; };
@@ -295,6 +296,8 @@
 		E2985CB51BF1D91E0060D167 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E2985CB71BF1D9290060D167 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		E2985CB91BF1D9310060D167 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		E2985CBC1BF1E8A10060D167 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
+		E2985CBD1BF1E8A10060D167 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		E2C7D05F1BE785DC0017C04F /* UIBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBaseViewController.h; sourceTree = "<group>"; };
 		E2C7D0601BE785DC0017C04F /* UIBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBaseViewController.m; sourceTree = "<group>"; };
 		E2C7D0651BE787C70017C04F /* btn_login_back_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_login_back_normal@3x.png"; sourceTree = "<group>"; };
@@ -419,6 +422,7 @@
 		3E81A20218F3CAF800A42207 /* BAB */ = {
 			isa = PBXGroup;
 			children = (
+				E2985CBB1BF1E8A10060D167 /* TTTAttributedLabel */,
 				E2C7D0581BE785AB0017C04F /* EHCustomNavBar */,
 				E26F05881BE1F55A007918B2 /* ListView */,
 				E24796041BD9EE1C0040D410 /* Utility */,
@@ -734,6 +738,15 @@
 			path = WeChatSDK;
 			sourceTree = "<group>";
 		};
+		E2985CBB1BF1E8A10060D167 /* TTTAttributedLabel */ = {
+			isa = PBXGroup;
+			children = (
+				E2985CBC1BF1E8A10060D167 /* TTTAttributedLabel.h */,
+				E2985CBD1BF1E8A10060D167 /* TTTAttributedLabel.m */,
+			);
+			path = TTTAttributedLabel;
+			sourceTree = "<group>";
+		};
 		E2C7D0581BE785AB0017C04F /* EHCustomNavBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,6 +941,7 @@
 				E24796471BD9EE1C0040D410 /* MJIvar.m in Sources */,
 				E21BB1EE1B9C60C00020ECA4 /* FMDatabaseAdditions.m in Sources */,
 				E21BB1F41B9C60C00020ECA4 /* FMDatabase+FMDBHelpers.m in Sources */,
+				E2985CBE1BF1E8A10060D167 /* TTTAttributedLabel.m in Sources */,
 				E2C7D06D1BE787C70017C04F /* EHCustomNavBar.m in Sources */,
 				E21BB1FA1B9C61FF0020ECA4 /* EHDataMgrModule.m in Sources */,
 				E24796461BD9EE1C0040D410 /* MJFoundation.m in Sources */,

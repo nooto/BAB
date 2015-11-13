@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CBABData : NSObject
+
+//参数
 @property (nonatomic, strong)  NSString*  pmje;
 @property (nonatomic, strong) NSString*  yll;
 @property (nonatomic, strong) NSDate*  txrq;
@@ -16,6 +18,8 @@
 @property (nonatomic, strong) NSDate*  dqrq;
 @property (nonatomic, strong) NSString*  dqrqstr;
 @property (nonatomic, strong) NSString*  tzts;
+
+//结果
 @property (nonatomic, strong) NSString*  jxts;
 @property (nonatomic, strong) NSString*  txlx;
 @property (nonatomic, strong) NSString* txje;
@@ -28,4 +32,6 @@
  */
 - (NSDictionary *)transformToDictionary;
 - (void)parseDictionary:(NSDictionary*)dict;
+
+// - （））
 @end

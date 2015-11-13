@@ -12,6 +12,7 @@
 #import <iAd/iAd.h>
 #import "BABData.h"
 #import "UIBaseViewController.h"
+#import "TTTAttributedLabel.h"
 @interface CMainViewController : UIBaseViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
 {
 	BOOL bannerIsVisible;
@@ -29,6 +30,7 @@
 @property (nonatomic, strong) IBOutlet UITextField *dqrqTextField;
 @property (nonatomic, strong) IBOutlet UIButton   *dqrqButton;
 
+@property (nonatomic, strong) TTTAttributedLabel *resultLabel;
 @property (nonatomic, strong) IBOutlet UITextField *tztsTextField;
 @property (nonatomic, strong) IBOutlet UITextField *jxtsTextField;
 @property (nonatomic, strong) IBOutlet UITextField *txlxTextField;
