@@ -30,11 +30,11 @@
 @property (nonatomic, strong) IBOutlet UITextField *dqrqTextField;
 @property (nonatomic, strong) IBOutlet UIButton   *dqrqButton;
 
-@property (nonatomic, strong) TTTAttributedLabel *resultLabel;
-@property (nonatomic, strong) IBOutlet UITextField *tztsTextField;
-@property (nonatomic, strong) IBOutlet UITextField *jxtsTextField;
-@property (nonatomic, strong) IBOutlet UITextField *txlxTextField;
-@property (nonatomic, strong) IBOutlet UITextField *txjeTextField;
+@property (nonatomic, strong) UILabel *resultLabel;
+@property (nonatomic, strong)  UITextField *tztsTextField;
+@property (nonatomic, strong)  UITextField *jxtsTextField;
+@property (nonatomic, strong)  UITextField *txlxTextField;
+@property (nonatomic, strong)  UITextField *txjeTextField;
 
 @property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
 

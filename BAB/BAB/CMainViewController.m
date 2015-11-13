@@ -43,9 +43,10 @@
 	}
 	return babData;
 }
--(TTTAttributedLabel*)resultLabel{
+-(UILabel*)resultLabel{
     if (!_resultLabel) {
-        _resultLabel = [[ TTTAttributedLabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.clearnButton.frame) + 40, SCREEN_W - 40, SCREEN_H - (CGRectGetMaxY(self.clearnButton.frame) + 40))];
+        _resultLabel = [[ UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.clearnButton.frame) + 40, SCREEN_W - 40, SCREEN_H - (CGRectGetMaxY(self.clearnButton.frame) + 40))];
+        _resultLabel.numberOfLines = 4;
     }
     return _resultLabel;
 }
@@ -288,19 +289,20 @@
 	double temp  = pmje * days * (yll/30);
 	
 	self.babData.jxts = [NSString stringWithFormat:@"%ld", (long)days];
-	[self.jxtsTextField setText:babData.jxts];
+//	[self.jxtsTextField setText:babData.jxts];
 	
 	//
 	NSInteger temp1 = (NSInteger)(temp * numGap + 0.5);
 	double   temp2 = ((double) temp1) / numGap;
 	self.babData.txlx = [NSString stringWithFormat:@"%.2f", temp2];
-	[self.txlxTextField setText:babData.txlx];
+//	[self.txlxTextField setText:babData.txlx];
 
 	double temp3 =  (double) ( pmje * numGap - temp1) / numGap;
 	
 	self.babData.txje = [NSString stringWithFormat:@"%.2f", temp3];
-	[self.txjeTextField setText:babData.txje];
+//	[self.txjeTextField setText:babData.txje];
 	
+    [self.resultLabel setAttributedText:[babData getResultString]];
     [DBHelper inserTtBABData:self.babData];
 }
 

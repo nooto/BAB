@@ -33,5 +33,5 @@
 - (NSDictionary *)transformToDictionary;
 - (void)parseDictionary:(NSDictionary*)dict;
 
-// - （））
+- (NSAttributedString*)getResultString;
 @end

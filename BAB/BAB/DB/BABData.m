@@ -57,5 +57,28 @@
 //    
 //    [aCoder encodeObject:self.jssj forKey:@"time"];
 //}
+-(NSAttributedString*)getResultString{
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] init];
+    
+    NSString *tempString = [NSString stringWithFormat:@"计息天数:%@ \n",self.jxts];
+    NSMutableAttributedString *tempAttriString = [[NSMutableAttributedString alloc] initWithString:tempString];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_50} range:NSMakeRange(0, tempString.length)];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} range:[tempString rangeOfString:@"计息天数:"]];
+    [attributeString appendAttributedString:tempAttriString];
+    
+    tempString = [NSString stringWithFormat:@"贴现利息:%@ \n",self.txlx];
+    tempAttriString = [[NSMutableAttributedString alloc] initWithString:tempString];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_50} range:NSMakeRange(0, tempString.length)];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} range:[tempString rangeOfString:@"计息天数:"]];
+    [attributeString appendAttributedString:tempAttriString];
+
+    tempString = [NSString stringWithFormat:@"贴现金额:%@ \n",self.txje];
+    tempAttriString = [[NSMutableAttributedString alloc] initWithString:tempString];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_50} range:NSMakeRange(0, tempString.length)];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [UIColor redColor]} range:[tempString rangeOfString:@"计息天数:"]];
+    [attributeString appendAttributedString:tempAttriString];
+
+    return attributeString;
+}
 
 @end
