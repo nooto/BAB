@@ -210,6 +210,10 @@
     [self.view addSubview:self.pmjeTextField];
     [self.view addSubview:self.pmjeUintLabel];
     
+    [self.view addSubview:self.yllLabel];
+    [self.view addSubview:self.yllTextField];
+    [self.view addSubview:self.yllUintLabel];
+
 //    WeakSelf(weaKSelf);
     __weak typeof(self.view )weaskSuperView = self.view;
     
@@ -230,18 +234,38 @@
         make.centerY.equalTo(_pmjeLabel.mas_centerY);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(40);
-//        make.size.mas_equalTo(CGSizeMake(50, 50));
     }];
     
     [self.pmjeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_pmjeUintLabel.mas_left).with.offset(-20);
+        make.left.equalTo(_pmjeLabel.mas_right).with.offset(5);
+        make.right.equalTo(_pmjeUintLabel.mas_left).with.offset(-5);
         make.centerY.equalTo(_pmjeLabel.mas_centerY);
         make.height.mas_equalTo(_pmjeLabel.mas_height);
-        make.width.mas_equalTo(_pmjeLabel.mas_width);
-//        make.size.mas_equalTo(CGSizeMake(100, 50));
     }];
     
-//    [self.view addSubview:self.resultLabel];
+    //月利率
+    [self.yllLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_pmjeLabel.mas_bottom).with.offset(20);
+        make.left.equalTo(weaskSuperView).with.offset(20);
+        make.size.mas_equalTo(CGSizeMake(100, 25));
+    }];
+    
+    [self.yllUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weaskSuperView).with.offset(20);
+        make.centerY.equalTo(_yllLabel.mas_centerY);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(40);
+    }];
+    
+    [self.yllTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_yllLabel.mas_right).with.offset(5);
+        make.right.equalTo(_yllUintLabel.mas_left).with.offset(-5);
+        make.centerY.equalTo(_yllLabel.mas_centerY);
+        make.height.mas_equalTo(_yllLabel.mas_height);
+    }];
+    
+    
+    
     
     //日期选择控件。
 	[self.view addSubview:self.datePickerView];
@@ -321,6 +345,9 @@
     if (!_pmjeTextField) {
         _pmjeTextField = [[UITextField alloc] init];
         [_pmjeTextField setBackgroundColor:[UIColor whiteColor]];
+        _pmjeTextField.textAlignment = NSTextAlignmentRight;
+        _pmjeTextField.borderStyle = UITextBorderStyleRoundedRect;
+        _pmjeTextField.keyboardType = UIKeyboardTypeNumberPad;
     }
     return _pmjeTextField;
 }
@@ -334,6 +361,39 @@
         _pmjeUintLabel.textColor = Color_white_50;
     }
     return _pmjeUintLabel;
+}
+
+-(UILabel*)yllLabel{
+    if (!_yllLabel) {
+        _yllLabel = [[UILabel alloc] init];
+        [_yllLabel setText:@"票面金额"];
+        [_yllLabel setText:@"测试位置"];
+        [_yllLabel setFont:Font15];
+        [_yllLabel setTextColor:Color_white_50];
+    }
+    return _yllLabel;
+}
+
+-(UITextField*)yllTextField{
+    if (!_yllTextField) {
+        _yllTextField = [[UITextField alloc] init];
+        [_yllTextField setBackgroundColor:[UIColor whiteColor]];
+        _yllTextField.textAlignment = NSTextAlignmentRight;
+        _yllTextField.borderStyle = UITextBorderStyleRoundedRect;
+        _yllTextField.keyboardType = UIKeyboardTypeNumberPad;
+    }
+    return _yllTextField;
+}
+
+-(UILabel*)yllUintLabel{
+    if (!_yllUintLabel) {
+        _yllUintLabel = [[UILabel alloc] init];
+        _yllUintLabel.text = @"万";
+        _yllUintLabel.text = @"位";
+        _yllUintLabel.font = Font15;
+        _yllUintLabel.textColor = Color_white_50;
+    }
+    return _yllUintLabel;
 }
 
 
