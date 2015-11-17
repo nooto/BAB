@@ -14,31 +14,4 @@
 #import "UIBaseViewController.h"
 #import "TTTAttributedLabel.h"
 @interface CMainViewController : UIBaseViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
-{
-	BOOL bannerIsVisible;
-}
-
-@property (nonatomic, strong) IBOutlet UIButton *clearnButton;
-@property (nonatomic, strong) IBOutlet UIButton *calculateButton;
-
-@property (nonatomic, strong) RFDatePickerView *datePickerView;
-@property (nonatomic, strong) IBOutlet UITextField *pmjeTextField;
-@property (nonatomic, strong) IBOutlet UITextField *yllTextField;
-
-@property (nonatomic, strong) IBOutlet UITextField *txrqTextField;
-@property (nonatomic, strong) IBOutlet UIButton   *txrqButton;
-@property (nonatomic, strong) IBOutlet UITextField *dqrqTextField;
-@property (nonatomic, strong) IBOutlet UIButton   *dqrqButton;
-
-@property (nonatomic, strong) UILabel *resultLabel;
-@property (nonatomic, strong)  UITextField *tztsTextField;
-@property (nonatomic, strong)  UITextField *jxtsTextField;
-@property (nonatomic, strong)  UITextField *txlxTextField;
-@property (nonatomic, strong)  UITextField *txjeTextField;
-
-@property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
-
-@property (nonatomic, weak) IBOutlet UIImageView *mBgView;
-@property (nonatomic, strong) 	CBABData* babData;
-@property (nonatomic, strong) NSMutableArray *arrHistory;
 @end

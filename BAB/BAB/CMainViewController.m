@@ -12,37 +12,62 @@
 #import "MJExtension.h"
 #import "EHDataMgrModule.h"
 #import "HistoryViewController.h"
+#import "Masonry.h"
+#import "View+MASShorthandAdditions.h"
+
 @interface CMainViewController () <EHSharePageViewdDelegate>
+
+@property (nonatomic, strong)  UIImageView *mBgView;
+
+@property (nonatomic, strong)  UIButton *clearnButton;
+@property (nonatomic, strong)  UIButton *calculateButton;
+
+@property (nonatomic, strong) RFDatePickerView *datePickerView;
+@property (nonatomic, strong)  UILabel *pmjeLabel;
+@property (nonatomic, strong)  UITextField *pmjeTextField;
+@property (nonatomic, strong)  UILabel *pmjeUintLabel;
+
+@property (nonatomic, strong)  UILabel *yllLabel;
+@property (nonatomic, strong)  UITextField *yllTextField;
+@property (nonatomic, strong)  UILabel *yllUintLabel;
+
+@property (nonatomic, strong)  UILabel *txrqLabel;
+@property (nonatomic, strong)  UITextField *txrqTextField;
+@property (nonatomic, strong)  UILabel *txrqUintLabel;
+@property (nonatomic, strong)  UIButton   *txrqButton;
+
+@property (nonatomic, strong)  UILabel *dqrqLabel;
+@property (nonatomic, strong)  UITextField *dqrqTextField;
+@property (nonatomic, strong)  UILabel *dqrqUintLabel;
+@property (nonatomic, strong)  UIButton   *dqrqButton;
+
+@property (nonatomic, strong)  UILabel *tztsLabel;
+@property (nonatomic, strong)  UITextField *tztsTextField;
+@property (nonatomic, strong)  UILabel *tztsUintLabel;
+
+@property (nonatomic, strong) UILabel *resultLabel;
+
+@property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
+@property (nonatomic, strong) 	CBABData* babData;
+@property (nonatomic, strong) NSMutableArray *arrHistory;
 
 @end
 
 @implementation CMainViewController
-@synthesize datePickerView;
-@synthesize txjeTextField, txlxTextField, txrqTextField, tztsTextField, pmjeTextField, yllTextField, dqrqTextField, jxtsTextField,babData;
-@synthesize txrqButton, dqrqButton;
-@synthesize arrHistory, clearnButton, calculateButton;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 -(NSMutableArray*)arrHistory{
-	if (arrHistory == nil) {
-		arrHistory = [[NSMutableArray alloc] initWithCapacity:1];
+	if (_arrHistory == nil) {
+		_arrHistory = [[NSMutableArray alloc] initWithCapacity:1];
 	}
-	return arrHistory;
+	return _arrHistory;
 }
 
 -(CBABData*)babData{
-	if (babData == nil) {
-		babData = [[CBABData alloc] init];
+	if (_babData == nil) {
+		_babData = [[CBABData alloc] init];
 	}
-	return babData;
+	return _babData;
 }
+
 -(UILabel*)resultLabel{
     if (!_resultLabel) {
         _resultLabel = [[ UILabel alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.clearnButton.frame) + 40, SCREEN_W - 40, SCREEN_H - (CGRectGetMaxY(self.clearnButton.frame) + 40))];
@@ -50,15 +75,128 @@
     }
     return _resultLabel;
 }
+//static UIEdgeInsets const kPadding = {10, 10, 10, 10};
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    [self.pmjeLabel setText:@"测试位置"];
+//    [self.yllLabel setText:@"测试位置"];
+//    [self.txrqLabel setText:@"测试位置"];
+//    [self.dqrqLabel setText:@"测试位置"];
+//    [self.tztsLabel setText:@"测试位置"];
+// 
+//    WeakSelf(weaKSelf);
+////    [self.yllLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+////        make.center.equalTo(weaKSelf.view);
+////    }];
+//    
+//    UILabel *sv = [UILabel new];
+////    [sv showPlaceHolder];
+//    sv.backgroundColor = [UIColor blackColor];
+//    [self.view addSubview:sv];
+//    [sv mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(weaKSelf.view);
+//        make.size.mas_equalTo(CGSizeMake(300, 300));
+//    }];
+//    
+//    int padding1 = 10;
+//    UILabel *sv2 = [UILabel new];
+//    //    [sv showPlaceHolder];
+//    sv2.backgroundColor = [UIColor redColor];
+//    [sv addSubview:sv2];
+//    
+//    UILabel *sv3 = [UILabel new];
+//    //    [sv showPlaceHolder];
+//    sv3.backgroundColor = [UIColor greenColor];
+//    [sv addSubview:sv3];
+//
+//    
+//    [sv2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//                 make.centerY.mas_equalTo(sv.mas_centerY);
+//                 make.left.equalTo(sv.mas_left).with.offset(padding1);
+//                 make.right.equalTo(sv3.mas_left).with.offset(-padding1);
+//                 make.height.mas_equalTo(@150);
+//
+//        make.width.equalTo(sv3);
+//    }];
+//
+//    [sv3 mas_makeConstraints:^(MASConstraintMaker *make) {
+//          make.centerY.mas_equalTo(sv.mas_centerY);
+//         make.left.equalTo(sv2.mas_right).with.offset(padding1);
+//                make.right.equalTo(sv.mas_right).with.offset(-padding1);
+//                make.height.mas_equalTo(@150);
+//                make.width.equalTo(sv2);
+//    }];
+//    
+//    
+//UILabel *displayNum = [[UILabel alloc]init];
+//[sv addSubview:displayNum];
+//    sv.backgroundColor = [UIColor clearColor];
+//    sv.layer.borderColor = [UIColor redColor].CGColor;
+//    sv.layer.borderWidth = 1.0f;
+//   displayNum.text = @"fadfasdfad";
+//    displayNum.font = [UIFont fontWithName:@"HeiTi SC" size:70];
+//    displayNum.backgroundColor = [UIColor greenColor];
+//    displayNum.textColor = [UIColor greenColor];
+////        displayNum.textAlignment = NSTextAlignmentRight;
+//    [displayNum mas_makeConstraints:^(MASConstraintMaker *make){
+//        
+//        make.left.equalTo(sv).with.offset(50);
+//        make.right.equalTo(sv).with.offset(-50);
+//        make.height.equalTo(sv);
+////        make.bottom.equalTo(sv).width.offset(-20);
+//        
+////        make.left.equalTo(sv).with.offset(50);
+//////        make.left.equalTo(sv).width.offset(50);
+////
+////        make.right.equalTo(sv).with.offset(-50);
+//        make.bottom.and.top.equalTo(sv).with.offset(0);
+//    }];
+    
+//    [self.yllLabel makeConstraints:^(nscontr *make) {
+//        make.top.equalTo(@20);
+//        make.left.equalTo(@20);
+//        make.width.equalTo(@(CGRectGetWidth(_yllLabel.frame)));
+//        make.height.equalTo(@(CGRectGetHeight(_yllLabel.frame)));
+//    }];
+    
+//    _yllLabel make
+    
+//    [self.yllLabel makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(self.yllLabel).insets(kPadding);
+//        make.top.equalTo(self.yllLabel).insets(kPadding);
+//    }];
+//    
+
+    
+//    [_yllUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(_yllLabel.mas_centerY);
+//        make.right.equalTo(@20);
+//        make.width.equalTo(@(CGRectGetWidth(_yllUintLabel.frame)));
+//        make.height.equalTo(@(CGRectGetHeight(_yllUintLabel.frame)));
+//    }];
+//    
+//    [_yllTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(_yllLabel.mas_centerY);
+//        make.right.equalTo(_yllUintLabel.mas_left);
+//        make.width.equalTo(@(CGRectGetWidth(_yllTextField.frame)));
+//        make.height.equalTo(@(CGRectGetHeight(_yllTextField.frame)));
+//    }];
+    
+//    [self.jxtsTextField setText:@"测试位置"];
+//    [self.pmjeTextField setText:@"测试位置"];
+//    [self.pmjeTextField setText:@"测试位置"];
+//    [self.pmjeTextField setText:@"测试位置"];
+//    [self.pmjeTextField setText:@"测试位置"];
+//    [self.pmjeTextField setText:@"测试位置"];
+    
     [[EHDataMgrModule shareInstance] initQueue];
-    [self setTitle:@"承兑贴现计算"];
+//    [self setTitle:@"承兑贴现计算"];
 //    [self hiddeBackButton];
-    [self setBackButtonImage:nil];
-    [self setBackButtonText:@"分享"];
+//    [self setBackButtonImage:nil];
+//    [self setBackButtonText:@"分享"];
     
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -66,21 +204,50 @@
     [rightBtn addTarget:self action:@selector(showHistory) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.titleLabel.font = Font17;
     [self addRightButton:rightBtn];
+
+    [self.view addSubview:self.mBgView];
+    [self.view addSubview:self.pmjeLabel];
+    [self.view addSubview:self.pmjeTextField];
+    [self.view addSubview:self.pmjeUintLabel];
     
-    [self.view addSubview:self.resultLabel];
+//    WeakSelf(weaKSelf);
+    __weak typeof(self.view )weaskSuperView = self.view;
     
-	if (datePickerView == nil) {
-		datePickerView = [[RFDatePickerView alloc] initWithFrame:CGRectMake(0,
-																			[UIScreen mainScreen].bounds.size.height,
-																			[UIScreen mainScreen].bounds.size.width,246)];
-		datePickerView.m_delegate = self;
-	}
-	[self.view addSubview:datePickerView];
+    [_mBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(weaskSuperView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+    }];
+    
+    
+    //票面金额
+    [self.pmjeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weaskSuperView).with.offset(NAVBAR_H + 20);
+        make.left.equalTo(weaskSuperView).with.offset(20);
+        make.size.mas_equalTo(CGSizeMake(100, 25));
+    }];
+    
+    [self.pmjeUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(weaskSuperView).with.offset(20);
+        make.centerY.equalTo(_pmjeLabel.mas_centerY);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(40);
+//        make.size.mas_equalTo(CGSizeMake(50, 50));
+    }];
+    
+    [self.pmjeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(_pmjeUintLabel.mas_left).with.offset(-20);
+        make.centerY.equalTo(_pmjeLabel.mas_centerY);
+        make.height.mas_equalTo(_pmjeLabel.mas_height);
+        make.width.mas_equalTo(_pmjeLabel.mas_width);
+//        make.size.mas_equalTo(CGSizeMake(100, 50));
+    }];
+    
+//    [self.view addSubview:self.resultLabel];
+    
+    //日期选择控件。
+	[self.view addSubview:self.datePickerView];
     
     [self initViewAndData];
-    
-    txrqButton.showsTouchWhenHighlighted = dqrqButton.showsTouchWhenHighlighted = YES;
-    
+    self.txrqButton.showsTouchWhenHighlighted = self.dqrqButton.showsTouchWhenHighlighted = YES;
     [self autoLayOutView];
 }
 
@@ -90,7 +257,7 @@
 }
 
 -(void)autoLayOutView{
-    self.mBgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+//    self.mBgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 }
 
 -(void)initViewAndData{
@@ -100,9 +267,10 @@
     [self.pmjeTextField setText:nil];
     self.yllTextField.text = nil;
     self.tztsTextField.text = nil;
-    self.jxtsTextField.text = nil;
-    self.txlxTextField.text = nil;
-    self.txjeTextField.text = nil;
+    self.resultLabel = nil;
+//    self.jxtsTextField.text = nil;
+//    self.txlxTextField.text = nil;
+//    self.txjeTextField.text = nil;
     self.babData.txrq = [NSDate date];
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
     [formattter setDateFormat:@"yyyy年MM月dd日"];
@@ -120,9 +288,57 @@
     }
     [[UIApplication sharedApplication].keyWindow endEditing:YES];
 }
+#pragma mark - ViewConstrouct
+- (RFDatePickerView*)datePickerView{
+    if (!_datePickerView) {
+        _datePickerView = [[RFDatePickerView alloc] initWithFrame:CGRectMake(0,
+                                                                             [UIScreen mainScreen].bounds.size.height,
+                                                                             [UIScreen mainScreen].bounds.size.width,246)];
+        _datePickerView.m_delegate = self;
+    }
+    return _datePickerView;
+}
+
+-(UIImageView*)mBgView{
+    if (!_mBgView) {
+        _mBgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    }
+    return _mBgView;
+}
+
+-(UILabel*)pmjeLabel{
+    if (!_pmjeLabel) {
+        _pmjeLabel = [[UILabel alloc] init];
+        [_pmjeLabel setText:@"票面金额"];
+        [_pmjeLabel setText:@"测试位置"];
+        [_pmjeLabel setFont:Font15];
+        [_pmjeLabel setTextColor:Color_white_50];
+    }
+    return _pmjeLabel;
+}
+
+-(UITextField*)pmjeTextField{
+    if (!_pmjeTextField) {
+        _pmjeTextField = [[UITextField alloc] init];
+        [_pmjeTextField setBackgroundColor:[UIColor whiteColor]];
+    }
+    return _pmjeTextField;
+}
+
+-(UILabel*)pmjeUintLabel{
+    if (!_pmjeUintLabel) {
+        _pmjeUintLabel = [[UILabel alloc] init];
+        _pmjeUintLabel.text = @"万";
+        _pmjeUintLabel.text = @"位";
+        _pmjeUintLabel.font = Font15;
+        _pmjeUintLabel.textColor = Color_white_50;
+    }
+    return _pmjeUintLabel;
+}
+
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    [datePickerView showDatePickerView:NO];
+    [_datePickerView showDatePickerView:NO];
 	return YES;
 }
 
@@ -130,7 +346,7 @@
 	[self.clearnButton setEnabled:YES];
 	[self.calculateButton setEnabled:YES];
 
-	if ([textField isEqual:tztsTextField]) {
+	if ([textField isEqual:_tztsTextField]) {
 		if ([string isEqualToString:@"0" ]||
 			[string isEqualToString:@"1"] ||
 			[string isEqualToString:@"2"] ||
@@ -170,14 +386,14 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
-	if ([textField isEqual:pmjeTextField]) {
+	if ([textField isEqual:_pmjeTextField]) {
 		self.babData.pmje = textField.text;
 	}
-	else if ([textField isEqual:yllTextField])
+	else if ([textField isEqual:_yllTextField])
 	{
 		self.babData.yll = textField.text;
 	}
-	else if ([textField isEqual:tztsTextField])
+	else if ([textField isEqual:_tztsTextField])
 	{
 		self.babData.tzts = textField.text;
 	}
@@ -185,14 +401,14 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
 	[textField resignFirstResponder];
 	
-	if ([textField isEqual:pmjeTextField]) {
+	if ([textField isEqual:_pmjeTextField]) {
 		self.babData.pmje = textField.text;
 	}
-	else if ([textField isEqual:yllTextField])
+	else if ([textField isEqual:_yllTextField])
 	{
 		self.babData.yll = textField.text;
 	}
-	else if ([textField isEqual:tztsTextField])
+	else if ([textField isEqual:_tztsTextField])
 	{
 		self.babData.tzts = textField.text;
 	}
@@ -203,14 +419,14 @@
 -(void)datePickerViewSeldate:(NSDate*)date{
   	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
 	[formattter setDateFormat:@"yyyy年MM月dd日"];
-	if (datePickerView.tag == 1) {
-		babData.txrq = date;
+	if (_datePickerView.tag == 1) {
+		_babData.txrq = date;
 		NSString* temp = [formattter stringFromDate:date];
 		[self.txrqTextField setText:temp];
 		self.babData.txrqstr = temp;
 	}
-	else if (datePickerView.tag ==2){
-		babData.dqrq = date;
+	else if (_datePickerView.tag ==2){
+		_babData.dqrq = date;
 		NSString* temp = [formattter stringFromDate:date];
 		[self.dqrqTextField setText:temp];
 		self.babData.dqrqstr = temp;
@@ -223,11 +439,11 @@
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
     [formattter setDateFormat:@"yyyy年MM月dd日"];
     NSDate *date = [formattter dateFromString:self.txrqTextField.text];
-	datePickerView.tag = 1;
-    [datePickerView showDatePickerView:YES WithDate:date];
+	_datePickerView.tag = 1;
+    [_datePickerView showDatePickerView:YES WithDate:date];
     
     date = [formattter dateFromString:self.dqrqTextField.text];
-    [datePickerView setDatePickerMaxData:date];
+    [_datePickerView setDatePickerMaxData:date];
 }
 
 -(IBAction)dqrqButtonAction:(UIButton*)sender{
@@ -235,11 +451,11 @@
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
     [formattter setDateFormat:@"yyyy年MM月dd日"];
     NSDate *date = [formattter dateFromString:self.dqrqTextField.text];
-	datePickerView.tag = 2;
-	[datePickerView showDatePickerView:YES WithDate:date];
+	_datePickerView.tag = 2;
+	[_datePickerView showDatePickerView:YES WithDate:date];
 
     date = [formattter dateFromString:self.txrqTextField.text];
-    [datePickerView setDatePickerMinData:date];
+    [_datePickerView setDatePickerMinData:date];
 
 }
 
@@ -247,19 +463,19 @@
 	[self closeKeyBoarad];
 	//check data
 	
-	if (babData.pmje.length <= 0) {
+	if (_babData.pmje.length <= 0) {
 		[self showMessage:@"请输入票面金额"];
 		[self.pmjeTextField becomeFirstResponder];
 		return;
 	}
-	else if (babData.yll.length <= 0 || [babData.yll intValue] >= 1000){
+	else if (_babData.yll.length <= 0 || [_babData.yll intValue] >= 1000){
 		[self showMessage:@"请输入正确的月利率"];
 		[self.yllTextField becomeFirstResponder];
 		return;
 	}
-	NSTimeInterval val111 = [babData.dqrq timeIntervalSince1970];
+	NSTimeInterval val111 = [_babData.dqrq timeIntervalSince1970];
 	NSInteger day1 = val111 / (60 * 60 * 24);
-	NSInteger day2 = [babData.txrq timeIntervalSince1970] / (60 *60* 24);
+	NSInteger day2 = [_babData.txrq timeIntervalSince1970] / (60 *60* 24);
 	if (day1 <= day2) {
 		[self showMessage:@"到期日期要晚于贴现日期。"];
 		return;
@@ -279,13 +495,13 @@
 	NSInteger numGap = 100;
 	
 //	贴息=票面金额*贴现天数/360*贴现率（年息）或贴息=票面金额*贴现天数/30*贴现率（月息
-	double pmje = [babData.pmje doubleValue] * 10000;
-	double yll = [babData.yll doubleValue] / 1000;
+	double pmje = [_babData.pmje doubleValue] * 10000;
+	double yll = [_babData.yll doubleValue] / 1000;
 	
-	NSTimeInterval val =  [babData.dqrq timeIntervalSinceDate:babData.txrq];
+	NSTimeInterval val =  [_babData.dqrq timeIntervalSinceDate:_babData.txrq];
 	NSInteger days=((NSInteger)(val+0.5))/(3600*24);
 	days = day1 - day2;
-	days = days + [babData.tzts intValue];
+	days = days + [_babData.tzts intValue];
 	double temp  = pmje * days * (yll/30);
 	
 	self.babData.jxts = [NSString stringWithFormat:@"%ld", (long)days];
@@ -302,7 +518,7 @@
 	self.babData.txje = [NSString stringWithFormat:@"%.2f", temp3];
 //	[self.txjeTextField setText:babData.txje];
 	
-    [self.resultLabel setAttributedText:[babData getResultString]];
+    [self.resultLabel setAttributedText:[_babData getResultString]];
     [DBHelper inserTtBABData:self.babData];
 }
 
@@ -320,7 +536,7 @@
 
 -(void)bgButtonAciton:(id)sender{
 	[self closeKeyBoarad];
-	[datePickerView showDatePickerView:NO];
+	[_datePickerView showDatePickerView:NO];
 }
 
 -(void)closeKeyBoarad{
@@ -343,7 +559,6 @@
 {
     NSLog(@"didFailToReceiveAdWithError");
 }
-
 
 // 用户点击广告是响应，返回值BOOL指定广告是否打开 // 参数willLeaveApplication是指是否用其他的程序打开该广告 // 一般在该函数内让当前View停止，以及准备全画面表示广告 -
 -(BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {

@@ -111,6 +111,12 @@
 -(void)showSharePageView:(BOOL)show{
     if (show) {
         [[UIApplication sharedApplication].keyWindow addSubview:self];
+//        WeakSelf(weakSelf);
+//    [_mItemsView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(weakSelf).with.offset(0);
+//        make.right.equalTo(weakSelf).with.offset(0);
+//        make.bottom.equalTo(weakSelf).with.offset(0);
+//    }];
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.5f;
             _mItemsView.frame = CGRectMake(0, CGRectGetHeight(self.bounds) - CGRectGetHeight(_mItemsView.frame), CGRectGetWidth(_mItemsView.frame), CGRectGetHeight(_mItemsView.frame));

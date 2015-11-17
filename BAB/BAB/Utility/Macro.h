@@ -7,4 +7,4 @@
 //
 
 static NSString *const kUserDefaultsDeviceToken          = @"kUserDefaultsDeviceToken";// deviceToken
-
+#define WeakSelf(weakSelf) __weak __typeof(&*self)weakSelf = self;
