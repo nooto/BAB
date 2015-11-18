@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "469456337.485221"
+            timestampString = "469532107.331695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
             <Locations>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "469456337.485221"
+            timestampString = "469532107.331695"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
             <Locations>

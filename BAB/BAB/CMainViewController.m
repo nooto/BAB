@@ -32,13 +32,9 @@
 @property (nonatomic, strong)  UILabel *yllUintLabel;
 
 @property (nonatomic, strong)  UILabel *txrqLabel;
-@property (nonatomic, strong)  UITextField *txrqTextField;
-@property (nonatomic, strong)  UILabel *txrqUintLabel;
 @property (nonatomic, strong)  UIButton   *txrqButton;
 
 @property (nonatomic, strong)  UILabel *dqrqLabel;
-@property (nonatomic, strong)  UITextField *dqrqTextField;
-@property (nonatomic, strong)  UILabel *dqrqUintLabel;
 @property (nonatomic, strong)  UIButton   *dqrqButton;
 
 @property (nonatomic, strong)  UILabel *tztsLabel;
@@ -213,6 +209,12 @@
     [self.view addSubview:self.yllLabel];
     [self.view addSubview:self.yllTextField];
     [self.view addSubview:self.yllUintLabel];
+    
+    [self.view addSubview:self.txrqLabel];
+    [self.view addSubview:self.txrqButton];
+    
+    [self.view addSubview:self.dqrqLabel];
+    [self.view addSubview:self.dqrqButton];
 
 //    WeakSelf(weaKSelf);
     __weak typeof(self.view )weaskSuperView = self.view;
@@ -233,7 +235,7 @@
         make.right.equalTo(weaskSuperView).with.offset(20);
         make.centerY.equalTo(_pmjeLabel.mas_centerY);
         make.width.mas_equalTo(50);
-        make.height.mas_equalTo(40);
+        make.height.mas_equalTo(_pmjeLabel.mas_height);
     }];
     
     [self.pmjeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -247,14 +249,13 @@
     [self.yllLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_pmjeLabel.mas_bottom).with.offset(20);
         make.left.equalTo(weaskSuperView).with.offset(20);
-        make.size.mas_equalTo(CGSizeMake(100, 25));
+        make.size.equalTo(_pmjeLabel);
     }];
     
     [self.yllUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(weaskSuperView).with.offset(20);
         make.centerY.equalTo(_yllLabel.mas_centerY);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(40);
+        make.size.equalTo(_pmjeUintLabel);
     }];
     
     [self.yllTextField mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -264,8 +265,33 @@
         make.height.mas_equalTo(_yllLabel.mas_height);
     }];
     
+    //贴现日期
+    [self.txrqLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_yllLabel.mas_bottom).with.offset(20);
+        make.left.equalTo(weaskSuperView).with.offset(20);
+        make.size.equalTo(_pmjeLabel);
+    }];
     
+    [self.txrqButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_txrqLabel.mas_right).with.offset(5);
+        make.centerY.equalTo(_txrqLabel.mas_centerY);
+        make.width.mas_equalTo(_yllTextField.mas_width);
+        make.height.mas_equalTo(_yllLabel.mas_height);
+    }];
     
+    //到期日期
+    [self.dqrqLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_txrqLabel.mas_bottom).with.offset(20);
+        make.left.equalTo(weaskSuperView).with.offset(20);
+        make.size.equalTo(_pmjeLabel);
+    }];
+    
+    [self.dqrqButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_dqrqLabel.mas_right).with.offset(5);
+        make.centerY.equalTo(_dqrqLabel.mas_centerY);
+        make.width.mas_equalTo(_yllTextField.mas_width);
+        make.height.mas_equalTo(_yllLabel.mas_height);
+    }];
     
     //日期选择控件。
 	[self.view addSubview:self.datePickerView];
@@ -299,8 +325,8 @@
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
     [formattter setDateFormat:@"yyyy年MM月dd日"];
     NSString* temp = [formattter stringFromDate:[NSDate date]];
-    [self.txrqTextField setText:temp];
-    [self.dqrqTextField setText:temp];
+//    [self.txrqTextField settit];
+//    [self.dqrqTextField setText:temp];
     self.babData.dqrqstr =temp;
     self.babData.txrqstr = temp;
     self.babData.dqrq = [NSDate date];
@@ -397,6 +423,50 @@
 }
 
 
+-(UILabel*)txrqLabel{
+    if (!_txrqLabel) {
+        _txrqLabel = [[UILabel alloc] init];
+        [_txrqLabel setText:@"贴现日期"];
+//        [_txrqLabel setText:@"测试位置"];
+        [_txrqLabel setFont:Font15];
+        [_txrqLabel setTextColor:Color_white_50];
+    }
+    return _txrqLabel;
+}
+
+-(UIButton*)txrqButton{
+    if (!_txrqButton) {
+        _txrqButton = [[UIButton alloc] init];
+        [_txrqButton setBackgroundColor:[UIColor whiteColor]];
+        _txrqButton.titleLabel.textAlignment = NSTextAlignmentRight;
+        _txrqButton.layer.cornerRadius = 5.0f;
+    }
+    return _txrqButton;
+}
+
+
+-(UILabel*)dqrqLabel{
+    if (!_dqrqLabel) {
+        _dqrqLabel = [[UILabel alloc] init];
+        [_dqrqLabel setText:@"到期日期"];
+        //        [_txrqLabel setText:@"测试位置"];
+        [_dqrqLabel setFont:Font15];
+        [_dqrqLabel setTextColor:Color_white_50];
+    }
+    return _txrqLabel;
+}
+
+-(UIButton*)dqrqButton{
+    if (!_dqrqButton) {
+        _dqrqButton = [[UIButton alloc] init];
+        [_dqrqButton setBackgroundColor:[UIColor whiteColor]];
+        _dqrqButton.titleLabel.textAlignment = NSTextAlignmentRight;
+        _dqrqButton.layer.cornerRadius = 5.0f;
+    }
+    return _dqrqButton;
+}
+
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     [_datePickerView showDatePickerView:NO];
 	return YES;
@@ -477,45 +547,45 @@
 
 //  ‰// %
 -(void)datePickerViewSeldate:(NSDate*)date{
-  	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-	[formattter setDateFormat:@"yyyy年MM月dd日"];
-	if (_datePickerView.tag == 1) {
-		_babData.txrq = date;
-		NSString* temp = [formattter stringFromDate:date];
-		[self.txrqTextField setText:temp];
-		self.babData.txrqstr = temp;
-	}
-	else if (_datePickerView.tag ==2){
-		_babData.dqrq = date;
-		NSString* temp = [formattter stringFromDate:date];
-		[self.dqrqTextField setText:temp];
-		self.babData.dqrqstr = temp;
-	}
+//  	NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+//	[formattter setDateFormat:@"yyyy年MM月dd日"];
+//	if (_datePickerView.tag == 1) {
+//		_babData.txrq = date;
+//		NSString* temp = [formattter stringFromDate:date];
+//		[self.txrqTextField setText:temp];
+//		self.babData.txrqstr = temp;
+//	}
+//	else if (_datePickerView.tag ==2){
+//		_babData.dqrq = date;
+//		NSString* temp = [formattter stringFromDate:date];
+//		[self.dqrqTextField setText:temp];
+//		self.babData.dqrqstr = temp;
+//	}
 }
 
 -(IBAction)txrqButtonAction:(UIButton*)sender{
 	[self closeKeyBoarad];
 //    self.txrqTextField.text;
-    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-    [formattter setDateFormat:@"yyyy年MM月dd日"];
-    NSDate *date = [formattter dateFromString:self.txrqTextField.text];
-	_datePickerView.tag = 1;
-    [_datePickerView showDatePickerView:YES WithDate:date];
-    
-    date = [formattter dateFromString:self.dqrqTextField.text];
-    [_datePickerView setDatePickerMaxData:date];
+//    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+//    [formattter setDateFormat:@"yyyy年MM月dd日"];
+//    NSDate *date = [formattter dateFromString:self.txrqTextField.text];
+//	_datePickerView.tag = 1;
+//    [_datePickerView showDatePickerView:YES WithDate:date];
+//    
+//    date = [formattter dateFromString:self.dqrqTextField.text];
+//    [_datePickerView setDatePickerMaxData:date];
 }
 
 -(IBAction)dqrqButtonAction:(UIButton*)sender{
-	[self closeKeyBoarad];
-    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-    [formattter setDateFormat:@"yyyy年MM月dd日"];
-    NSDate *date = [formattter dateFromString:self.dqrqTextField.text];
-	_datePickerView.tag = 2;
-	[_datePickerView showDatePickerView:YES WithDate:date];
-
-    date = [formattter dateFromString:self.txrqTextField.text];
-    [_datePickerView setDatePickerMinData:date];
+//	[self closeKeyBoarad];
+//    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+//    [formattter setDateFormat:@"yyyy年MM月dd日"];
+//    NSDate *date = [formattter dateFromString:self.dqrqTextField.text];
+//	_datePickerView.tag = 2;
+//	[_datePickerView showDatePickerView:YES WithDate:date];
+//
+//    date = [formattter dateFromString:self.txrqTextField.text];
+//    [_datePickerView setDatePickerMinData:date];
 
 }
 
