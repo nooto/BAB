@@ -72,45 +72,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "469532107.331695"
+            timestampString = "469614175.70097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "565"
+            endingLineNumber = "565"
+            landmarkName = "-datePickerViewSeldate:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CMainViewController viewDidLoad]"
-                  moduleName = "BAB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoang/Documents/WorkSpace/DemoBase/GitHub/BAB/BAB/BAB/CMainViewController.m"
-                  timestampString = "469456338.522919"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "247"
-                  endingLineNumber = "247"
-                  offsetFromSymbolStart = "2984">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__34-[CMainViewController viewDidLoad]_block_invoke120"
-                  moduleName = "BAB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoang/Documents/WorkSpace/DemoBase/GitHub/BAB/BAB/BAB/CMainViewController.m"
-                  timestampString = "469456338.523242"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "247"
-                  endingLineNumber = "247"
-                  offsetFromSymbolStart = "39">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -120,45 +88,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "469532107.331695"
+            timestampString = "469614745.287872"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
+            landmarkName = "-calculateButtonAction:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[CMainViewController viewDidLoad]"
-                  moduleName = "BAB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoang/Documents/WorkSpace/DemoBase/GitHub/BAB/BAB/BAB/CMainViewController.m"
-                  timestampString = "469456338.524748"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
-                  offsetFromSymbolStart = "3342">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__34-[CMainViewController viewDidLoad]_block_invoke126"
-                  moduleName = "BAB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gaoang/Documents/WorkSpace/DemoBase/GitHub/BAB/BAB/BAB/CMainViewController.m"
-                  timestampString = "469456338.525077"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "253"
-                  endingLineNumber = "253"
-                  offsetFromSymbolStart = "39">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

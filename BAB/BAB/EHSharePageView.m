@@ -9,7 +9,9 @@
 #import "EHSharePageView.h"
 #import <ShareSDK/ShareSDK.h>
 #import "WeiboSDK.h"
-
+#import "WXApi.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 #define KICON @"icon"
 #define KNAME @"name"
 #define KTAG  @"tag"
@@ -17,7 +19,7 @@
 @interface EHSharePageView ()
 @property (nonatomic, strong) UIView *mBackGroundView;
 @property (nonatomic, strong) UIView *mItemsView;
-@property (nonatomic, strong) NSArray *arrDataSource;
+@property (nonatomic, strong) NSMutableArray *arrDataSource;
 @property (nonatomic, assign) id<EHSharePageViewdDelegate> m_delegate;
 @end
 
@@ -34,15 +36,26 @@
 
 -(NSArray*)arrDataSource{
     if (!_arrDataSource) {
-        _arrDataSource = [[NSArray alloc] initWithObjects:
-                          [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"sina_text", nil),   KNAME,  @"SinaIconNormal", KICON, [NSNumber numberWithInteger:ShareTypeSinaWeibo],     KTAG, nil], //sina
-                          [NSDictionary dictionaryWithObjectsAndKeys:@"微信",                             KNAME,  @"WXIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiSession],  KTAG, nil], //wechat
-                          [NSDictionary dictionaryWithObjectsAndKeys:@"朋友圈", KNAME,  @"ic_friends_sel",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiTimeline], KTAG, nil], //wechat
-                          [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"QQ空间", nil),       KNAME,  @"ic_qq_zone",   KICON,  [NSNumber numberWithInteger:ShareTypeQQSpace],       KTAG, nil], //QQ
-                          [NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"QQ", nil),          KNAME,  @"QQIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeQQ],            KTAG, nil], //QQ
-                          [NSDictionary dictionaryWithObjectsAndKeys:@"复制链接",                             KNAME,  @"ic_copy",    KICON,  [NSNumber numberWithInteger:ShareTypeOther],        KTAG, nil], //wechat
-                          nil];
+        _arrDataSource = [[NSMutableArray alloc] initWithCapacity:1];
+        //微信
+        if ([WXApi isWXAppInstalled]) {
+            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"微信",                             KNAME,  @"WXIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiSession],  KTAG, nil]];
+            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"朋友圈", KNAME,  @"ic_friends_sel",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiTimeline], KTAG, nil]];
+        }
+        
+        //QQ
+        if ([QQApi isQQInstalled]) {
+            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"QQ", nil),          KNAME,  @"QQIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeQQ],            KTAG, nil]];
+            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"QQ空间", nil),       KNAME,  @"ic_qq_zone",   KICON,  [NSNumber numberWithInteger:ShareTypeQQSpace],       KTAG, nil]];
+        }
+        
+        //新浪
+        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"sina_text", nil),   KNAME,  @"SinaIconNormal", KICON, [NSNumber numberWithInteger:ShareTypeSinaWeibo],     KTAG, nil]];
+        
+        //复制链接。
+        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"复制链接",KNAME,  @"ic_copy",    KICON,  [NSNumber numberWithInteger:ShareTypeOther],        KTAG, nil]];
     }
+    
     return _arrDataSource;
 }
 

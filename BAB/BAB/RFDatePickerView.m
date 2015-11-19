@@ -19,7 +19,7 @@
         // Initialization code
 		[self setBackgroundColor:[UIColor whiteColor]];
 		isShow = NO;
-		UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+		UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, 30)];
 		[titleLabel setBackgroundColor:[UIColor colorWithRed:243/255.0f green:243/255.0f blue:243/255.0f alpha:1.0f]];
 		[titleLabel setTextAlignment:NSTextAlignmentCenter];
 		[titleLabel setText:@"选择日期"];;
@@ -35,7 +35,7 @@
 		[leftBtn addTarget:self action:@selector(leftButtonAction) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:leftBtn];
 		
-		UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(320-44, 0,30, 30)];
+		UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W-44, 0,30, 30)];
 		[rightBtn setBackgroundColor:[UIColor clearColor]];
 		[rightBtn setImage:[UIImage imageNamed:@"rf_sure_nor"] forState:UIControlStateNormal];
 		[rightBtn setImage:[UIImage imageNamed:@"rf_sure_sel"] forState:UIControlStateHighlighted];
@@ -44,7 +44,7 @@
 		[self addSubview:rightBtn];
 		
 		mCurDate = [NSDate date];
-		mDatePikcer = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 30, 320, frame.size.height - 44)];
+		mDatePikcer = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 30, SCREEN_W, frame.size.height - 44)];
 		mDatePikcer.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
 			mDatePikcer.datePickerMode = UIDatePickerModeDate;
 		[mDatePikcer setDate:[NSDate date]];
@@ -73,12 +73,12 @@
 -(void)rightButtonAction{
 	[self showDatePickerView:NO];
 	
-		mCurDate = mDatePikcer.date;
+    mCurDate = mDatePikcer.date;
 	if (m_delegate && [m_delegate respondsToSelector:@selector(datePickerViewSeldate:)]) {
 		[m_delegate datePickerViewSeldate:mCurDate];
 	}
-
 }
+
 -(void)valuechange:(UIDatePicker*)sender{
     mCurDate = mDatePikcer.date;
     if (m_delegate && [m_delegate respondsToSelector:@selector(datePickerViewSeldate:)]) {
@@ -100,10 +100,10 @@
 	[UIView beginAnimations:nil context:nil];
 	[UIView setAnimationDuration:0.3];
 	if (show) {
-		[self setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 246, 320, 246)];
+		[self setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 246, SCREEN_W, 246)];
 	}
 	else{
-		[self setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, 320, 246)];
+		[self setFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, SCREEN_W, 246)];
 	}
 	
 	[UIView commitAnimations];

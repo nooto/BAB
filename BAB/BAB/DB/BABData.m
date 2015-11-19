@@ -57,6 +57,22 @@
 //    
 //    [aCoder encodeObject:self.jssj forKey:@"time"];
 //}
+
+-(NSString*)txrqstr{
+    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+    [formattter setDateFormat:@"yyyy年MM月dd日"];
+    _txrqstr = [formattter stringFromDate:_txrq];
+    return _txrqstr;
+}
+
+-(NSString*)dqrqstr{
+    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+    [formattter setDateFormat:@"yyyy年MM月dd日"];
+    _dqrqstr = [formattter stringFromDate:_dqrq];
+    return _dqrqstr;
+}
+
+
 -(NSAttributedString*)getResultString{
     NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] init];
     
