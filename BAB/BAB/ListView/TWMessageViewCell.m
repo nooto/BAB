@@ -8,6 +8,7 @@
 
 #import "TWMessageViewCell.h"
 @interface TWMessageViewCell()
+@property (nonatomic, strong)  UILabel *timeLabel;;
 @property (nonatomic, strong)  UILabel *pmje;
 @property (nonatomic, strong)  UILabel *yll;
 @property (nonatomic, strong)  UILabel *dqrq;
@@ -27,15 +28,20 @@
 
 -(id)initWithFrame:(CGRect)frame{
     if (self =[super initWithFrame:frame]) {
-        UIView *bgView = [[UIView alloc] initWithFrame:self.bounds];
+        
+        UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(MarginW(20), MarginH(20), SCREEN_W/2- MarginW(20), 25)];
+        [timeLabel setFont:Font14];
+        [timeLabel setTextColor:Color_white_80];
+        [self.contentView addSubview:timeLabel];
+        self.timeLabel = timeLabel;
+        
+        UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(20, 20, CGRectGetWidth(frame) - 20, CGRectGetHeight(frame) - 30)];
         bgView.backgroundColor = Color_gray_343F52;
         bgView.layer.cornerRadius = 15.0f;
-//        bgView.layer.borderWidth = 1.0f;
-//        bgView.layer.borderColor = Color_greed_normal.CGColor;
         [self.contentView addSubview:bgView];
         
         //---1
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(MarginW(20), MarginH(20), SCREEN_W/2- MarginW(20), 25)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(MarginW(20), MarginH(40), SCREEN_W/2- MarginW(20), 25)];
         [label setText:@"票面金额"];
         [label setFont:Font14];
         [label setTextColor:Color_white_80];
@@ -177,6 +183,7 @@
 -(void)setMCurBabData:(CBABData *)data{
     _mCurBabData = data;
     
+    [self.timeLabel setText:data.jssj];
     [self.pmje setText:[NSString stringWithFormat:@"%@万元",data.pmje]];
     [self.yll setText:[NSString stringWithFormat:@"%@‰",data.yll]];
     [self.txrq setText:data.txrqstr];

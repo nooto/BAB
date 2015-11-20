@@ -203,6 +203,7 @@ static NSNumberFormatter *_numberFormatter;
     return [self keyValuesWithError:nil];
 }
 
+
 - (NSDictionary *)keyValuesWithError:(NSError *__autoreleasing *)error
 {
     // 如果自己不是模型类
@@ -267,6 +268,31 @@ static NSNumberFormatter *_numberFormatter;
     }
     
     return keyValues;
+}
+- (NSArray*)propertyNames{
+    // 如果自己不是模型类
+    if ([MJFoundation isClassFromFoundation:[self class]]) return nil;
+    
+    
+    __block NSMutableArray *allKeys = [NSMutableArray array];
+    
+    @try {
+        NSArray *ignoredPropertyNames = nil;
+        if ([[self class] respondsToSelector:@selector(ignoredPropertyNames)]) {
+            ignoredPropertyNames = [[self class] ignoredPropertyNames];
+        }
+        
+        [[self class] enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+            // 0.检测是否被忽略
+            if ([ignoredPropertyNames containsObject:ivar.propertyName]) return;
+            
+            [allKeys addObject:ivar.propertyName];
+        }];
+    } @catch (NSException *exception) {
+//        MJBuildError(nil, exception.reason);
+    }
+    
+    return allKeys;
 }
 
 + (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray

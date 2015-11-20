@@ -69,7 +69,6 @@
  */
 - (NSDictionary *)keyValues;
 - (NSDictionary *)keyValuesWithError:(NSError **)error;
-
 /**
  *  通过模型数组来创建一个字典数组
  *  @param objectArray 模型数组
@@ -143,4 +142,7 @@
  */
 + (NSArray *)objectArrayWithFile:(NSString *)file;
 + (NSArray *)objectArrayWithFile:(NSString *)file error:(NSError **)error;
+
+
+- (NSArray*)propertyNames;
 @end

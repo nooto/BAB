@@ -15,7 +15,7 @@
 #import "Masonry.h"
 #import "View+MASShorthandAdditions.h"
 #import "Utility/UtilityHelper.h"
-@interface CMainViewController () <EHSharePageViewdDelegate>
+@interface CMainViewController () <EHSharePageViewdDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong)  UIImageView *mBgView;
 
@@ -72,8 +72,10 @@
         _resultLabel.layer.cornerRadius = 15.0f;
         _resultLabel.backgroundColor = Color_white_30;
         _resultLabel.textColor = Color_black_60;
+        _resultLabel.textColor = [UIColor redColor];
         _resultLabel.layer.masksToBounds = YES;
-        _resultLabel.numberOfLines = 4;
+        _resultLabel.numberOfLines = 3;
+        [_resultLabel sizeToFit];
     }
     return _resultLabel;
 }
@@ -241,11 +243,14 @@
     
     
     //jieguo
+    CGSize textSize = [@"测试" sizeWithAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:_resultLabel.font,NSFontAttributeName, nil]];
+    CGFloat labelHieht = textSize.height * 5;
     [self.resultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_pmjeLabel.mas_left);
         make.right.equalTo(weaskSuperView).with.offset(-20);
-        make.top.equalTo(_clearnButton.mas_bottom).with.offset(20);
+//        make.top.equalTo(_clearnButton.mas_bottom).with.offset(20);
         make.bottom.equalTo(weaskSuperView).with.offset(-20);
+        make.height.mas_equalTo(labelHieht);
     }];
     
     [self initViewAndData];
@@ -268,7 +273,7 @@
     [self.pmjeTextField setText:nil];
     self.yllTextField.text = nil;
     self.tztsTextField.text = nil;
-    self.resultLabel = nil;
+    self.resultLabel.text = nil;
     
     self.babData.txrq = [NSDate date];
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
@@ -324,6 +329,7 @@
         _pmjeTextField.textAlignment = NSTextAlignmentRight;
         _pmjeTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pmjeTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _pmjeTextField.delegate = self;
     }
     return _pmjeTextField;
 }
@@ -356,6 +362,7 @@
         _yllTextField.textAlignment = NSTextAlignmentRight;
         _yllTextField.borderStyle = UITextBorderStyleRoundedRect;
         _yllTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _yllTextField.delegate = self;
     }
     return _yllTextField;
 }
@@ -389,7 +396,7 @@
         [_txrqButton setBackgroundColor:[UIColor whiteColor]];
         _txrqButton.titleLabel.font = Font15;
         _txrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [_txrqButton setTitleColor:Color_black_50 forState:UIControlStateNormal];
+        [_txrqButton setTitleColor:Color_black_100 forState:UIControlStateNormal];
         _txrqButton.layer.cornerRadius = 5.0f;
         [_txrqButton addTarget:self action:@selector(txrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -415,7 +422,7 @@
         _dqrqButton.titleLabel.font = Font15;
         _dqrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_dqrqButton addTarget:self action:@selector(dqrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_dqrqButton setTitleColor:Color_black_50 forState:UIControlStateNormal];
+        [_dqrqButton setTitleColor:Color_black_100 forState:UIControlStateNormal];
         _dqrqButton.layer.cornerRadius = 5.0f;
     }
     return _dqrqButton;
@@ -440,6 +447,7 @@
         _tztsTextField.textAlignment = NSTextAlignmentRight;
         _tztsTextField.borderStyle = UITextBorderStyleRoundedRect;
         _tztsTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _tztsTextField.delegate = self;
     }
     return _tztsTextField;
 }
@@ -463,7 +471,7 @@
         [_clearnButton setTitle:@"重置" forState:UIControlStateNormal];
         [_clearnButton setTitleColor:Color_black_60 forState:UIControlStateNormal];
         _clearnButton.titleLabel.font = Font15;
-        [_calculateButton addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_clearnButton addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _clearnButton.layer.cornerRadius = 5.0f;
     }
     return _clearnButton;
@@ -609,7 +617,7 @@
 //		return;
 //	}
     
-    if ([_babData.dqrq isLaterThanDate:_babData.txrq]) {
+    if ([_babData.txrq isLaterThanDate:_babData.dqrq]) {
         [self showMessage:@"到期日期要晚于贴现日期。"];
         return;
     }

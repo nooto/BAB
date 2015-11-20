@@ -16,10 +16,10 @@
 }
 
 - (NSDictionary *)transformToDictionary{
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    
+    NSDictionary *dict = [self keyValues];
     return dict;
 }
+
 - (void)parseDictionary:(NSDictionary*)dict{
     if (![dict isKindOfClass:[NSDictionary class]]) {
         return;
@@ -57,6 +57,9 @@
 //    
 //    [aCoder encodeObject:self.jssj forKey:@"time"];
 //}
++ (NSArray*)ignoredPropertyNames{
+    return @[@"txrq",@"dqrq"];
+}
 
 -(NSString*)txrqstr{
     NSDateFormatter *formattter = [[NSDateFormatter alloc] init];

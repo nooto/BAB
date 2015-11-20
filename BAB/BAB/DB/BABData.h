@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MJExtension.h"
 @interface CBABData : NSObject
 
 //参数

@@ -140,24 +140,36 @@ __strong static id sharedInstance = nil;
     if (![[db tableNames] containsObject:kDatabaseHistoryTableName]) {
         NSError *error;
         [db createTableWithName: (NSString *)kDatabaseHistoryTableName
-                        columns: @[ @"pmje TEXT PRIMARY KEY",
-                                    @"yll TEXT",
-                                    @"txrq INTEGER",
-                                    @"txrqstr TEXT",
-                                    @"dqrq TEXT",
-                                    
-                                    @"dqrqstr TEXT",
-                                    @"tzts TEXT",
-                                    @"jxts TEXT",
-                                    @"txlx TEXT",
-                                    @"txje TEXT",
-                                    
-                                    @"jssj TEXT"
+                        columns: @[ @"pmje TEXT PRIMARY KEY"
                                     ]
                     constraints: nil
                           error: &error];
+        
+        CBABData *data = [[CBABData alloc] init];
+        NSArray *dict = data.propertyNames;
+        for (NSString *key in dict) {
+            if (![self checkColumnExists:db colume:key inTabel:kDatabaseHistoryTableName]) {
+                [db addColumn:[NSString stringWithFormat:@"%@ TEXT",key] toTable:kDatabaseHistoryTableName error:&error];
+                if (error) NSLog(@"%@",[error description]);
+            }
+        }
+
     }
 }
+
+-(BOOL)checkColumnExists:(FMDatabase*)db colume:(NSString*) columnname inTabel:(NSString*)tabelName;
+{
+    BOOL columnExists = NO;
+    sqlite3_stmt *selectStmt;
+    NSString *sqlString = [NSString stringWithFormat:@"select %@ from %@", columnname, tabelName];
+//    const char *sqlStatement = "select yourcolumnname from yourtable";
+    const char *sqlStatement = [sqlString UTF8String];
+    if(sqlite3_prepare_v2([db sqliteHandle], sqlStatement, -1, &selectStmt, NULL) == SQLITE_OK)
+        columnExists = YES;
+    
+    return columnExists;
+}
+
 
 -(BOOL)inserTtBABData:(CBABData *)data{
     if (!data) {
