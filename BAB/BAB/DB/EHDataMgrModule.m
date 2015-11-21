@@ -148,14 +148,65 @@ __strong static id sharedInstance = nil;
         CBABData *data = [[CBABData alloc] init];
         NSArray *dict = data.propertyNames;
         for (NSString *key in dict) {
-            if (![self checkColumnExists:db colume:key inTabel:kDatabaseHistoryTableName]) {
-                [db addColumn:[NSString stringWithFormat:@"%@ TEXT",key] toTable:kDatabaseHistoryTableName error:&error];
-                if (error) NSLog(@"%@",[error description]);
-            }
+            [self addTextColumnName:key inTabel:kDatabaseHistoryTableName WithDataBase:db];
         }
-
     }
 }
+
+-(BOOL)addTextColumnName:(NSString*)cloumn inTabel:(NSString*)tableName WithDataBase:(FMDatabase*)db{
+    if ([[db tableNames] containsObject:tableName]) {
+        NSError *error;
+        if (![self checkColumnExists:db colume:cloumn inTabel:tableName]) {
+            [db addColumn:[NSString stringWithFormat:@"%@ TEXT",cloumn] toTable:tableName error:&error];
+            if (error) {
+                NSLog(@"%@", [error description]);
+                return NO;
+            }
+            else{
+                return YES;
+            }
+        }
+        
+    }
+    return NO;
+}
+
+-(BOOL)addIntegerColumnName:(NSString*)cloumn inTabel:(NSString*)tableName WithDataBase:(FMDatabase*)db{
+    if ([[db tableNames] containsObject:tableName]) {
+        NSError *error;
+        if (![self checkColumnExists:db colume:cloumn inTabel:tableName]) {
+            [db addColumn:[NSString stringWithFormat:@"%@ INTEGER",cloumn] toTable:tableName error:&error];
+            if (error) {
+                NSLog(@"%@", [error description]);
+                return NO;
+            }
+            else{
+                return YES;
+            }
+        }
+        
+    }
+    return NO;
+}
+
+-(BOOL)addBoolColumnName:(NSString*)cloumn inTabel:(NSString*)tableName WithDataBase:(FMDatabase*)db{
+    if ([[db tableNames] containsObject:tableName]) {
+        NSError *error;
+        if (![self checkColumnExists:db colume:cloumn inTabel:tableName]) {
+            [db addColumn:[NSString stringWithFormat:@"%@ BOOL",cloumn] toTable:tableName error:&error];
+            if (error) {
+                NSLog(@"%@", [error description]);
+                return NO;
+            }
+            else{
+                return YES;
+            }
+        }
+        
+    }
+    return NO;
+}
+
 
 -(BOOL)checkColumnExists:(FMDatabase*)db colume:(NSString*) columnname inTabel:(NSString*)tabelName;
 {
