@@ -86,7 +86,7 @@
     [super viewDidLoad];
     [[EHDataMgrModule shareInstance] initQueue];
     [self setTitle:@"承兑贴现计算"];
-    [self hiddeBackButton];
+//    [self hiddeBackButton];
     [self setBackButtonImage:nil];
     [self setBackButtonText:@"分享"];
     
@@ -314,7 +314,7 @@
 
 -(UILabel*)pmjeLabel{
     if (!_pmjeLabel) {
-        _pmjeLabel = [[UILabel alloc] init];
+        _pmjeLabel = [UILabel new];
         [_pmjeLabel setText:@"票面金额"];
         [_pmjeLabel setFont:Font15];
         [_pmjeLabel setTextColor:Color_white_50];
@@ -324,7 +324,7 @@
 
 -(UITextField*)pmjeTextField{
     if (!_pmjeTextField) {
-        _pmjeTextField = [[UITextField alloc] init];
+        _pmjeTextField = [UITextField new];
         [_pmjeTextField setBackgroundColor:[UIColor whiteColor]];
         _pmjeTextField.textAlignment = NSTextAlignmentRight;
         _pmjeTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -336,7 +336,7 @@
 
 -(UILabel*)pmjeUintLabel{
     if (!_pmjeUintLabel) {
-        _pmjeUintLabel = [[UILabel alloc] init];
+        _pmjeUintLabel = [UILabel new];
         _pmjeUintLabel.text = @"万";
         _pmjeUintLabel.text = @"位";
         _pmjeUintLabel.font = Font15;
@@ -347,7 +347,7 @@
 
 -(UILabel*)yllLabel{
     if (!_yllLabel) {
-        _yllLabel = [[UILabel alloc] init];
+        _yllLabel = [UILabel new];
         [_yllLabel setText:@"月利率"];
         [_yllLabel setFont:Font15];
         [_yllLabel setTextColor:Color_white_50];
@@ -357,7 +357,7 @@
 
 -(UITextField*)yllTextField{
     if (!_yllTextField) {
-        _yllTextField = [[UITextField alloc] init];
+        _yllTextField = [UITextField new];
         [_yllTextField setBackgroundColor:[UIColor whiteColor]];
         _yllTextField.textAlignment = NSTextAlignmentRight;
         _yllTextField.borderStyle = UITextBorderStyleRoundedRect;
@@ -369,7 +369,7 @@
 
 -(UILabel*)yllUintLabel{
     if (!_yllUintLabel) {
-        _yllUintLabel = [[UILabel alloc] init];
+        _yllUintLabel = [UILabel new];
         _yllUintLabel.text = @"万";
         _yllUintLabel.text = @"位";
         _yllUintLabel.font = Font15;
@@ -381,7 +381,7 @@
 
 -(UILabel*)txrqLabel{
     if (!_txrqLabel) {
-        _txrqLabel = [[UILabel alloc] init];
+        _txrqLabel = [UILabel new];
         [_txrqLabel setText:@"贴现日期"];
 //        [_txrqLabel setText:@"测试位置"];
         [_txrqLabel setFont:Font15];
@@ -392,7 +392,7 @@
 
 -(UIButton*)txrqButton{
     if (!_txrqButton) {
-        _txrqButton = [[UIButton alloc] init];
+        _txrqButton = [UIButton new];
         [_txrqButton setBackgroundColor:[UIColor whiteColor]];
         _txrqButton.titleLabel.font = Font15;
         _txrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -406,7 +406,7 @@
 
 -(UILabel*)dqrqLabel{
     if (!_dqrqLabel) {
-        _dqrqLabel = [[UILabel alloc] init];
+        _dqrqLabel = [UILabel new];
         [_dqrqLabel setText:@"到期日期"];
         //        [_txrqLabel setText:@"测试位置"];
         [_dqrqLabel setFont:Font15];

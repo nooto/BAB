@@ -32,10 +32,6 @@
 		3E81A20918F3CAF800A42207 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A20818F3CAF800A42207 /* main.m */; };
 		3E81A20D18F3CAF800A42207 /* CAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A20C18F3CAF800A42207 /* CAppDelegate.m */; };
 		3E81A20F18F3CAF800A42207 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E81A20E18F3CAF800A42207 /* Images.xcassets */; };
-		3E81A21718F3CAF900A42207 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A1FC18F3CAF800A42207 /* Foundation.framework */; };
-		3E81A21818F3CAF900A42207 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A20018F3CAF800A42207 /* UIKit.framework */; };
-		3E81A22018F3CAF900A42207 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E81A21E18F3CAF900A42207 /* InfoPlist.strings */; };
-		3E81A22218F3CAF900A42207 /* BABTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A22118F3CAF900A42207 /* BABTests.m */; };
 		3E81A22E18F3CB1600A42207 /* CMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A22C18F3CB1600A42207 /* CMainViewController.m */; };
 		3E81A26518F4500400A42207 /* RFDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E81A26418F4500400A42207 /* RFDatePickerView.m */; };
 		3EC0C9A818FEEA23005C778E /* CHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0C9A618FEEA23005C778E /* CHistoryViewController.m */; };
@@ -128,16 +124,6 @@
 		E2C7D06E1BE787C70017C04F /* EHNavButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7D06A1BE787C70017C04F /* EHNavButton.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3E81A21918F3CAF900A42207 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3E81A1F118F3CAF800A42207 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3E81A1F818F3CAF800A42207;
-			remoteInfo = BAB;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		3E16CB23190793D300C64E8D /* bank_114_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank_114_114.png; sourceTree = "<group>"; };
 		3E16CB24190793D300C64E8D /* bank_120_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank_120_120.png; sourceTree = "<group>"; };
@@ -168,10 +154,6 @@
 		3E81A20B18F3CAF800A42207 /* CAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAppDelegate.h; sourceTree = "<group>"; };
 		3E81A20C18F3CAF800A42207 /* CAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAppDelegate.m; sourceTree = "<group>"; };
 		3E81A20E18F3CAF800A42207 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3E81A21418F3CAF800A42207 /* BABTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BABTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3E81A21D18F3CAF900A42207 /* BABTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BABTests-Info.plist"; sourceTree = "<group>"; };
-		3E81A21F18F3CAF900A42207 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3E81A22118F3CAF900A42207 /* BABTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BABTests.m; sourceTree = "<group>"; };
 		3E81A22B18F3CB1600A42207 /* CMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMainViewController.h; sourceTree = "<group>"; };
 		3E81A22C18F3CB1600A42207 /* CMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMainViewController.m; sourceTree = "<group>"; };
 		3E81A26318F4500400A42207 /* RFDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDatePickerView.h; sourceTree = "<group>"; };
@@ -377,15 +359,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E81A21118F3CAF800A42207 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E81A21818F3CAF900A42207 /* UIKit.framework in Frameworks */,
-				3E81A21718F3CAF900A42207 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -417,7 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				3E81A20218F3CAF800A42207 /* BAB */,
-				3E81A21B18F3CAF900A42207 /* BABTests */,
 				3E81A1FB18F3CAF800A42207 /* Frameworks */,
 				3E81A1FA18F3CAF800A42207 /* Products */,
 			);
@@ -427,7 +399,6 @@
 			isa = PBXGroup;
 			children = (
 				3E81A1F918F3CAF800A42207 /* BAB.app */,
-				3E81A21418F3CAF800A42207 /* BABTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -498,24 +469,6 @@
 				3E81A20518F3CAF800A42207 /* InfoPlist.strings */,
 				3E81A20818F3CAF800A42207 /* main.m */,
 				3E81A20A18F3CAF800A42207 /* BAB-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3E81A21B18F3CAF900A42207 /* BABTests */ = {
-			isa = PBXGroup;
-			children = (
-				3E81A22118F3CAF900A42207 /* BABTests.m */,
-				3E81A21C18F3CAF900A42207 /* Supporting Files */,
-			);
-			path = BABTests;
-			sourceTree = "<group>";
-		};
-		3E81A21C18F3CAF900A42207 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3E81A21D18F3CAF900A42207 /* BABTests-Info.plist */,
-				3E81A21E18F3CAF900A42207 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -856,24 +809,6 @@
 			productReference = 3E81A1F918F3CAF800A42207 /* BAB.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E81A21318F3CAF800A42207 /* BABTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3E81A22818F3CAF900A42207 /* Build configuration list for PBXNativeTarget "BABTests" */;
-			buildPhases = (
-				3E81A21018F3CAF800A42207 /* Sources */,
-				3E81A21118F3CAF800A42207 /* Frameworks */,
-				3E81A21218F3CAF800A42207 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3E81A21A18F3CAF900A42207 /* PBXTargetDependency */,
-			);
-			name = BABTests;
-			productName = BABTests;
-			productReference = 3E81A21418F3CAF800A42207 /* BABTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -883,14 +818,6 @@
 				CLASSPREFIX = C;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = selfcom;
-				TargetAttributes = {
-					3E81A1F818F3CAF800A42207 = {
-						DevelopmentTeam = PAZX553D3X;
-					};
-					3E81A21318F3CAF800A42207 = {
-						TestTargetID = 3E81A1F818F3CAF800A42207;
-					};
-				};
 			};
 			buildConfigurationList = 3E81A1F418F3CAF800A42207 /* Build configuration list for PBXProject "BAB" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -906,7 +833,6 @@
 			projectRoot = "";
 			targets = (
 				3E81A1F818F3CAF800A42207 /* BAB */,
-				3E81A21318F3CAF800A42207 /* BABTests */,
 			);
 		};
 /* End PBXProject section */
@@ -946,14 +872,6 @@
 				3EC0C9AE18FEEE0E005C778E /* CHistoryViewCell.xib in Resources */,
 				3E81A20F18F3CAF800A42207 /* Images.xcassets in Resources */,
 				E2B3697E1BFAFADF00D21579 /* Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3E81A21218F3CAF800A42207 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E81A22018F3CAF900A42207 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,37 +944,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E81A21018F3CAF800A42207 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E81A22218F3CAF900A42207 /* BABTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3E81A21A18F3CAF900A42207 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3E81A1F818F3CAF800A42207 /* BAB */;
-			targetProxy = 3E81A21918F3CAF900A42207 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3E81A20518F3CAF800A42207 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3E81A20618F3CAF800A42207 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3E81A21E18F3CAF900A42207 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E81A21F18F3CAF900A42207 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1092,6 +986,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_BITCODE = NO;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1107,9 +1002,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
+				PROVISIONING_PROFILE = "3d473f5b-2399-49fe-9067-db11e09d11b6";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1133,6 +1028,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1141,8 +1037,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PROVISIONING_PROFILE = "3d473f5b-2399-49fe-9067-db11e09d11b6";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1155,6 +1051,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Connection",
@@ -1165,15 +1062,15 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.1719.babAD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1719.spotmau;
 				PRODUCT_NAME = BAB;
-				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
+				PROVISIONING_PROFILE = "3d473f5b-2399-49fe-9067-db11e09d11b6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1184,6 +1081,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Connection",
@@ -1194,58 +1093,16 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.1719.babAD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.1719.spotmau;
 				PRODUCT_NAME = BAB;
-				PROVISIONING_PROFILE = "76ec7b54-301a-4ea4-923c-58821bb640a0";
+				PROVISIONING_PROFILE = "3d473f5b-2399-49fe-9067-db11e09d11b6";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		3E81A22918F3CAF900A42207 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BAB.app/BAB";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "BABTests/BABTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.1719.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		3E81A22A18F3CAF900A42207 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BAB.app/BAB";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
-				INFOPLIST_FILE = "BABTests/BABTests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.1719.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1266,15 +1123,6 @@
 			buildConfigurations = (
 				3E81A22618F3CAF900A42207 /* Debug */,
 				3E81A22718F3CAF900A42207 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3E81A22818F3CAF900A42207 /* Build configuration list for PBXNativeTarget "BABTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3E81A22918F3CAF900A42207 /* Debug */,
-				3E81A22A18F3CAF900A42207 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

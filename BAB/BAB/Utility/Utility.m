@@ -13,6 +13,24 @@
 @implementation Utility
 
 #pragma mark- JSON
+
++(APPType)AppType{
+    NSString *bundleIdntifier = [[NSBundle mainBundle] bundleIdentifier];
+    if ([bundleIdntifier  containsString:@"com.1719.babAD"]) {
+    
+        return APP_FREE;
+    }
+    else if ([bundleIdntifier containsString:@"com.1719.bab"]){
+        return APP_CHARGE;
+    }
+    else if ([bundleIdntifier containsString:@"com.1719.babPurchases"]){
+        return APP_Purchases;
+    }
+    else{
+        return APP_Purchases;
+    }
+    
+}
 /**
  将dictionary转换为json数据
  */

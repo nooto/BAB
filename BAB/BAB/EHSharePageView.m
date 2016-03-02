@@ -16,6 +16,7 @@
 #define KNAME @"name"
 #define KTAG  @"tag"
 
+#define numberOfColunm 4
 @interface EHSharePageView ()
 @property (nonatomic, strong) UIView *mBackGroundView;
 @property (nonatomic, strong) UIView *mItemsView;
@@ -29,6 +30,24 @@
         [self addSubview:self.mBackGroundView];
         [self addSubview:self.mItemsView];
         self.m_delegate = delegate;
+        
+        [self.mBackGroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.equalTo(self);
+            make.top.equalTo(self.mas_top);
+            make.width.equalTo(self.mas_width);
+            make.height.equalTo(self.mas_height);
+        }];
+        
+        
+//        frame.size.height = posY + (self.arrDataSource.count/numberOfColunm + 1) * (buttonWidht + 30) + margin;
+
+        [self.mItemsView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self);
+            make.top.equalTo(self.mas_bottom);
+            make.width.equalTo(self.mas_width);
+            make.height.equalTo(self.mas_height).multipliedBy(0.2);
+        }];
+        
     }
     return self;
 }
@@ -61,7 +80,7 @@
 
 - (UIView*)mBackGroundView{
     if (!_mBackGroundView) {
-        _mBackGroundView = [[UIView alloc] initWithFrame:self.bounds];
+        _mBackGroundView = [UIView new];
         [_mBackGroundView setBackgroundColor:[UIColor blackColor]];
         _mBackGroundView.alpha = 0.0f;
     }
@@ -70,26 +89,19 @@
 
 - (UIView*)mItemsView{
     if (!_mItemsView) {
-        _mItemsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
+        _mItemsView = [UIView new];
         [_mItemsView setBackgroundColor:[UIColor whiteColor]];
         
         CGFloat posY = 15.0f;
-//        //构建itemsView
-//        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, posY+10, CGRectGetWidth(_mItemsView.frame), 35)];
-//        titleLabel.textAlignment = NSTextAlignmentCenter;
-//        [titleLabel setText:NSLocalizedString(@"分享到", nil)];
-//        [titleLabel setTextColor:Color_deepGray_666666];
-//        [_mItemsView addSubview:titleLabel];
-//        posY += CGRectGetHeight(titleLabel.frame);
         UIButton *button = nil;
         UILabel *namelabel = nil;
         CGFloat marginLeft = Margin_left;
         CGFloat margin =Margin_top;
-        CGFloat  buttonWidht = (CGRectGetWidth(self.bounds) - marginLeft*2 - margin * 3) / 4;
+        CGFloat  buttonWidht = (CGRectGetWidth(self.bounds) - marginLeft*2 - margin * 3) / numberOfColunm;
         
         for (NSInteger i = 0; i < self.arrDataSource.count; i++) {
-            NSInteger row = i / 4;
-            NSInteger col = i % 4;
+            NSInteger row = i / numberOfColunm;
+            NSInteger col = i % numberOfColunm;
             
             NSDictionary *dict = [self.arrDataSource objectAtIndex:i];
             button = [[UIButton alloc] initWithFrame:CGRectMake(marginLeft  + col *(margin + buttonWidht),
@@ -111,7 +123,7 @@
         
         CGRect frame = _mItemsView.frame;
         frame.origin.y = CGRectGetHeight(self.bounds);
-        frame.size.height = posY + (self.arrDataSource.count/4 + 1) * (buttonWidht + 30) + margin;
+        frame.size.height = posY + (self.arrDataSource.count/numberOfColunm + 1) * (buttonWidht + 30) + margin;
         [_mItemsView setFrame:frame];
     }
     return _mItemsView;
@@ -124,23 +136,27 @@
 -(void)showSharePageView:(BOOL)show{
     if (show) {
         [[UIApplication sharedApplication].keyWindow addSubview:self];
-//        WeakSelf(weakSelf);
-//    [_mItemsView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(weakSelf).with.offset(0);
-//        make.right.equalTo(weakSelf).with.offset(0);
-//        make.bottom.equalTo(weakSelf).with.offset(0);
-//    }];
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.5f;
-            _mItemsView.frame = CGRectMake(0, CGRectGetHeight(self.bounds) - CGRectGetHeight(_mItemsView.frame), CGRectGetWidth(_mItemsView.frame), CGRectGetHeight(_mItemsView.frame));
+            [_mItemsView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(self.mas_bottom).offset(-50);
+            }];
+            [_mItemsView layoutIfNeeded];
         }];
     }
     else{
+        
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.0f;
-            _mItemsView.frame = CGRectMake(0, CGRectGetHeight(self.bounds), CGRectGetWidth(_mItemsView.frame), CGRectGetHeight(_mItemsView.frame));
+            [_mItemsView mas_updateConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.mas_bottom);
+            }];
+            [_mItemsView layoutIfNeeded];
+            
         }completion:^(BOOL finished) {
+            
             [self removeFromSuperview];
+            
         }];
     }
 }

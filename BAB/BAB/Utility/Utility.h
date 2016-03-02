@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "SFHFKeychainUtils.h"
 
+typedef enum {
+    APP_FREE,     // 免费 带广告。
+    APP_CHARGE,  //  收费 无广告
+    APP_Purchases  //内购消除广告
+}APPType;
+
 extern dispatch_queue_t easylinkQueue;
 //extern dispatch_queue_t luaQueue;
 extern dispatch_queue_t sendQueue;
@@ -16,6 +22,8 @@ extern dispatch_queue_t receiveQueue;
 
 @interface Utility : NSObject
 
+
++(APPType)AppType;
 //
 + (UIColor *) colorFromColorString:(NSString *)colorString;
 + (UIColor *)colorFromColorString:(NSString *)colorString alpha:(CGFloat)alpha;
