@@ -14,6 +14,8 @@
 @interface CHistoryViewController ()
 @property (nonatomic, weak) UIImageView  *mBgView;
 @property (nonatomic, strong) EHPromptView *mPromptView;
+@property (nonatomic, strong) ADBannerView *mBannerView;
+@property (nonatomic, assign) APPType  mAppType;
 @end
 
 @implementation CHistoryViewController
@@ -25,6 +27,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.mAppType = [Utility AppType];
+        self.mAppType = APP_FREE;
     }
     return self;
 }
@@ -57,7 +61,38 @@
     self.listView.rowHeight = 300;
     self.listView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.mPromptView];
+    __weak typeof(self.view )weaskSuperView = self.view;
+
+    //有广告
+    if (self.mAppType == APP_FREE) {
+        [self.view addSubview:self.mBannerView];
+        [self.mBannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weaskSuperView).width.offset(0);
+            make.right.equalTo(weaskSuperView).with.offset(0);
+            make.top.equalTo(weaskSuperView).with.offset(NAVBAR_H);
+            make.bottom.equalTo(_mBannerView.mas_top).with.offset(-20);
+        }];
+        
+        [self.mBannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weaskSuperView);
+            make.right.equalTo(weaskSuperView);
+            make.bottom.equalTo(weaskSuperView);
+            make.top.equalTo(weaskSuperView).with.offset(-45);
+        }];
+    }
+    //无广告
+    else if (self.mAppType == APP_CHARGE){
+        [self.mBannerView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(weaskSuperView);
+            make.right.equalTo(weaskSuperView);
+            make.top.equalTo(weaskSuperView).with.offset(NAVBAR_H);
+            make.bottom.equalTo(weaskSuperView);
+        }];
+    }
+    
 }
+
+
 -(NSMutableArray*)arrHistory{
     if (!arrHistory) {
         arrHistory = [NSMutableArray array];
@@ -65,6 +100,13 @@
     return arrHistory;
 }
 
+-(ADBannerView*)mBannerView{
+    if (!_mBannerView) {
+        _mBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+        [_mBannerView setFrame:CGRectMake(0, SCREEN_H - 45, SCREEN_W, 45)];
+    }
+    return _mBannerView;
+}
 -(EHPromptView*)mPromptView{
     if (!_mPromptView) {
         _mPromptView = [[EHPromptView alloc] initWithPromptString:@"还没有数据哦..." image:@"ic_failed" complete:^{
@@ -116,16 +158,13 @@
 //    [self.bannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
 //}
 
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner{
     NSLog(@"bannerViewDidLoadAd");
 }
 
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
-{
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
     NSLog(@"didFailToReceiveAdWithError");
 }
-
 
 // 用户点击广告是响应，返回值BOOL指定广告是否打开 // 参数willLeaveApplication是指是否用其他的程序打开该广告 // 一般在该函数内让当前View停止，以及准备全画面表示广告 -
 -(BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
@@ -136,7 +175,6 @@
 - (void)bannerViewActionDidFinish:(ADBannerView *)banner {
     NSLog(@"bannerViewActionDidFinish: is called.");
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     self.mPromptView.hidden = arrHistory.count > 0 ? YES : NO;
@@ -160,17 +198,7 @@
     
     if (indexPath.row >= 0 && indexPath.row < [arrHistory count]) {
         CBABData *data = (CBABData*)[arrHistory objectAtIndex:indexPath.row];
-        [cell.pmje setText:[NSString stringWithFormat:@"%@万元",data.pmje]];
-        [cell.yll setText:[NSString stringWithFormat:@"%@‰",data.yll]];
-        [cell.txrq setText:data.txrqstr];
-        [cell.dqrq setText:data.dqrqstr];
-        [cell.tzts setText:data.tzts? [NSString stringWithFormat:@"%@天",data.tzts]: @"无"];
-        
-        [cell.jxts setText:[NSString stringWithFormat:@"%@ 天",data.jxts]];
-        [cell.txlx setText:[NSString stringWithFormat:@"%@ 元",data.txlx]];
-        [cell.txje setText:[NSString stringWithFormat:@"%@ 元",data.txje]];
-        
-        [cell.jssj setText:data.jssj];
+        [cell setMBABData:data];
     }
     
     return cell;

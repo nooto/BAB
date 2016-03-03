@@ -81,6 +81,7 @@
         _resultLabel.numberOfLines = 3;
         _resultLabel.font = Font14;
         [_resultLabel sizeToFit];
+        _resultLabel.hidden = YES;
     }
     return _resultLabel;
 }
@@ -347,6 +348,7 @@
 //        _mBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
         [_mBannerView setFrame:CGRectMake(0, SCREEN_H - 45 , SCREEN_W, 45)];
         _mBannerView.delegate = self;
+        _mBannerView.alpha = 0.0f;
     }
     return _mBannerView;
 }
@@ -698,6 +700,8 @@
 //	[self.txjeTextField setText:babData.txje];
 	
     [self.resultLabel setAttributedText:[_babData getResultString]];
+    self.resultLabel.hidden = self.resultLabel.text.length >0 ? NO: YES;
+    
     [DBHelper inserTtBABData:self.babData];
 }
 
@@ -724,16 +728,21 @@
 }
 #pragma mark  ADBannerView 
 - (void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    [self.mBannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
+    //    self.mBannerView.alpha = 1.0f;
+    //    [self.mBannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    NSLog(@"bannerViewDidLoadAd");
-}
+    [UIView animateWithDuration:.25f animations:^{
+        self.mBannerView.alpha = 1.f;
+    }];}
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
+    [UIView animateWithDuration:.25f animations:^{
+        self.mBannerView.alpha = .0f;
+    }];
     NSLog(@"didFailToReceiveAdWithError");
 }
 

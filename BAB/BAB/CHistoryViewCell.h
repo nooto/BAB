@@ -7,21 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BABData.h"
 @interface CHistoryViewCell : UITableViewCell
+//
+//@property (nonatomic, strong) IBOutlet UILabel *pmje;
+//@property (nonatomic, strong) IBOutlet UILabel *yll;
+//@property (nonatomic, strong) IBOutlet UILabel *dqrq;
+//@property (nonatomic, strong) IBOutlet UILabel *txrq;
+//@property (nonatomic, strong) IBOutlet UILabel *tzts;
+//
+//@property (nonatomic, strong) IBOutlet UILabel *jxts;
+//@property (nonatomic, strong) IBOutlet UILabel *txlx;
+//@property (nonatomic, strong) IBOutlet UILabel *txje;
+//
+//@property (nonatomic, strong) IBOutlet UILabel *jssj;
+//
+//@property (nonatomic, strong) IBOutlet UIView *bgView;
 
-@property (nonatomic, strong) IBOutlet UILabel *pmje;
-@property (nonatomic, strong) IBOutlet UILabel *yll;
-@property (nonatomic, strong) IBOutlet UILabel *dqrq;
-@property (nonatomic, strong) IBOutlet UILabel *txrq;
-@property (nonatomic, strong) IBOutlet UILabel *tzts;
-
-@property (nonatomic, strong) IBOutlet UILabel *jxts;
-@property (nonatomic, strong) IBOutlet UILabel *txlx;
-@property (nonatomic, strong) IBOutlet UILabel *txje;
-
-@property (nonatomic, strong) IBOutlet UILabel *jssj;
-
-@property (nonatomic, strong) IBOutlet UIView *bgView;
-
+@property (nonatomic, strong) CBABData *mBABData;
 @end

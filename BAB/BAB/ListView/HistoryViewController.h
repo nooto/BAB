@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
 #import "UIBaseViewController.h"
 @interface HistoryViewController : UIBaseViewController
 

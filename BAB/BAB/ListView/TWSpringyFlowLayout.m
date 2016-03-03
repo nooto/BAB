@@ -54,8 +54,8 @@ CGFloat const kTWSpringyFlowLayoutDefaultBounce = 500.0f;
 		for (UICollectionViewLayoutAttributes *item in items)
 		{
 			UIAttachmentBehavior *spring = [[UIAttachmentBehavior alloc] initWithItem:item attachedToAnchor:[item center]];
-			spring.length = 0;
-			spring.damping = 0.4;
+			spring.length = 0.1;
+			spring.damping = 0.3;
 			spring.frequency = 0.7;
 			[_dynamicAnimator addBehavior:spring];
 		}
