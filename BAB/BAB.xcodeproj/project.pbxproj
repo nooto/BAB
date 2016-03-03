@@ -79,6 +79,7 @@
 		E26F058F1BE1F55A007918B2 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058A1BE1F55A007918B2 /* HistoryViewController.m */; };
 		E26F05901BE1F55A007918B2 /* TWMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */; };
 		E26F05911BE1F55A007918B2 /* TWSpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */; };
+		E2954DA91C87DDAD00F99A85 /* CBabResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2954DA81C87DDAD00F99A85 /* CBabResultView.m */; };
 		E2985C731BF1D3070060D167 /* EHSharePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2985C721BF1D3070060D167 /* EHSharePageView.m */; };
 		E2985C981BF1D3570060D167 /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985C761BF1D3570060D167 /* QQConnection.framework */; };
 		E2985C991BF1D3580060D167 /* QZoneConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985C771BF1D3570060D167 /* QZoneConnection.framework */; };
@@ -247,6 +248,8 @@
 		E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageViewCell.m; sourceTree = "<group>"; };
 		E26F058D1BE1F55A007918B2 /* TWSpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSpringyFlowLayout.h; sourceTree = "<group>"; };
 		E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSpringyFlowLayout.m; sourceTree = "<group>"; };
+		E2954DA71C87DDAD00F99A85 /* CBabResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBabResultView.h; sourceTree = "<group>"; };
+		E2954DA81C87DDAD00F99A85 /* CBabResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBabResultView.m; sourceTree = "<group>"; };
 		E2985C711BF1D3070060D167 /* EHSharePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHSharePageView.h; sourceTree = "<group>"; };
 		E2985C721BF1D3070060D167 /* EHSharePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EHSharePageView.m; sourceTree = "<group>"; };
 		E2985C761BF1D3570060D167 /* QQConnection.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QQConnection.framework; sourceTree = "<group>"; };
@@ -455,6 +458,8 @@
 				3EC0C9AC18FEEE0E005C778E /* CHistoryViewCell.xib */,
 				E2985C711BF1D3070060D167 /* EHSharePageView.h */,
 				E2985C721BF1D3070060D167 /* EHSharePageView.m */,
+				E2954DA71C87DDAD00F99A85 /* CBabResultView.h */,
+				E2954DA81C87DDAD00F99A85 /* CBabResultView.m */,
 				E2985C741BF1D3570060D167 /* ShareSDK */,
 				3E81A20E18F3CAF800A42207 /* Images.xcassets */,
 				3E81A20318F3CAF800A42207 /* Supporting Files */,
@@ -899,6 +904,7 @@
 				E24796431BD9EE1C0040D410 /* EHSysProperty.m in Sources */,
 				E21BB1F01B9C60C00020ECA4 /* FMDatabaseQueue.m in Sources */,
 				E24177FC1BA17C0E00F9D37F /* EHPromptView.m in Sources */,
+				E2954DA91C87DDAD00F99A85 /* CBabResultView.m in Sources */,
 				E2B3697F1BFAFADF00D21579 /* MASCompositeConstraint.m in Sources */,
 				E21BB1F11B9C60C00020ECA4 /* FMResultSet.m in Sources */,
 				E24796411BD9EE1C0040D410 /* UITextField+Placeholder.m in Sources */,
@@ -1062,7 +1068,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
@@ -1093,7 +1099,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",

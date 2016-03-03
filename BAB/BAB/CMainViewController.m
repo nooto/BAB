@@ -15,7 +15,8 @@
 #import "Masonry.h"
 #import "View+MASShorthandAdditions.h"
 #import "Utility/UtilityHelper.h"
-@interface CMainViewController () <EHSharePageViewdDelegate, UITextFieldDelegate>
+#import "CBabResultView.h"
+@interface CMainViewController () <EHSharePageViewdDelegate, UITextFieldDelegate, ADBannerViewDelegate>
 
 @property (nonatomic, strong)  UIImageView *mBgView;
 
@@ -43,9 +44,12 @@
 
 @property (nonatomic, strong) UILabel *resultLabel;
 
-@property (nonatomic, strong) IBOutlet ADBannerView *bannerView;
+@property (nonatomic, strong) ADBannerView *mBannerView;
 @property (nonatomic, strong) 	CBABData* babData;
 @property (nonatomic, strong) NSMutableArray *arrHistory;
+
+
+@property (nonatomic, assign) APPType  mAppType; //App le
 
 @end
 
@@ -75,6 +79,7 @@
         _resultLabel.textColor = [UIColor redColor];
         _resultLabel.layer.masksToBounds = YES;
         _resultLabel.numberOfLines = 3;
+        _resultLabel.font = Font14;
         [_resultLabel sizeToFit];
     }
     return _resultLabel;
@@ -89,6 +94,9 @@
 //    [self hiddeBackButton];
     [self setBackButtonImage:nil];
     [self setBackButtonText:@"分享"];
+    
+    self.mAppType = [Utility AppType];
+    self.mAppType = APP_FREE;
     
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -121,12 +129,16 @@
     [self.view addSubview:self.clearnButton];
     
     [self.view addSubview:self.resultLabel];
+//    [self.view addSubview:self.mBannerView];
+    
     //日期选择控件。
     [self.view addSubview:self.datePickerView];
 
     __weak typeof(self.view )weaskSuperView = self.view;
     
     [_mBgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.width.mas_equalTo(SCREEN_W);
+        make.size.height.mas_equalTo(SCREEN_H);
         make.edges.equalTo(weaskSuperView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
@@ -241,17 +253,33 @@
         make.width.equalTo(_clearnButton.mas_width);
     }];
     
+    //有广告
+    if (self.mAppType == APP_FREE) {
+        [self.view addSubview:self.mBannerView];
+
+        //jieguo
+        //    CGSize textSize = [@"测试" sizeWithAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:_resultLabel.font,NSFontAttributeName, nil]];
+        //    CGFloat labelHieht = textSize.height * 5;
+        [self.resultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(_pmjeLabel.mas_left);
+            make.right.equalTo(weaskSuperView).with.offset(-20);
+            make.top.equalTo(_clearnButton.mas_bottom).with.offset(20);
+            make.bottom.equalTo(_mBannerView.mas_top).with.offset(-20);
+        }];
+    }
+    //无广告
+    else if (self.mAppType == APP_CHARGE){
+        CGSize textSize = [@"测试" sizeWithAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:_resultLabel.font,NSFontAttributeName, nil]];
+        CGFloat labelHieht = textSize.height * 5;
+        [self.resultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(_pmjeLabel.mas_left);
+                make.right.equalTo(weaskSuperView).with.offset(-20);
+                make.bottom.equalTo(weaskSuperView).with.offset(-20);
+                make.height.mas_equalTo(labelHieht);
+        }];
+    }
     
-    //jieguo
-    CGSize textSize = [@"测试" sizeWithAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:_resultLabel.font,NSFontAttributeName, nil]];
-    CGFloat labelHieht = textSize.height * 5;
-    [self.resultLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(_pmjeLabel.mas_left);
-        make.right.equalTo(weaskSuperView).with.offset(-20);
-//        make.top.equalTo(_clearnButton.mas_bottom).with.offset(20);
-        make.bottom.equalTo(weaskSuperView).with.offset(-20);
-        make.height.mas_equalTo(labelHieht);
-    }];
+    
     
     [self initViewAndData];
     self.txrqButton.showsTouchWhenHighlighted = self.dqrqButton.showsTouchWhenHighlighted = YES;
@@ -312,6 +340,16 @@
     return _mBgView;
 }
 
+
+-(ADBannerView*)mBannerView{
+    if (!_mBannerView) {
+        _mBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+//        _mBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+        [_mBannerView setFrame:CGRectMake(0, SCREEN_H - 45 , SCREEN_W, 45)];
+        _mBannerView.delegate = self;
+    }
+    return _mBannerView;
+}
 -(UILabel*)pmjeLabel{
     if (!_pmjeLabel) {
         _pmjeLabel = [UILabel new];
@@ -326,7 +364,7 @@
     if (!_pmjeTextField) {
         _pmjeTextField = [UITextField new];
         [_pmjeTextField setBackgroundColor:[UIColor whiteColor]];
-        _pmjeTextField.textAlignment = NSTextAlignmentRight;
+        _pmjeTextField.textAlignment = NSTextAlignmentCenter;
         _pmjeTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pmjeTextField.keyboardType = UIKeyboardTypeNumberPad;
         _pmjeTextField.delegate = self;
@@ -359,7 +397,7 @@
     if (!_yllTextField) {
         _yllTextField = [UITextField new];
         [_yllTextField setBackgroundColor:[UIColor whiteColor]];
-        _yllTextField.textAlignment = NSTextAlignmentRight;
+        _yllTextField.textAlignment = NSTextAlignmentCenter;
         _yllTextField.borderStyle = UITextBorderStyleRoundedRect;
         _yllTextField.keyboardType = UIKeyboardTypeNumberPad;
         _yllTextField.delegate = self;
@@ -395,7 +433,7 @@
         _txrqButton = [UIButton new];
         [_txrqButton setBackgroundColor:[UIColor whiteColor]];
         _txrqButton.titleLabel.font = Font15;
-        _txrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        _txrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_txrqButton setTitleColor:Color_black_100 forState:UIControlStateNormal];
         _txrqButton.layer.cornerRadius = 5.0f;
         [_txrqButton addTarget:self action:@selector(txrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -420,7 +458,7 @@
         _dqrqButton = [[UIButton alloc] init];
         [_dqrqButton setBackgroundColor:[UIColor whiteColor]];
         _dqrqButton.titleLabel.font = Font15;
-        _dqrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        _dqrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_dqrqButton addTarget:self action:@selector(dqrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_dqrqButton setTitleColor:Color_black_100 forState:UIControlStateNormal];
         _dqrqButton.layer.cornerRadius = 5.0f;
@@ -428,12 +466,11 @@
     return _dqrqButton;
 }
 
-
 -(UILabel*)tztsLabel{
     if (!_tztsLabel) {
         _tztsLabel = [[UILabel alloc] init];
         [_tztsLabel setText:@"调整天数"];
-        //        [_yllLabel setText:@"测试位置"];
+        //[_yllLabel setText:@"测试位置"];
         [_tztsLabel setFont:Font15];
         [_tztsLabel setTextColor:Color_white_50];
     }
@@ -444,7 +481,7 @@
     if (!_tztsTextField) {
         _tztsTextField = [[UITextField alloc] init];
         [_tztsTextField setBackgroundColor:[UIColor whiteColor]];
-        _tztsTextField.textAlignment = NSTextAlignmentRight;
+        _tztsTextField.textAlignment = NSTextAlignmentCenter;
         _tztsTextField.borderStyle = UITextBorderStyleRoundedRect;
         _tztsTextField.keyboardType = UIKeyboardTypeNumberPad;
         _tztsTextField.delegate = self;
@@ -467,7 +504,7 @@
     if (!_clearnButton) {
         _clearnButton = [[UIButton alloc] init];
         [_clearnButton setBackgroundColor:[UIColor whiteColor]];
-        _clearnButton.titleLabel.textAlignment = NSTextAlignmentRight;
+        _clearnButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_clearnButton setTitle:@"重置" forState:UIControlStateNormal];
         [_clearnButton setTitleColor:Color_black_60 forState:UIControlStateNormal];
         _clearnButton.titleLabel.font = Font15;
@@ -481,7 +518,7 @@
         _calculateButton = [[UIButton alloc] init];
         _calculateButton.titleLabel.font = Font15;
         [_calculateButton setBackgroundColor:[UIColor whiteColor]];
-        _calculateButton.titleLabel.textAlignment = NSTextAlignmentRight;
+        _calculateButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_calculateButton setTitle:@"计算" forState:UIControlStateNormal];
         [_calculateButton setTitleColor:Color_black_60 forState:UIControlStateNormal];
         [_calculateButton addTarget:self action:@selector(calculateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -687,7 +724,7 @@
 }
 #pragma mark  ADBannerView 
 - (void)bannerViewWillLoadAd:(ADBannerView *)banner{
-    [self.bannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
+    [self.mBannerView setFrame:CGRectMake(0, CGRectGetHeight(self.view.bounds) - 44, CGRectGetWidth(self.view.bounds), 50)];
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
