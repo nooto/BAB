@@ -28,7 +28,6 @@
     if (self) {
         // Custom initialization
         self.mAppType = [Utility AppType];
-        self.mAppType = APP_FREE;
     }
     return self;
 }

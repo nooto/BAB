@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "478688837.073879"
+            timestampString = "478764514.683418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "703"
-            endingLineNumber = "703"
+            startingLineNumber = "702"
+            endingLineNumber = "702"
             landmarkName = "-calculateButtonAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -88,27 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CHistoryViewController.m"
-            timestampString = "478677904.566118"
+            timestampString = "478764514.683418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "-initWithNibName:bundle:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BAB/CHistoryViewController.m"
-            timestampString = "478677909.477797"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CHistoryViewController.m"
-            timestampString = "478677916.589807"
+            timestampString = "478764514.683418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -152,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "478690697.755107"
+            timestampString = "478764514.683418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "705"
-            endingLineNumber = "705"
+            startingLineNumber = "704"
+            endingLineNumber = "704"
             landmarkName = "-calculateButtonAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BAB/CMainViewController.m"
-            timestampString = "478690701.986872"
+            timestampString = "478764514.683418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "639"
-            endingLineNumber = "639"
+            startingLineNumber = "638"
+            endingLineNumber = "638"
             landmarkName = "-calculateButtonAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -190,6 +174,38 @@
             startingLineNumber = "181"
             endingLineNumber = "181"
             landmarkName = "-setMCurBabData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BAB/EHSharePageView.m"
+            timestampString = "478765855.920948"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "-shareButtonAciton:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BAB/EHSharePageView.m"
+            timestampString = "478765858.328852"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
+            landmarkName = "-shareButtonAciton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

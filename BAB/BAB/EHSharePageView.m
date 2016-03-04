@@ -31,22 +31,22 @@
         [self addSubview:self.mItemsView];
         self.m_delegate = delegate;
         
-        [self.mBackGroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self);
-            make.top.equalTo(self.mas_top);
-            make.width.equalTo(self.mas_width);
-            make.height.equalTo(self.mas_height);
-        }];
-        
-        
-//        frame.size.height = posY + (self.arrDataSource.count/numberOfColunm + 1) * (buttonWidht + 30) + margin;
-
-        [self.mItemsView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self);
-            make.top.equalTo(self.mas_bottom);
-            make.width.equalTo(self.mas_width);
-            make.height.equalTo(self.mas_height).multipliedBy(0.2);
-        }];
+//        [self.mBackGroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.leading.equalTo(self);
+//            make.top.equalTo(self.mas_top);
+//            make.width.equalTo(self.mas_width);
+//            make.height.equalTo(self.mas_height);
+//        }];
+//        
+//        
+////        frame.size.height = posY + (self.arrDataSource.count/numberOfColunm + 1) * (buttonWidht + 30) + margin;
+//
+//        [self.mItemsView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self);
+//            make.top.equalTo(self.mas_bottom);
+//            make.width.equalTo(self.mas_width);
+//            make.height.equalTo(self.mItemsView.mas_height);
+//        }];
         
     }
     return self;
@@ -57,19 +57,19 @@
     if (!_arrDataSource) {
         _arrDataSource = [[NSMutableArray alloc] initWithCapacity:1];
         //微信
-        if ([WXApi isWXAppInstalled]) {
+//        if ([WXApi isWXAppInstalled]) {
             [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"微信",                             KNAME,  @"WXIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiSession],  KTAG, nil]];
             [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"朋友圈", KNAME,  @"ic_friends_sel",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiTimeline], KTAG, nil]];
-        }
+//        }
         
         //QQ
-        if ([QQApi isQQInstalled]) {
-            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"QQ", nil),          KNAME,  @"QQIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeQQ],            KTAG, nil]];
-            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"QQ空间", nil),       KNAME,  @"ic_qq_zone",   KICON,  [NSNumber numberWithInteger:ShareTypeQQSpace],       KTAG, nil]];
-        }
+//        if ([QQApi isQQInstalled]) {
+            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"QQ",          KNAME,  @"QQIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeQQ],            KTAG, nil]];
+            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"QQ空间",       KNAME,  @"ic_qq_zone",   KICON,  [NSNumber numberWithInteger:ShareTypeQQSpace],       KTAG, nil]];
+//        }
         
         //新浪
-        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"sina_text", nil),   KNAME,  @"SinaIconNormal", KICON, [NSNumber numberWithInteger:ShareTypeSinaWeibo],     KTAG, nil]];
+        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"新浪微博",   KNAME,  @"SinaIconNormal", KICON, [NSNumber numberWithInteger:ShareTypeSinaWeibo],     KTAG, nil]];
         
         //复制链接。
         [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"复制链接",KNAME,  @"ic_copy",    KICON,  [NSNumber numberWithInteger:ShareTypeOther],        KTAG, nil]];
@@ -82,6 +82,7 @@
     if (!_mBackGroundView) {
         _mBackGroundView = [UIView new];
         [_mBackGroundView setBackgroundColor:[UIColor blackColor]];
+        [_mBackGroundView setFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
         _mBackGroundView.alpha = 0.0f;
     }
     return _mBackGroundView;
@@ -123,6 +124,7 @@
         
         CGRect frame = _mItemsView.frame;
         frame.origin.y = CGRectGetHeight(self.bounds);
+        frame.size.width = SCREEN_W;
         frame.size.height = posY + (self.arrDataSource.count/numberOfColunm + 1) * (buttonWidht + 30) + margin;
         [_mItemsView setFrame:frame];
     }
@@ -138,25 +140,16 @@
         [[UIApplication sharedApplication].keyWindow addSubview:self];
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.5f;
-            [_mItemsView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(self.mas_bottom).offset(-50);
-            }];
-            [_mItemsView layoutIfNeeded];
+            _mItemsView.center = CGPointMake(SCREEN_W/2, SCREEN_H - CGRectGetHeight(_mItemsView.frame)/2);
         }];
     }
     else{
         
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.0f;
-            [_mItemsView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(self.mas_bottom);
-            }];
-            [_mItemsView layoutIfNeeded];
-            
+            _mItemsView.center = CGPointMake(SCREEN_W/2, SCREEN_H + CGRectGetHeight(_mItemsView.frame)/2);
         }completion:^(BOOL finished) {
-            
             [self removeFromSuperview];
-            
         }];
     }
 }
@@ -173,7 +166,7 @@
     __strong typeof(EHSharePageView*) _self = self;
     ShareType shareType = (ShareType)sender.tag;
     NSString* m_url = @"www.spotmau.cn";
-    NSString*  m_shareContent = NSLocalizedString(@"share text content", nil);
+    NSString*  m_shareContent = NSLocalizedString(@"我正在用的这款承兑贴现计算工具很不错，也推荐给你用亚。。。。", nil);
     
     //内容。
     if (self.mShareContent) {
@@ -186,7 +179,7 @@
         imagePath = [ShareSDK pngImageWithImage:self.mShareImage];
     }
     else{
-        imagePath = [ShareSDK pngImageWithImage:[UIImage imageNamed:@"AppIcon_1"]];
+        imagePath = [ShareSDK pngImageWithImage:[UIImage imageNamed:@"AppIcon-2"]];
     }
     
     NSString *m_title = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
@@ -217,17 +210,15 @@
                  statusBarTips:YES
                         result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                             if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ share success!", nil)];
-                            
+                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ分享成功", nil)];
                             }
                             else if (state == SSPublishContentStateFail){
-                                if ([error errorCode] == -24002){
-                                    [_self notiySuperView:NO withMessage:[error errorDescription]];
+                                if ([QQApi isQQInstalled]) {
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装QQ", nil)];
                                 }
                                 else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ share faild!", nil)];
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ分享失败", nil)];
                                 }
-//                                DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
                             }
                             else if (state == SSPublishContentStateCancel){
 //                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ share faild!", nil)];
@@ -244,19 +235,17 @@
                         result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                             
                             if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ space share success!", nil)];
+                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ空间分享成功", nil)];
                             }
                             else if (state == SSPublishContentStateFail){
-                                if ([error errorCode] == -24002){
-                                    [_self notiySuperView:NO withMessage:[error errorDescription]];
+                                if ([QQApi isQQInstalled]) {
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装QQ空间", nil)];
                                 }
                                 else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ space share faild!", nil)];
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ空间分享失败", nil)];
                                 }
-//                                DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
                             }
                             else if (state == SSPublishContentStateCancel){
-//                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ share faild!", nil)];
                             }
                         }];
     }
@@ -270,7 +259,7 @@
                                                     url:m_url
                                             description:m_shareContent
                                               mediaType:SSPublishContentMediaTypeNews];
-        
+        [self showSharePageView:NO];
         BOOL hasSinaWeb = [WeiboSDK isWeiboAppInstalled];
         if (hasSinaWeb) {
             [ShareSDK clientShareContent:shareContent
@@ -278,10 +267,10 @@
                            statusBarTips:NO
                                   result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                                       if (state == SSPublishContentStateSuccess){
-                                          [_self notiySuperView:YES withMessage:NSLocalizedString(@"sina share success!", nil)];
+                                          [_self notiySuperView:YES withMessage:NSLocalizedString(@"新浪微博分享成功", nil)];
                                       }
                                       else if (state == SSPublishContentStateFail){
-                                          [_self notiySuperView:NO withMessage:NSLocalizedString(@"sina share faild!", nil)];
+                                          [_self notiySuperView:NO withMessage:NSLocalizedString(@"新浪微博分享失败", nil)];
 //                                          DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
                                       }
                                       else if (state == SSPublishContentStateCancel){
@@ -300,10 +289,10 @@
                      statusBarTips:YES
                             result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                                 if (state == SSPublishContentStateSuccess){
-                                    [_self notiySuperView:YES withMessage:NSLocalizedString(@"sina share success!", nil)];
+                                    [_self notiySuperView:YES withMessage:NSLocalizedString(@"新浪微博分享成功", nil)];
                                 }
                                 else if (state == SSPublishContentStateFail){
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"sina share faild!", nil)];
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"新浪微博分享失败", nil)];
 //                                    DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
                                 }
                                 else if (state == SSPublishContentStateCancel){
@@ -321,16 +310,15 @@
                  statusBarTips:NO
                         result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                             if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"wechat share success!", nil)];
+                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"微信分享成功", nil)];
                             }
                             else  if (state == SSPublishContentStateFail){
-                                if ([error errorCode] == -22003){
-                                    //未安装微信 提示。
-                                    [_self notiySuperView:NO withMessage:[error errorDescription]];
-                                }
-                                else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
-                                }
+                                    if ([WXApi isWXAppInstalled]) {
+                                        [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装微信", nil)];
+                                    }
+                                    else{
+                                        [_self notiySuperView:NO withMessage:NSLocalizedString(@"微信分享失败", nil)];
+                                    }
                             }
                             else if (state == SSPublishContentStateCancel){
 //                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
@@ -355,15 +343,14 @@
                  statusBarTips:NO
                         result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
                             if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"wechat share success!", nil)];
+                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"朋友圈分享成功", nil)];
                             }
                             else if (state == SSPublishContentStateFail){
-                                if ([error errorCode] == -22003){
-                                    //未安装微信 提示。
-                                    [_self notiySuperView:NO withMessage:[error errorDescription]];
+                                if ([WXApi isWXAppInstalled]) {
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装微信", nil)];
                                 }
                                 else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
+                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"朋友圈分享失败", nil)];
                                 }
                                 
 //                                DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
@@ -377,8 +364,8 @@
     //复制链接
     else{
         UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        [pasteboard setString:m_url];
-        [_self notiySuperView:YES withMessage:@"链接已经复制到粘贴板中"];
+        [pasteboard setString:[NSString stringWithFormat:@"%@%@", m_shareContent, m_url]];
+        [_self notiySuperView:YES withMessage:@"分享链接已经复制到粘贴板中,可以粘贴发送给朋友啦。。"];
     }
 }
 

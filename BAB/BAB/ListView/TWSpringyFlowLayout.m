@@ -63,7 +63,6 @@ CGFloat const kTWSpringyFlowLayoutDefaultBounce = 500.0f;
 }
 
 #pragma mark - Layout
-
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
 	return [_dynamicAnimator itemsInRect:rect];

@@ -97,7 +97,6 @@
     [self setBackButtonText:@"分享"];
     
     self.mAppType = [Utility AppType];
-    self.mAppType = APP_FREE;
     
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -284,6 +283,10 @@
     
     [self initViewAndData];
     self.txrqButton.showsTouchWhenHighlighted = self.dqrqButton.showsTouchWhenHighlighted = YES;
+    
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+    whiteView.backgroundColor =[UIColor blackColor];
+    [self.view addSubview:whiteView];
 }
 
 -(void)backBtnPressed:(UIButton *)sender{
@@ -725,6 +728,15 @@
 	[self.yllTextField resignFirstResponder];
 	[self.tztsTextField resignFirstResponder];
 
+}
+#pragma mark - sharePage
+-(void)sharePageViewDidFinshShare:(BOOL)issuccess withMessage:(NSString *)message{
+    if (issuccess) {
+        [self showMessage:@"分享成功"];
+    }
+    else{
+        [self showMessage:message];
+    }
 }
 #pragma mark  ADBannerView 
 - (void)bannerViewWillLoadAd:(ADBannerView *)banner{

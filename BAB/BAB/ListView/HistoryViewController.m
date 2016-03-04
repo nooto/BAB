@@ -35,7 +35,6 @@ CGFloat const kTWMessageViewControllerCellHeight = 240;
     self.title = @"记录";
     self.mNavBarView.backgroundColor = [UIColor clearColor];
     self.mAppType = [Utility AppType];
-    self.mAppType = APP_CHARGE;
     
     UIImageView *mBgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
     [mBgView setImage:[UIImage imageNamed:@"bg"]];

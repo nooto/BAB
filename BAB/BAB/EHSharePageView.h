@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CMainViewController.h"
 
 @class EHSharePageView;
 @protocol EHSharePageViewdDelegate <NSObject>

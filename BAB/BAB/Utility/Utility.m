@@ -23,14 +23,11 @@
     else if ([bundleIdntifier containsString:@"com.1719.bab"]){
         return APP_CHARGE;
     }
-    else if ([bundleIdntifier containsString:@"com.1719.babPurchases"]){
-        return APP_Purchases;
-    }
     else{
-        return APP_Purchases;
+        return APP_FREE;
     }
-    
 }
+
 /**
  将dictionary转换为json数据
  */
