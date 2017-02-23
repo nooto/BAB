@@ -31,6 +31,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     // Initialization code
 	self.bgView.layer.cornerRadius = 20.0f;
     self.yll.textColor = self.txje.textColor = self.txlx.textColor = self.txrq.textColor = self.dqrq.textColor = self.pmje.textColor = tzts.textColor = jxts.textColor = [UIColor colorWithWhite:1 alpha:0.5];

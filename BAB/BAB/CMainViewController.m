@@ -278,15 +278,9 @@
                 make.height.mas_equalTo(labelHieht);
         }];
     }
-    
-    
-    
+
     [self initViewAndData];
     self.txrqButton.showsTouchWhenHighlighted = self.dqrqButton.showsTouchWhenHighlighted = YES;
-    
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
-    whiteView.backgroundColor =[UIColor blackColor];
-    [self.view addSubview:whiteView];
 }
 
 -(void)backBtnPressed:(UIButton *)sender{
@@ -312,7 +306,6 @@
     [formattter setDateFormat:@"yyyy年MM月dd日"];
     NSString* temp = [formattter stringFromDate:self.babData.txrq];
     [self.txrqButton setTitle:temp forState:UIControlStateNormal];
-    
     
     self.babData.dqrq = [[NSDate date] dateByAddingDays:1];
     temp = [formattter stringFromDate:self.babData.dqrq];

@@ -25,6 +25,9 @@
     self.interactivePopGestureRecognizer.enabled = NO;
 }
 
+- (void)handleNavigationTransition:(id)sender{
+
+}
 -(BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
     if (self.childViewControllers.count == 1) {
         return NO;
