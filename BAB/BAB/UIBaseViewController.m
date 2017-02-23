@@ -8,16 +8,20 @@
 
 #import "UIBaseViewController.h"
 #import "EHCustomNavBar.h"
+//#import "CThemeManager.h"
+
 @implementation UIBaseViewController
 
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self.view addSubview:self.mNavBarView];
     self.navigationController.navigationBar.hidden = YES;
-    
-//    UIImageView *mbgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-//    [mbgView setImage:[UIImage imageNamed:@"bg"]];
-//    self.view = mbgView;
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTheme) name:themeTypeChange object:nil];
+}
+
+-(void)updateTheme{
+
 }
 
 

@@ -312,6 +312,17 @@
     
 }
 
+-(void)updateTheme{
+
+    [self.view setBackgroundColor:ThemeManager.backGroundColor];
+    [self.mBgView setImage:[ThemeManager imageNamed:@"bg"]];
+
+    self.pmjeLabel.textColor = self.pmjeUintLabel.textColor = self.yllLabel.textColor = self.yllUintLabel.textColor = self.txrqLabel.textColor = self.dqrqLabel.textColor = self.tztsLabel.textColor = self.tztsUintLabel.textColor = ThemeManager.mainTextColor;
+    self.pmjeTextField.textColor = self.yllTextField.textColor = self.tztsTextField.textColor = ThemeManager.subTextColor;
+}
+
+
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if (self.datePickerView.isShow) {
         [self.datePickerView showDatePickerView:NO];

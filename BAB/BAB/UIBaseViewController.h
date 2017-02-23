@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EHCustomNavBar.h"
+#import "CThemeManager.h"
 
 @interface UIBaseViewController : UIViewController
 /**
@@ -21,5 +22,8 @@
 -(void)hiddeBackButton;
 -(void)setBackButtonImage:(UIImage*)image;
 -(void)setBackButtonText:(NSString*)text;
+
+
+- (void)updateTheme;
 
 @end

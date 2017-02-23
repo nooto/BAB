@@ -79,6 +79,7 @@
 		E26F058F1BE1F55A007918B2 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058A1BE1F55A007918B2 /* HistoryViewController.m */; };
 		E26F05901BE1F55A007918B2 /* TWMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */; };
 		E26F05911BE1F55A007918B2 /* TWSpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */; };
+		E28B9F2D1E5ED8A600EBB8CB /* CThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */; };
 		E2954DA91C87DDAD00F99A85 /* CBabResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2954DA81C87DDAD00F99A85 /* CBabResultView.m */; };
 		E2985C731BF1D3070060D167 /* EHSharePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2985C721BF1D3070060D167 /* EHSharePageView.m */; };
 		E2985C981BF1D3570060D167 /* QQConnection.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985C761BF1D3570060D167 /* QQConnection.framework */; };
@@ -249,6 +250,8 @@
 		E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageViewCell.m; sourceTree = "<group>"; };
 		E26F058D1BE1F55A007918B2 /* TWSpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSpringyFlowLayout.h; sourceTree = "<group>"; };
 		E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSpringyFlowLayout.m; sourceTree = "<group>"; };
+		E28B9F2B1E5ED8A600EBB8CB /* CThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CThemeManager.h; sourceTree = "<group>"; };
+		E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CThemeManager.m; sourceTree = "<group>"; };
 		E2954DA71C87DDAD00F99A85 /* CBabResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBabResultView.h; sourceTree = "<group>"; };
 		E2954DA81C87DDAD00F99A85 /* CBabResultView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBabResultView.m; sourceTree = "<group>"; };
 		E2985C711BF1D3070060D167 /* EHSharePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EHSharePageView.h; sourceTree = "<group>"; };
@@ -562,6 +565,7 @@
 		E24796041BD9EE1C0040D410 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E28B9F2A1E5ED89300EBB8CB /* ThemeManager */,
 				E24796051BD9EE1C0040D410 /* categories */,
 				E247961C1BD9EE1C0040D410 /* EHSysProperty.h */,
 				E247961D1BD9EE1C0040D410 /* EHSysProperty.m */,
@@ -649,6 +653,15 @@
 				E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */,
 			);
 			path = ListView;
+			sourceTree = "<group>";
+		};
+		E28B9F2A1E5ED89300EBB8CB /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				E28B9F2B1E5ED8A600EBB8CB /* CThemeManager.h */,
+				E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */,
+			);
+			path = ThemeManager;
 			sourceTree = "<group>";
 		};
 		E2985C741BF1D3570060D167 /* ShareSDK */ = {
@@ -921,6 +934,7 @@
 				E21BB1F11B9C60C00020ECA4 /* FMResultSet.m in Sources */,
 				E24796411BD9EE1C0040D410 /* UITextField+Placeholder.m in Sources */,
 				E21BB1EF1B9C60C00020ECA4 /* FMDatabasePool.m in Sources */,
+				E28B9F2D1E5ED8A600EBB8CB /* CThemeManager.m in Sources */,
 				E24796391BD9EE1C0040D410 /* NSDateFormatter+Category.m in Sources */,
 				3E81A22E18F3CB1600A42207 /* CMainViewController.m in Sources */,
 				E21BB1F51B9C60C00020ECA4 /* FMResultSet+FMDBHelpers.m in Sources */,
