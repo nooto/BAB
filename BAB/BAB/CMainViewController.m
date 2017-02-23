@@ -79,8 +79,7 @@
         _resultLabel.textColor = [UIColor redColor];
         _resultLabel.layer.masksToBounds = YES;
         _resultLabel.numberOfLines = 3;
-        _resultLabel.font = Font14;
-        [_resultLabel sizeToFit];
+        _resultLabel.font = Font16;
         _resultLabel.hidden = YES;
     }
     return _resultLabel;
@@ -364,7 +363,7 @@
         [_pmjeTextField setBackgroundColor:[UIColor whiteColor]];
         _pmjeTextField.textAlignment = NSTextAlignmentCenter;
         _pmjeTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _pmjeTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _pmjeTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _pmjeTextField.delegate = self;
     }
     return _pmjeTextField;
@@ -374,7 +373,6 @@
     if (!_pmjeUintLabel) {
         _pmjeUintLabel = [UILabel new];
         _pmjeUintLabel.text = @"万";
-        _pmjeUintLabel.text = @"位";
         _pmjeUintLabel.font = Font15;
         _pmjeUintLabel.textColor = Color_white_50;
     }
@@ -397,7 +395,7 @@
         [_yllTextField setBackgroundColor:[UIColor whiteColor]];
         _yllTextField.textAlignment = NSTextAlignmentCenter;
         _yllTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _yllTextField.keyboardType = UIKeyboardTypeNumberPad;
+        _yllTextField.keyboardType = UIKeyboardTypeDecimalPad;
         _yllTextField.delegate = self;
     }
     return _yllTextField;
@@ -406,8 +404,7 @@
 -(UILabel*)yllUintLabel{
     if (!_yllUintLabel) {
         _yllUintLabel = [UILabel new];
-        _yllUintLabel.text = @"万";
-        _yllUintLabel.text = @"位";
+        _yllUintLabel.text = @"‰";
         _yllUintLabel.font = Font15;
         _yllUintLabel.textColor = Color_white_50;
     }
@@ -419,7 +416,6 @@
     if (!_txrqLabel) {
         _txrqLabel = [UILabel new];
         [_txrqLabel setText:@"贴现日期"];
-//        [_txrqLabel setText:@"测试位置"];
         [_txrqLabel setFont:Font15];
         [_txrqLabel setTextColor:Color_white_50];
     }
@@ -611,7 +607,7 @@
 	}
 	else if (_datePickerView.tag ==2){
 		_babData.dqrq = date;
-        [self.txrqButton setTitle:_babData.dqrqstr forState:UIControlStateNormal];
+        [self.dqrqButton setTitle:_babData.dqrqstr forState:UIControlStateNormal];
 	}
 }
 
@@ -696,13 +692,14 @@
 //	[self.txjeTextField setText:babData.txje];
 	
     [self.resultLabel setAttributedText:[_babData getResultString]];
-    self.resultLabel.hidden = self.resultLabel.text.length >0 ? NO: YES;
-    
+    self.resultLabel.hidden = NO;
+
     [DBHelper inserTtBABData:self.babData];
 }
 
 
 -(IBAction)clearButtonAction:(id)sender{
+    self.resultLabel.hidden = YES;
 	[self closeKeyBoarad];
     [self initViewAndData];
 }
