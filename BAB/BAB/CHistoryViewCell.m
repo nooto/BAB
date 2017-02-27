@@ -44,8 +44,6 @@
     // Configure the view for the selected state
 }
 
-
-
 -(void)setMBABData:(CBABData *)mBABData{
     _mBABData = mBABData;
     [pmje setText:[NSString stringWithFormat:@"%@万元",mBABData.pmje]];
@@ -59,5 +57,7 @@
     [txje setText:[NSString stringWithFormat:@"%@ 元",mBABData.txje]];
 
     [jssj setText:mBABData.jssj];
+
+    self.yll.textColor = self.txje.textColor = self.txlx.textColor = self.txrq.textColor = self.dqrq.textColor = self.pmje.textColor = tzts.textColor = jxts.textColor = Color_white_50;
 }
 @end

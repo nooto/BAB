@@ -61,18 +61,31 @@
     return @[@"txrq",@"dqrq"];
 }
 
+-(void)setTxrq:(NSDate *)txrq{
+    _txrq = txrq;
+    _txrqstr = nil;
+}
+
 -(NSString*)txrqstr{
+    if (_txrqstr.length <= 0) {
         NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
         [formattter setDateFormat:@"yyyy年MM月dd日"];
         _txrqstr = [formattter stringFromDate:_txrq];
+    }
     return _txrqstr;
 }
 
--(NSString*)dqrqstr{
+-(void)setDqrq:(NSDate *)dqrq{
+    _dqrq = dqrq;
+    _dqrqstr = nil;
+}
 
-    NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
-    [formattter setDateFormat:@"yyyy年MM月dd日"];
-    _dqrqstr = [formattter stringFromDate:_dqrq];
+-(NSString*)dqrqstr{
+    if (_dqrqstr.length <= 0) {
+        NSDateFormatter *formattter = [[NSDateFormatter alloc] init];
+        [formattter setDateFormat:@"yyyy年MM月dd日"];
+        _dqrqstr = [formattter stringFromDate:_dqrq];
+    }
     return _dqrqstr;
 }
 

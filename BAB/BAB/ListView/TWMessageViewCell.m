@@ -28,7 +28,7 @@
     if (self =[super initWithFrame:frame]) {
         
         UILabel *timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(MarginW(20), MarginH(10), SCREEN_W- MarginW(20)*4, 25)];
-        [timeLabel setFont:Font14];
+        [timeLabel setFont:Font13];
         [timeLabel setTextColor:Color_white_80];
         [self.contentView addSubview:timeLabel];
         self.timeLabel = timeLabel;
@@ -44,14 +44,14 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(MarginW(20), CGRectGetMinY(bgView.frame)+5, 60, 24)];
         [label setText:@"票面金额:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
 
         UILabel *Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame)+ 10, MarginH(20), SCREEN_W/2- MarginW(20), 25)];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.pmje = Textlabel;
@@ -60,14 +60,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"月利率:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.yll = Textlabel;
@@ -76,14 +76,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"贴现日期:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.txrq = Textlabel;
@@ -92,14 +92,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"到期日期:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.dqrq = Textlabel;
@@ -108,14 +108,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"调整天数:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.tzts = Textlabel;
@@ -124,14 +124,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"计息天数:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.jxts = Textlabel;
@@ -140,14 +140,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"贴现利息:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.txlx = Textlabel;
@@ -156,14 +156,14 @@
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
         [label setText:@"贴现金额:"];
         label.textAlignment = NSTextAlignmentRight;
-        [label setFont:Font14];
+        [label setFont:Font13];
         [label setTextColor:Color_white_80];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
-        [Textlabel setFont:Font14];
+        [Textlabel setFont:Font13];
         [Textlabel setTextColor:Color_white_50];
         [self.contentView addSubview:Textlabel];
         self.txje = Textlabel;

@@ -177,6 +177,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     self.mPromptView.hidden = arrHistory.count > 0 ? YES : NO;
+    self.mPromptView.hidden =  NO;
     return [arrHistory count];
 }
 
