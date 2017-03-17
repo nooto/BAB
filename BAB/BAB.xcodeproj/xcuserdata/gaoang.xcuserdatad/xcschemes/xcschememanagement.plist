@@ -4,8 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BAB copy.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>BAB.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
@@ -18,6 +27,11 @@
 			<true/>
 		</dict>
 		<key>3E81A21318F3CAF800A42207</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E2EACA711E7BD09B00C8C871</key>
 		<dict>
 			<key>primary</key>
 			<true/>
