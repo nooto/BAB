@@ -184,7 +184,7 @@
         make.height.mas_equalTo(_yllLabel.mas_height);
     }];
     
-    //贴现日期
+    //贴现日
     [self.txrqLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_yllLabel.mas_bottom).with.offset(20);
         make.left.equalTo(weaskSuperView).with.offset(20);
@@ -198,7 +198,7 @@
         make.height.mas_equalTo(_yllLabel.mas_height);
     }];
 
-    //到期日期
+    //到期日
 //    self.dqrqLabel.backgroundColor = [UIColor redColor];
     [self.dqrqLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_txrqLabel.mas_bottom).with.offset(20);
@@ -427,7 +427,7 @@
 -(UILabel*)txrqLabel{
     if (!_txrqLabel) {
         _txrqLabel = [UILabel new];
-        [_txrqLabel setText:@"贴现日期"];
+        [_txrqLabel setText:@"贴现日"];
         [_txrqLabel setFont:Font15];
         [_txrqLabel setTextColor:[ThemeManager mainTextColor]];
     }
@@ -451,7 +451,7 @@
 -(UILabel*)dqrqLabel{
     if (!_dqrqLabel) {
         _dqrqLabel = [UILabel new];
-        [_dqrqLabel setText:@"到期日期"];
+        [_dqrqLabel setText:@"到期日"];
         //        [_txrqLabel setText:@"测试位置"];
         [_dqrqLabel setFont:Font15];
         [_dqrqLabel setTextColor:[ThemeManager mainTextColor]];
@@ -656,12 +656,12 @@
 //	NSInteger day1 = val111 / (60 * 60 * 24);
 //	NSInteger day2 = [_babData.txrq timeIntervalSince1970] / (60 *60* 24);
 //	if (day1 <= day2) {
-//		[self showMessage:@"到期日期要晚于贴现日期。"];
+//		[self showMessage:@"到期日要晚于贴现日。"];
 //		return;
 //	}
     
     if ([_babData.txrq isLaterThanDate:_babData.dqrq]) {
-        [self showMessage:@"到期日期要晚于贴现日期。"];
+        [self showMessage:@"到期日要晚于贴现日。"];
         return;
     }
 	

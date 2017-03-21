@@ -76,7 +76,7 @@
         
         //----3
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
-        [label setText:@"贴现日期:"];
+        [label setText:@"贴现日:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
         [label setTextColor:[ThemeManager buttonTitleColor]];
@@ -92,7 +92,7 @@
 
         //----4
         label = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(label.frame), CGRectGetMaxY(label.frame), CGRectGetWidth(label.frame), CGRectGetHeight(label.frame))];
-        [label setText:@"到期日期:"];
+        [label setText:@"到期日:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
         [label setTextColor:[ThemeManager buttonTitleColor]];
