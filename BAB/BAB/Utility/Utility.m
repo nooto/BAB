@@ -305,7 +305,6 @@
     }
     return isPINcode;
 
-    
 //    NSString *pinRegex =@"^[0-9]*$";
 //    NSPredicate *PINcodeTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pinRegex];
 //    return  [PINcodeTest evaluateWithObject:PINcode];

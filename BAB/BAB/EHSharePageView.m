@@ -116,7 +116,7 @@
             namelabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(button.frame), CGRectGetMaxY(button.frame)-5, CGRectGetWidth(button.frame), 30)];
             [namelabel setText:dict[KNAME]];
             [namelabel setFont:Font14];
-            namelabel.textColor = Color_black_60;
+            namelabel.textColor = [ThemeManager mainTextColor];
             namelabel.textAlignment = NSTextAlignmentCenter;
             namelabel.adjustsFontSizeToFitWidth = YES;
             [_mItemsView addSubview:namelabel];

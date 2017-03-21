@@ -8,6 +8,9 @@
 
 #import "CThemeManager.h"
 #import "Font_Color.h"
+
+#define Color_Back_Ground       ColorFromHex(0xf5f5f5)
+
 @implementation CThemeManager
 __strong static CThemeManager* sharedInstance = nil;
 
@@ -83,10 +86,11 @@ __strong static CThemeManager* sharedInstance = nil;
 
     return Color_Back_Ground;
 }
+
 - (UIColor*)mainTextColor{
     switch (self.currenType) {
         case theme_white:{
-            return Color_white_80;
+            return [UIColor colorWithWhite:255 alpha:0.8f];
         }
             break;
         case theme_black:{

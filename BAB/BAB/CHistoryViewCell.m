@@ -7,6 +7,7 @@
 //
 
 #import "CHistoryViewCell.h"
+#import "CThemeManager.h"
 
 @interface CHistoryViewCell ()
 
@@ -58,6 +59,6 @@
 
     [jssj setText:mBABData.jssj];
 
-    self.yll.textColor = self.txje.textColor = self.txlx.textColor = self.txrq.textColor = self.dqrq.textColor = self.pmje.textColor = tzts.textColor = jxts.textColor = Color_white_50;
+    self.yll.textColor = self.txje.textColor = self.txlx.textColor = self.txrq.textColor = self.dqrq.textColor = self.pmje.textColor = tzts.textColor = jxts.textColor = [ThemeManager mainTextColor];
 }
 @end

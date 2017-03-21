@@ -7,6 +7,8 @@
 //
 
 #import "BABData.h"
+#import "CThemeManager.h"
+
 @implementation CBABData: NSObject
 -(CBABData*)init{
     if (self = [super init]) {
@@ -95,20 +97,20 @@
     
     NSString *tempString = [NSString stringWithFormat:@"     计息天数: %@天\n",self.jxts];
     NSMutableAttributedString *tempAttriString = [[NSMutableAttributedString alloc] initWithString:tempString];
-    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_80} range:NSMakeRange(0, tempString.length)];
-    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_50} range:[tempString rangeOfString:@"计息天数:"]];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [ThemeManager mainTextColor]} range:NSMakeRange(0, tempString.length)];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [ThemeManager mainTextColor]} range:[tempString rangeOfString:@"计息天数:"]];
     [attributeString appendAttributedString:tempAttriString];
     
     tempString = [NSString stringWithFormat:@"     贴现利息: %@\n",self.txlx];
     tempAttriString = [[NSMutableAttributedString alloc] initWithString:tempString];
-    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_80} range:NSMakeRange(0, tempString.length)];
-    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_50} range:[tempString rangeOfString:@"贴现利息:"]];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [ThemeManager mainTextColor]} range:NSMakeRange(0, tempString.length)];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [ThemeManager mainTextColor]} range:[tempString rangeOfString:@"贴现利息:"]];
     [attributeString appendAttributedString:tempAttriString];
 
     tempString = [NSString stringWithFormat:@"     贴现金额: %@",self.txje];
     tempAttriString = [[NSMutableAttributedString alloc] initWithString:tempString];
-    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_80} range:NSMakeRange(0, tempString.length)];
-    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : Color_white_50} range:[tempString rangeOfString:@"贴现金额:"]];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [ThemeManager mainTextColor]} range:NSMakeRange(0, tempString.length)];
+    [tempAttriString addAttributes:@{NSForegroundColorAttributeName : [ThemeManager mainTextColor]} range:[tempString rangeOfString:@"贴现金额:"]];
     [attributeString appendAttributedString:tempAttriString];
 
     return attributeString;

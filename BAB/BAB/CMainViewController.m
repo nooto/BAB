@@ -74,8 +74,8 @@
         _resultLabel.layer.borderColor = [UIColor grayColor].CGColor;;
         _resultLabel.layer.borderWidth = 0.5f;
         _resultLabel.layer.cornerRadius = 15.0f;
-        _resultLabel.backgroundColor = Color_white_30;
-        _resultLabel.textColor = Color_black_60;
+        _resultLabel.backgroundColor = [ThemeManager backGroundColor];
+        _resultLabel.textColor = [ThemeManager mainTextColor];
         _resultLabel.textColor = [UIColor redColor];
         _resultLabel.layer.masksToBounds = YES;
         _resultLabel.numberOfLines = 3;
@@ -363,7 +363,7 @@
         _pmjeLabel = [UILabel new];
         [_pmjeLabel setText:@"票面金额"];
         [_pmjeLabel setFont:Font15];
-        [_pmjeLabel setTextColor:Color_white_50];
+        [_pmjeLabel setTextColor:[ThemeManager mainTextColor]];
     }
     return _pmjeLabel;
 }
@@ -385,7 +385,7 @@
         _pmjeUintLabel = [UILabel new];
         _pmjeUintLabel.text = @"万";
         _pmjeUintLabel.font = Font15;
-        _pmjeUintLabel.textColor = Color_white_50;
+        _pmjeUintLabel.textColor = [ThemeManager mainTextColor];
     }
     return _pmjeUintLabel;
 }
@@ -395,7 +395,7 @@
         _yllLabel = [UILabel new];
         [_yllLabel setText:@"月利率"];
         [_yllLabel setFont:Font15];
-        [_yllLabel setTextColor:Color_white_50];
+        [_yllLabel setTextColor:[ThemeManager mainTextColor]];
     }
     return _yllLabel;
 }
@@ -417,7 +417,7 @@
         _yllUintLabel = [UILabel new];
         _yllUintLabel.text = @"‰";
         _yllUintLabel.font = Font15;
-        _yllUintLabel.textColor = Color_white_50;
+        _yllUintLabel.textColor = [ThemeManager mainTextColor];
     }
     return _yllUintLabel;
 }
@@ -428,7 +428,7 @@
         _txrqLabel = [UILabel new];
         [_txrqLabel setText:@"贴现日期"];
         [_txrqLabel setFont:Font15];
-        [_txrqLabel setTextColor:Color_white_50];
+        [_txrqLabel setTextColor:[ThemeManager mainTextColor]];
     }
     return _txrqLabel;
 }
@@ -439,7 +439,7 @@
         [_txrqButton setBackgroundColor:[UIColor whiteColor]];
         _txrqButton.titleLabel.font = Font15;
         _txrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [_txrqButton setTitleColor:Color_black_100 forState:UIControlStateNormal];
+        [_txrqButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
         _txrqButton.layer.cornerRadius = 5.0f;
         [_txrqButton addTarget:self action:@selector(txrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -453,7 +453,7 @@
         [_dqrqLabel setText:@"到期日期"];
         //        [_txrqLabel setText:@"测试位置"];
         [_dqrqLabel setFont:Font15];
-        [_dqrqLabel setTextColor:Color_white_50];
+        [_dqrqLabel setTextColor:[ThemeManager mainTextColor]];
     }
     return _dqrqLabel;
 }
@@ -465,7 +465,7 @@
         _dqrqButton.titleLabel.font = Font15;
         _dqrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_dqrqButton addTarget:self action:@selector(dqrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_dqrqButton setTitleColor:Color_black_100 forState:UIControlStateNormal];
+        [_dqrqButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
         _dqrqButton.layer.cornerRadius = 5.0f;
     }
     return _dqrqButton;
@@ -477,7 +477,7 @@
         [_tztsLabel setText:@"调整天数"];
         //[_yllLabel setText:@"测试位置"];
         [_tztsLabel setFont:Font15];
-        [_tztsLabel setTextColor:Color_white_50];
+        [_tztsLabel setTextColor:[ThemeManager mainTextColor]];
     }
     return _tztsLabel;
 }
@@ -499,7 +499,7 @@
         _tztsUintLabel = [[UILabel alloc] init];
         _tztsUintLabel.text = @"天";
         _tztsUintLabel.font = Font15;
-        _tztsUintLabel.textColor = Color_white_50;
+        _tztsUintLabel.textColor = [ThemeManager mainTextColor];
     }
     return _tztsUintLabel;
 }
@@ -511,7 +511,7 @@
         [_clearnButton setBackgroundColor:[UIColor whiteColor]];
         _clearnButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_clearnButton setTitle:@"重置" forState:UIControlStateNormal];
-        [_clearnButton setTitleColor:Color_black_60 forState:UIControlStateNormal];
+        [_clearnButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
         _clearnButton.titleLabel.font = Font15;
         [_clearnButton addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _clearnButton.layer.cornerRadius = 5.0f;
@@ -525,7 +525,7 @@
         [_calculateButton setBackgroundColor:[UIColor whiteColor]];
         _calculateButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_calculateButton setTitle:@"计算" forState:UIControlStateNormal];
-        [_calculateButton setTitleColor:Color_black_60 forState:UIControlStateNormal];
+        [_calculateButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
         [_calculateButton addTarget:self action:@selector(calculateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _calculateButton.layer.cornerRadius = 5.0f;
     }
