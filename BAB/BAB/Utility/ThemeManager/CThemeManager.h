@@ -24,8 +24,19 @@ typedef enum {
 
 - (UIImage*)imageNamed:(NSString *)name;
 
+//导航栏背景色。
+-(UIColor*)navBarBackgroudColor;
+-(UIColor*)navBarTitleColor;
+-(UIColor*)navBarLeftButtonTitleColor;
+-(UIColor*)navBarRightButtonTitleColor;
+
+- (UIImage*)backGroundImage;
+
 //背景色
 - (UIColor*)backGroundColor;
+-(UIColor*)backGroundSubColor;
+
+- (UIColor*)buttonTitleColor;
 
 - (UIColor*)mainTextColor;
 - (UIFont*)mainTextFont;

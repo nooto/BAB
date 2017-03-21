@@ -28,7 +28,8 @@
     BABNavigationController *navigationController = [[BABNavigationController alloc] initWithRootViewController:listViewController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
-    
+
+    NSLog(@"AppType: %d", [Utility AppType]);
     
     
     [self setupRemoteNotification];
@@ -64,7 +65,7 @@
         
         [UIApplication sharedApplication].shortcutItems = arr;
     }
-    
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setHidden:YES];
 //    [[UINavigationBar appearance] setBackgroundImage:[self imageFromColor:[UIColor colorWithWhite:255/255 alpha:0.1f] withSize:self.window.frame.size] forBarPosition:UIBarPositionTop barMetrics:UIBarMetricsDefault];

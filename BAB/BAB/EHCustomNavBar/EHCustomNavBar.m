@@ -27,7 +27,7 @@
 -(void)setUpView{
 //    self.backgroundColor = [UIColor redColor];
     _mImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    [_mImageView setImage:[Utility imageFromColor:[UIColor colorWithWhite:255/255 alpha:0.1f] withSize:CGSizeMake(SCREEN_W, NAVBAR_H)]];
+    [_mImageView setImage:[Utility imageFromColor:[ThemeManager navBarBackgroudColor] withSize:CGSizeMake(SCREEN_W, NAVBAR_H)]];
     [self addSubview:_mImageView];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame) - 20)];
@@ -35,7 +35,7 @@
     titleLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 10);
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = Font17Bold;
-    titleLabel.textColor = [ThemeManager mainTextColor];
+    titleLabel.textColor = [ThemeManager navBarTitleColor];
     [titleLabel setBackgroundColor:[UIColor clearColor]];
 //    titleLabel.text = [RootViewController getSceneTitle];
     self.mTextLabel = titleLabel;
@@ -45,7 +45,7 @@
     [leftButton setImage:[UIImage imageNamed:@"btn_login_back_pressed"] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(leftButonAction:) forControlEvents:UIControlEventTouchUpInside];
     leftButton.titleLabel.font = _mTextLabel.font;
-    
+    [leftButton setTitleColor:[ThemeManager navBarLeftButtonTitleColor] forState:UIControlStateNormal];
     [self addSubview:leftButton];
     self.mLeftButton = leftButton;
 }

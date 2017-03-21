@@ -100,6 +100,7 @@
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];
     rightBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     [rightBtn setTitle:@"记录" forState:UIControlStateNormal];
+    [rightBtn setTitleColor:[ThemeManager navBarRightButtonTitleColor] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(showHistory) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.titleLabel.font = Font17;
     [self addRightButton:rightBtn];
@@ -342,7 +343,7 @@
 
 -(UIImageView*)mBgView{
     if (!_mBgView) {
-        _mBgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+        _mBgView = [[UIImageView alloc] initWithImage:[ThemeManager backGroundImage]];
     }
     return _mBgView;
 }
@@ -439,7 +440,7 @@
         [_txrqButton setBackgroundColor:[UIColor whiteColor]];
         _txrqButton.titleLabel.font = Font15;
         _txrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        [_txrqButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
+        [_txrqButton setTitleColor:[ThemeManager buttonTitleColor] forState:UIControlStateNormal];
         _txrqButton.layer.cornerRadius = 5.0f;
         [_txrqButton addTarget:self action:@selector(txrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -465,7 +466,7 @@
         _dqrqButton.titleLabel.font = Font15;
         _dqrqButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_dqrqButton addTarget:self action:@selector(dqrqButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        [_dqrqButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
+        [_dqrqButton setTitleColor:[ThemeManager buttonTitleColor] forState:UIControlStateNormal];
         _dqrqButton.layer.cornerRadius = 5.0f;
     }
     return _dqrqButton;
@@ -511,7 +512,7 @@
         [_clearnButton setBackgroundColor:[UIColor whiteColor]];
         _clearnButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_clearnButton setTitle:@"重置" forState:UIControlStateNormal];
-        [_clearnButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
+        [_clearnButton setTitleColor:[ThemeManager buttonTitleColor] forState:UIControlStateNormal];
         _clearnButton.titleLabel.font = Font15;
         [_clearnButton addTarget:self action:@selector(clearButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _clearnButton.layer.cornerRadius = 5.0f;
@@ -525,7 +526,7 @@
         [_calculateButton setBackgroundColor:[UIColor whiteColor]];
         _calculateButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         [_calculateButton setTitle:@"计算" forState:UIControlStateNormal];
-        [_calculateButton setTitleColor:[ThemeManager subTextColor] forState:UIControlStateNormal];
+        [_calculateButton setTitleColor:[ThemeManager buttonTitleColor] forState:UIControlStateNormal];
         [_calculateButton addTarget:self action:@selector(calculateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         _calculateButton.layer.cornerRadius = 5.0f;
     }

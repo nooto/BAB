@@ -8,9 +8,10 @@
 
 #import "CThemeManager.h"
 #import "Font_Color.h"
+#import "Utility.h"
 
 #define Color_Back_Ground       ColorFromHex(0xf5f5f5)
-
+#define Color_Main                          ColorFromHex(0xEC6500)
 @implementation CThemeManager
 __strong static CThemeManager* sharedInstance = nil;
 
@@ -62,8 +63,28 @@ __strong static CThemeManager* sharedInstance = nil;
 
     return [UIImage imageNamed:imageName];
 }
+    //背景色
+-(UIColor*)backGroundSubColor{
+    switch (self.currenType) {
+        case theme_defalut:
+            return Color_Back_Ground;
+            break;
 
+        case theme_white:{
+            return Color_black_10;
+        }
+            break;
+        case theme_black:{
+            return Color_Back_Ground;
+        }
+            break;
 
+        default:
+            break;
+    }
+
+    return Color_Back_Ground;
+}
     //背景色
 -(UIColor*)backGroundColor{
     switch (self.currenType) {
@@ -86,11 +107,117 @@ __strong static CThemeManager* sharedInstance = nil;
 
     return Color_Back_Ground;
 }
+#pragma mark - 导航栏颜色配置。
+//导航栏背景色。
+-(UIColor*)navBarBackgroudColor{
+    switch (self.currenType) {
+        case theme_defalut:
+            return [UIColor colorWithWhite:255/255 alpha:0.1f];
+            break;
+
+        case theme_white:{
+            return Color_Main;
+        }
+            break;
+        case theme_black:{
+            return Color_Main;
+        }
+            break;
+
+        default:
+            break;
+    }
+
+    return Color_Back_Ground;
+}
+-(UIColor*)navBarTitleColor{
+    switch (self.currenType) {
+        case theme_defalut:
+            return Color_white_100;
+            break;
+
+        case theme_white:{
+            return Color_white_100;
+        }
+            break;
+        case theme_black:{
+            return Color_Back_Ground;
+        }
+            break;
+
+        default:
+            break;
+    }
+
+    return Color_Back_Ground;
+}
+-(UIColor*)navBarLeftButtonTitleColor{
+    switch (self.currenType) {
+        case theme_defalut:
+            return Color_white_80;
+            break;
+
+        case theme_white:{
+            return Color_white_80;
+        }
+            break;
+        case theme_black:{
+            return Color_Back_Ground;
+        }
+            break;
+
+        default:
+            break;
+    }
+
+    return Color_Back_Ground;
+}
+-(UIColor*)navBarRightButtonTitleColor{
+    switch (self.currenType) {
+        case theme_defalut:
+            return Color_white_80;
+            break;
+
+        case theme_white:{
+            return Color_white_80;
+        }
+            break;
+        case theme_black:{
+            return Color_Back_Ground;
+        }
+            break;
+
+        default:
+            break;
+    }
+
+    return Color_Back_Ground;
+}
+
+#pragma mark ---====
+
+
+-(UIImage*)backGroundImage{
+    switch (self.currenType) {
+        case theme_white:{
+            return [Utility imageFromColor:Color_Back_Ground withSize:CGSizeMake(SCREEN_W, SCREEN_H)];
+        }
+            break;
+        case theme_black:{
+            return [UIImage imageNamed:@"bg"];
+        }
+            break;
+
+        default:
+            break;
+    }
+    return [UIImage imageNamed:@"bg"];
+}
 
 - (UIColor*)mainTextColor{
     switch (self.currenType) {
         case theme_white:{
-            return [UIColor colorWithWhite:255 alpha:0.8f];
+            return Color_black_80;
         }
             break;
         case theme_black:{
@@ -108,6 +235,23 @@ __strong static CThemeManager* sharedInstance = nil;
     return [UIFont systemFontOfSize:15];
 }
 
+
+-(UIColor*)buttonTitleColor{
+    switch (self.currenType) {
+        case theme_white:{
+            return Color_black_60;
+        }
+            break;
+        case theme_black:{
+            return Color_black_60;
+        }
+            break;
+
+        default:
+            break;
+    }
+    return Color_black_60;
+}
 
 - (UIColor*)subTextColor{
     switch (self.currenType) {

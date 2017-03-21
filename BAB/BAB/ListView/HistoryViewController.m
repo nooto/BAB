@@ -37,7 +37,7 @@ CGFloat const kTWMessageViewControllerCellHeight = 240;
     self.mAppType = [Utility AppType];
     
     UIImageView *mBgView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    [mBgView setImage:[UIImage imageNamed:@"bg"]];
+    [mBgView setImage:[ThemeManager backGroundImage]];
     [self.view addSubview:mBgView];
     
     [self.view addSubview:self.mCollectionView];

@@ -37,7 +37,7 @@
         
         UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(timeLabel.frame), CGRectGetWidth(frame) - 20, CGRectGetHeight(frame) - CGRectGetMaxY(timeLabel.frame))];
         bgView.center = CGPointMake(self.center.x-10, bgView.center.y);
-        bgView.backgroundColor = [ThemeManager backGroundColor];
+        bgView.backgroundColor = [ThemeManager backGroundSubColor];
         bgView.layer.cornerRadius = 15.0f;
         [self.contentView addSubview:bgView];
         self.bgView = bgView;
@@ -47,14 +47,14 @@
         [label setText:@"票面金额:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
 
         UILabel *Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label.frame)+ 10, MarginH(20), SCREEN_W/2- MarginW(20), 25)];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.pmje = Textlabel;
 
@@ -63,14 +63,14 @@
         [label setText:@"月利率:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.yll = Textlabel;
         
@@ -79,14 +79,14 @@
         [label setText:@"贴现日期:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.txrq = Textlabel;
 
@@ -95,14 +95,14 @@
         [label setText:@"到期日期:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.dqrq = Textlabel;
 
@@ -111,14 +111,14 @@
         [label setText:@"调整天数:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.tzts = Textlabel;
 
@@ -127,14 +127,14 @@
         [label setText:@"计息天数:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.jxts = Textlabel;
         
@@ -143,14 +143,14 @@
         [label setText:@"贴现利息:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.txlx = Textlabel;
         
@@ -159,14 +159,14 @@
         [label setText:@"贴现金额:"];
         label.textAlignment = NSTextAlignmentRight;
         [label setFont:Font13];
-        [label setTextColor:[ThemeManager mainTextColor]];
+        [label setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:label];
         
         Textlabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(Textlabel.frame), MarginH(20), CGRectGetWidth(Textlabel.frame), CGRectGetHeight(Textlabel.frame))];
         Textlabel.center = CGPointMake(Textlabel.center.x, label.center.y);
         [Textlabel setText:@"测试文字"];
         [Textlabel setFont:Font13];
-        [Textlabel setTextColor:[ThemeManager mainTextColor]];
+        [Textlabel setTextColor:[ThemeManager buttonTitleColor]];
         [self.contentView addSubview:Textlabel];
         self.txje = Textlabel;
     }
