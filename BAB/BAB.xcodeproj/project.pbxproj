@@ -79,6 +79,7 @@
 		E26F058F1BE1F55A007918B2 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058A1BE1F55A007918B2 /* HistoryViewController.m */; };
 		E26F05901BE1F55A007918B2 /* TWMessageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */; };
 		E26F05911BE1F55A007918B2 /* TWSpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */; };
+		E286DE8E22E5D49800B76ECE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E286DE8D22E5D49800B76ECE /* libc++.tbd */; };
 		E28B9F2D1E5ED8A600EBB8CB /* CThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */; };
 		E2954DA91C87DDAD00F99A85 /* CBabResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2954DA81C87DDAD00F99A85 /* CBabResultView.m */; };
 		E2985C731BF1D3070060D167 /* EHSharePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2985C721BF1D3070060D167 /* EHSharePageView.m */; };
@@ -105,10 +106,8 @@
 		E2985CB21BF1D90E0060D167 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB11BF1D90E0060D167 /* Security.framework */; };
 		E2985CB41BF1D9150060D167 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB31BF1D9150060D167 /* Social.framework */; };
 		E2985CB61BF1D91E0060D167 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB51BF1D91E0060D167 /* MessageUI.framework */; };
-		E2985CB81BF1D9290060D167 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB71BF1D9290060D167 /* libstdc++.6.0.9.tbd */; };
 		E2985CBA1BF1D9310060D167 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E2985CB91BF1D9310060D167 /* libsqlite3.0.tbd */; };
 		E2985CBE1BF1E8A10060D167 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2985CBD1BF1E8A10060D167 /* TTTAttributedLabel.m */; };
-		E2B3697E1BFAFADF00D21579 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2B369641BFAFADF00D21579 /* Info.plist */; };
 		E2B3697F1BFAFADF00D21579 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B369661BFAFADF00D21579 /* MASCompositeConstraint.m */; };
 		E2B369801BFAFADF00D21579 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B369691BFAFADF00D21579 /* MASConstraint.m */; };
 		E2B369811BFAFADF00D21579 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3696B1BFAFADF00D21579 /* MASConstraintMaker.m */; };
@@ -367,6 +366,7 @@
 		E26F058C1BE1F55A007918B2 /* TWMessageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWMessageViewCell.m; sourceTree = "<group>"; };
 		E26F058D1BE1F55A007918B2 /* TWSpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSpringyFlowLayout.h; sourceTree = "<group>"; };
 		E26F058E1BE1F55A007918B2 /* TWSpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSpringyFlowLayout.m; sourceTree = "<group>"; };
+		E286DE8D22E5D49800B76ECE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E28B9F2B1E5ED8A600EBB8CB /* CThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CThemeManager.h; sourceTree = "<group>"; };
 		E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CThemeManager.m; sourceTree = "<group>"; };
 		E2954DA71C87DDAD00F99A85 /* CBabResultView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBabResultView.h; sourceTree = "<group>"; };
@@ -456,8 +456,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E286DE8E22E5D49800B76ECE /* libc++.tbd in Frameworks */,
 				E2985CBA1BF1D9310060D167 /* libsqlite3.0.tbd in Frameworks */,
-				E2985CB81BF1D9290060D167 /* libstdc++.6.0.9.tbd in Frameworks */,
 				E2985CB61BF1D91E0060D167 /* MessageUI.framework in Frameworks */,
 				E2985CB41BF1D9150060D167 /* Social.framework in Frameworks */,
 				E2985CB21BF1D90E0060D167 /* Security.framework in Frameworks */,
@@ -567,6 +567,7 @@
 		3E81A1FB18F3CAF800A42207 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E286DE8D22E5D49800B76ECE /* libc++.tbd */,
 				E2985CB91BF1D9310060D167 /* libsqlite3.0.tbd */,
 				E2985CB71BF1D9290060D167 /* libstdc++.6.0.9.tbd */,
 				E2985CB51BF1D91E0060D167 /* MessageUI.framework */,
@@ -1028,6 +1029,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				"zh-Hans",
 			);
@@ -1076,7 +1078,6 @@
 				3E16CB43190793D300C64E8D /* rf_cancel_nor.png in Resources */,
 				3EC0C9AE18FEEE0E005C778E /* CHistoryViewCell.xib in Resources */,
 				3E81A20F18F3CAF800A42207 /* Images.xcassets in Resources */,
-				E2B3697E1BFAFADF00D21579 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,7 +1395,7 @@
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.1719.bab;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bab.bab;
 				PRODUCT_NAME = BAB;
 				PROVISIONING_PROFILE = "8119a601-d13e-4a27-8354-3850080772e1";
 				PROVISIONING_PROFILE_SPECIFIER = spotmau_per_dis;
@@ -1428,7 +1429,7 @@
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.1719.bab;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bab.bab;
 				PRODUCT_NAME = BAB;
 				PROVISIONING_PROFILE = "8119a601-d13e-4a27-8354-3850080772e1";
 				PROVISIONING_PROFILE_SPECIFIER = spotmau_per_dis;

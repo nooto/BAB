@@ -344,6 +344,8 @@
 -(UIImageView*)mBgView{
     if (!_mBgView) {
         _mBgView = [[UIImageView alloc] initWithImage:[ThemeManager backGroundImage]];
+        [_mBgView setFrame:self.view.bounds];
+        [_mBgView setContentMode:UIViewContentModeScaleAspectFill];
     }
     return _mBgView;
 }

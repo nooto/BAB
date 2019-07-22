@@ -215,9 +215,11 @@ __strong static CThemeManager* sharedInstance = nil;
 }
 
 - (UIColor*)mainTextColor{
+    return [UIColor blackColor];
+
     switch (self.currenType) {
         case theme_white:{
-            return Color_black_80;
+            return [UIColor blackColor];
         }
             break;
         case theme_black:{

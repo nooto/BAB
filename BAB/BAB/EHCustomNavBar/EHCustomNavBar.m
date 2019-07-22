@@ -32,7 +32,7 @@
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame) - 20)];
     [self addSubview:titleLabel];
-    titleLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 10);
+    titleLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds) + CGRectGetHeight(titleLabel.frame)/2);
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.font = Font17Bold;
     titleLabel.textColor = [ThemeManager navBarTitleColor];

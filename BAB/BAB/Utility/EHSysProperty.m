@@ -38,19 +38,15 @@ enum {
 }
 
 + (float)getNavBarHight{
-//    UINavigationBar *bar = [RootNavigation navigationBar];
-    
-//    if (bar.frame.size.height <= 0.0) {
-        if ([EHSysProperty getSystemVersion] >= 7.0) {
-            return 64;
-        }
-        else{
-            return 44;
-        }
-//    }
-//    else{
-//        return bar.frame.size.height;
-//    }
+#define SH_IS_iPhoneX        ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)     // iPhone X/XS
+#define SH_IS_iPhoneXR       ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)     // iPhone XR
+#define SH_IS_iPhoneXSMax    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)     // iPhone XSMax
+#define SH_IS_iPhoneX_All    (SH_IS_iPhoneX || SH_IS_iPhoneXR || SH_IS_iPhoneXSMax) // iPhone X系列
+#define SH_TabBarHeight      (SH_IS_iPhoneX_All?83:49)    
+    if (SH_IS_iPhoneX_All) {
+        return 88;
+    }
+    return 64;
 }
 
 + (void)getCurrentLocale{
