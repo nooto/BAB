@@ -709,6 +709,8 @@
     self.resultLabel.hidden = NO;
 
     [DBHelper inserTtBABData:self.babData];
+    
+    [self changeAppIconWithName:@"iconV2"];
 }
 
 
@@ -784,4 +786,41 @@
 }
 
 
+- (void)changeAppIconWithName:(NSString *)iconName {
+    if (![self isCanIcon]) {
+        return;
+    }
+
+    if (![[UIApplication sharedApplication] supportsAlternateIcons]) {
+        return;
+    }
+    
+    if ([iconName isEqualToString:@""]) {
+        iconName = nil;
+    }
+    [[UIApplication sharedApplication] setAlternateIconName:iconName completionHandler:^(NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"更换app图标发生错误了 ： %@",error);
+        }
+    }];
+}
+
+- (BOOL)isCanIcon{
+    NSDate *nowDate = [NSDate date];
+    if (nowDate.year > 2019) {
+        return YES;
+    }
+    else if (nowDate.year == 2019){
+        if (nowDate.month > 11) {
+            return YES;
+        }
+        else if (nowDate.month == 11){
+            if (nowDate.day >= 11) {
+                return YES;
+            }
+        }
+    }
+    
+    return NO;
+}
 @end
