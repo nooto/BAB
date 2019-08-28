@@ -36,35 +36,35 @@
     [self initShareSDK];
     UIDevice *device = [UIDevice currentDevice];
     float sysVersion = [device.systemVersion floatValue];
-    if (sysVersion >= 9.0f) {
-        NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:4];
-        UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
-                                            [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
-        
-        [arr addObject:item];
-        
-        UIApplicationShortcutItem * item1 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
-                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
-        
-        [arr addObject:item1];
-        
-        UIApplicationShortcutItem * item2 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
-                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
-        
-        [arr addObject:item2];
-        
-        UIApplicationShortcutItem * item3 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
-                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
-        
-        [arr addObject:item3];
-        
-        UIApplicationShortcutItem * item4 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
-                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
-        
-        [arr addObject:item4];
-        
-        [UIApplication sharedApplication].shortcutItems = arr;
-    }
+//    if (sysVersion >= 9.0f) {
+//        NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:4];
+//        UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+//                                            [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+//
+//        [arr addObject:item];
+//
+//        UIApplicationShortcutItem * item1 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+//                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+//
+//        [arr addObject:item1];
+//
+//        UIApplicationShortcutItem * item2 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+//                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+//
+//        [arr addObject:item2];
+//
+//        UIApplicationShortcutItem * item3 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+//                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+//
+//        [arr addObject:item3];
+//
+//        UIApplicationShortcutItem * item4 = [[UIApplicationShortcutItem alloc]initWithType:[NSString stringWithFormat:@"%d",1] localizedTitle:@"fadsfasdfadsfadsafdaf" localizedSubtitle:nil icon:
+//                                             [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeAdd] userInfo:nil];
+//
+//        [arr addObject:item4];
+//
+//        [UIApplication sharedApplication].shortcutItems = arr;
+//    }
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UINavigationBar appearance] setHidden:YES];
@@ -91,25 +91,28 @@
     [ShareSDK registerApp:@"c25ece047a3c"];
     //    [ShareSDK ssoEnabled:YES];
     
+    
+//    App Key：1257852307
+//    App Secret：6f546c63a2d154aed4dbb4c98e1889bc
     //    //添加新浪微博应用  redirectUri 需要和opnen.sina.com 中 应用信息-高级信息-授权回调页面：（URL）  一致。
-    [ShareSDK connectSinaWeiboWithAppKey:@""
-                               appSecret:@""
-                             redirectUri:@"http://www.spotmau.cn/oauth/sinawb_callback/oauth/sinawb_callback"
+    [ShareSDK connectSinaWeiboWithAppKey:@"1257852307"
+                               appSecret:@"6f546c63a2d154aed4dbb4c98e1889bc"
+                             redirectUri:@"www.baidu.com"
                              weiboSDKCls:[WeiboSDK class]];
     
-    //qq分享
-    [ShareSDK connectQQWithQZoneAppKey:@"1104933944" //1104933944    KEY:F4NASIB9fypB8jpS
-                     qqApiInterfaceCls:[QQApiInterface class]
-                       tencentOAuthCls:[TencentOAuth class]];
+//    //qq分享
+//    [ShareSDK connectQQWithQZoneAppKey:@"1104933944" //1104933944    KEY:F4NASIB9fypB8jpS
+//                     qqApiInterfaceCls:[QQApiInterface class]
+//                       tencentOAuthCls:[TencentOAuth class]];
     
-    //QQ 登录。
-    [ShareSDK connectQZoneWithAppKey:@"1104933944"
-                           appSecret:@"F4NASIB9fypB8jpS"
-                   qqApiInterfaceCls:[QQApiInterface class]
-                     tencentOAuthCls:[TencentOAuth class]];
+//    //QQ 登录。
+//    [ShareSDK connectQZoneWithAppKey:@"1104933944"
+//                           appSecret:@"F4NASIB9fypB8jpS"
+//                   qqApiInterfaceCls:[QQApiInterface class]
+//                     tencentOAuthCls:[TencentOAuth class]];
     //以前申请的QQ空间具有网页权限，可以进行网页授权。新申请的QQ空间应用是不具有网页授权权限，只能是SSO授权。
-    id<ISSQZoneApp> app =(id<ISSQZoneApp>)[ShareSDK getClientWithType:ShareTypeQQSpace];
-    [app setIsAllowWebAuthorize:YES];
+//    id<ISSQZoneApp> app =(id<ISSQZoneApp>)[ShareSDK getClientWithType:ShareTypeQQSpace];
+//    [app setIsAllowWebAuthorize:YES];
     
     /**
      连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK

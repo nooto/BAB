@@ -1097,10 +1097,10 @@
 				ORGANIZATIONNAME = selfcom;
 				TargetAttributes = {
 					3E81A1F818F3CAF800A42207 = {
-						DevelopmentTeam = CNJJ8KEF8A;
+						DevelopmentTeam = A34QYQ6A72;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1484,10 +1484,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = BAB/BAB.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: On Gao (A34QYQ6A72)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
-				DEVELOPMENT_TEAM = CNJJ8KEF8A;
+				DEVELOPMENT_TEAM = A34QYQ6A72;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1505,10 +1504,11 @@
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bab.bab;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BAB.selfWork;
 				PRODUCT_NAME = BAB;
 				PROVISIONING_PROFILE = "8119a601-d13e-4a27-8354-3850080772e1";
-				PROVISIONING_PROFILE_SPECIFIER = spotmau_per_dis;
+				PROVISIONING_PROFILE_SPECIFIER = BAB_dis;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1518,10 +1518,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = BAB/BAB.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Guang Chen (N25UWHSJ64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Guang Chen (N25UWHSJ64)";
-				DEVELOPMENT_TEAM = CNJJ8KEF8A;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: On Gao (A34QYQ6A72)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: On Gao (A34QYQ6A72)";
+				DEVELOPMENT_TEAM = A34QYQ6A72;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1539,10 +1538,11 @@
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bab.bab;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.BAB.selfWork;
 				PRODUCT_NAME = BAB;
 				PROVISIONING_PROFILE = "8119a601-d13e-4a27-8354-3850080772e1";
-				PROVISIONING_PROFILE_SPECIFIER = spotmau_per_dis;
+				PROVISIONING_PROFILE_SPECIFIER = BAB_dis;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

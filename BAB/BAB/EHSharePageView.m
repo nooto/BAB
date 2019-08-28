@@ -58,14 +58,14 @@
         _arrDataSource = [[NSMutableArray alloc] initWithCapacity:1];
         //微信
 //        if ([WXApi isWXAppInstalled]) {
-            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"微信",                             KNAME,  @"WXIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiSession],  KTAG, nil]];
-            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"朋友圈", KNAME,  @"ic_friends_sel",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiTimeline], KTAG, nil]];
+//            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"微信",                             KNAME,  @"WXIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiSession],  KTAG, nil]];
+//            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"朋友圈", KNAME,  @"ic_friends_sel",   KICON,  [NSNumber numberWithInteger:ShareTypeWeixiTimeline], KTAG, nil]];
 //        }
         
         //QQ
 //        if ([QQApi isQQInstalled]) {
-            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"QQ",          KNAME,  @"QQIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeQQ],            KTAG, nil]];
-            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"QQ空间",       KNAME,  @"ic_qq_zone",   KICON,  [NSNumber numberWithInteger:ShareTypeQQSpace],       KTAG, nil]];
+//            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"QQ",          KNAME,  @"QQIconNormal",   KICON,  [NSNumber numberWithInteger:ShareTypeQQ],            KTAG, nil]];
+//            [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"QQ空间",       KNAME,  @"ic_qq_zone",   KICON,  [NSNumber numberWithInteger:ShareTypeQQSpace],       KTAG, nil]];
 //        }
         
         //新浪
@@ -165,8 +165,8 @@
 -(void)shareButtonAciton:(UIButton*)sender{
     __strong typeof(EHSharePageView*) _self = self;
     ShareType shareType = (ShareType)sender.tag;
-    NSString* m_url = @"www.spotmau.cn";
-    NSString*  m_shareContent = NSLocalizedString(@"我正在用的这款承兑贴现计算工具很不错，也推荐给你用亚。。。。", nil);
+    NSString* m_url = @"www.baidu.com";
+    NSString*  m_shareContent = NSLocalizedString(@"我正在用的这款承兑贴现计算工具很不错，也推荐给你用呀。。。。", nil);
     
     //内容。
     if (self.mShareContent) {
