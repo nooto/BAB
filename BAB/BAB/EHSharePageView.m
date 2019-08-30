@@ -9,7 +9,6 @@
 #import "EHSharePageView.h"
 #import <ShareSDK/ShareSDK.h>
 #import "WeiboSDK.h"
-#import "WXApi.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #define KICON @"icon"

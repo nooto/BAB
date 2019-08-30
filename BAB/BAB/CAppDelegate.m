@@ -13,9 +13,6 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 //#import "WeiboApi.h"
-#import "WeiboSDK.h"
-#import <QZoneConnection/ISSQZoneApp.h>
-#import "WXApi.h"
 //#import <i>
 @implementation CAppDelegate
 
@@ -88,17 +85,25 @@
 
 -(void)initShareSDK{
     //注册 ShareSDK
-    [ShareSDK registerApp:@"c25ece047a3c"];
+    
+    
+    
+    [ShareSDK registPlatforms:^(SSDKRegister *platformsRegister) {
+        [platformsRegister setupSinaWeiboWithAppkey:@"1257852307" appSecret:@"6f546c63a2d154aed4dbb4c98e1889bc" redirectUrl:@"https://www.baidu.com"];
+        
+    }];
+    
+//    [ShareSDK registerApp:@"c25ece047a3c"];
     //    [ShareSDK ssoEnabled:YES];
     
     
 //    App Key：1257852307
 //    App Secret：6f546c63a2d154aed4dbb4c98e1889bc
     //    //添加新浪微博应用  redirectUri 需要和opnen.sina.com 中 应用信息-高级信息-授权回调页面：（URL）  一致。
-    [ShareSDK connectSinaWeiboWithAppKey:@"1257852307"
-                               appSecret:@"6f546c63a2d154aed4dbb4c98e1889bc"
-                             redirectUri:@"www.baidu.com"
-                             weiboSDKCls:[WeiboSDK class]];
+//    [ShareSDK connectSinaWeiboWithAppKey:@"1257852307"
+//                               appSecret:@"6f546c63a2d154aed4dbb4c98e1889bc"
+//                             redirectUri:@"https://www.baidu.com"
+//                             weiboSDKCls:[WeiboSDK class]];
     
 //    //qq分享
 //    [ShareSDK connectQQWithQZoneAppKey:@"1104933944" //1104933944    KEY:F4NASIB9fypB8jpS
@@ -118,9 +123,9 @@
      连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
      http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
      **/
-    [ShareSDK connectWeChatWithAppId:@""
-                           appSecret:@""
-                           wechatCls:[WXApi class]];
+//    [ShareSDK connectWeChatWithAppId:@""
+//                           appSecret:@""
+//                           wechatCls:[WXApi class]];
 }
 
 /**
