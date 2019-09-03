@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CMainViewController.h"
+//typedef NS_ENUM(NSInteger, ShareType) {
+//    ShareTypeSinaWeibo = 0 ,
+//    ShareTypeQQ,
+//    ShareTypeQQSpace,
+//    ShareTypeWeixiSession,
+//    ShareTypeWeixiTimeline,
+//    ShareTypeURL,
+//};
 
 @class EHSharePageView;
 @protocol EHSharePageViewdDelegate <NSObject>

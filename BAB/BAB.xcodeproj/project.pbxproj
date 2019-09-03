@@ -409,6 +409,7 @@
 		E2A8D9BF22EED3B0006EF7CA /* icon-29-ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-29-ipad.png"; sourceTree = "<group>"; };
 		E2A8D9D822EEDD01006EF7CA /* UIViewController+LQNoPresent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LQNoPresent.h"; sourceTree = "<group>"; };
 		E2A8D9D922EEDD01006EF7CA /* UIViewController+LQNoPresent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LQNoPresent.m"; sourceTree = "<group>"; };
+		E2ADE58B231E40B9006BA7C7 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShareSDK.framework; path = Pods/mob_sharesdk/ShareSDK/ShareSDK.framework; sourceTree = "<group>"; };
 		E2B369641BFAFADF00D21579 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B369651BFAFADF00D21579 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		E2B369661BFAFADF00D21579 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -503,7 +504,6 @@
 				476FBCC4A5F155F1FF1A767B /* Pods-BAB.debug.xcconfig */,
 				EB030CB36F771EBC92D46520 /* Pods-BAB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -555,6 +555,7 @@
 		3E81A1FB18F3CAF800A42207 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2ADE58B231E40B9006BA7C7 /* ShareSDK.framework */,
 				E286DE8D22E5D49800B76ECE /* libc++.tbd */,
 				E2985CB91BF1D9310060D167 /* libsqlite3.0.tbd */,
 				E2985CB71BF1D9290060D167 /* libstdc++.6.0.9.tbd */,
@@ -1379,21 +1380,13 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Connection",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Core",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/QQConnectSDK",
-					"$(PROJECT_DIR)/BAB/ShareSDK",
+					"$(PROJECT_DIR)/Pods/mob_sharesdk/ShareSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
-				);
-				OTHER_LDFLAGS = "-ObjC";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BAB.selfWork;
 				PRODUCT_NAME = BAB;
 				PROVISIONING_PROFILE = "8119a601-d13e-4a27-8354-3850080772e1";
@@ -1414,21 +1407,13 @@
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Connection",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Core",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/QQConnectSDK",
-					"$(PROJECT_DIR)/BAB/ShareSDK",
+					"$(PROJECT_DIR)/Pods/mob_sharesdk/ShareSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BAB/BAB-Prefix.pch";
 				INFOPLIST_FILE = "BAB/BAB-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
-					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
-				);
-				OTHER_LDFLAGS = "-ObjC";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BAB.selfWork;
 				PRODUCT_NAME = BAB;
 				PROVISIONING_PROFILE = "8119a601-d13e-4a27-8354-3850080772e1";

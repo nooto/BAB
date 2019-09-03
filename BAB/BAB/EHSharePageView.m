@@ -68,10 +68,10 @@
 //        }
         
         //新浪
-        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"新浪微博",   KNAME,  @"SinaIconNormal", KICON, [NSNumber numberWithInteger:ShareTypeSinaWeibo],     KTAG, nil]];
+        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"新浪微博",   KNAME,  @"SinaIconNormal", KICON, [NSNumber numberWithInteger:SSDKPlatformTypeSinaWeibo],     KTAG, nil]];
         
         //复制链接。
-        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"复制链接",KNAME,  @"ic_copy",    KICON,  [NSNumber numberWithInteger:ShareTypeOther],        KTAG, nil]];
+        [_arrDataSource addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"复制链接",KNAME,  @"ic_copy",    KICON,  [NSNumber numberWithInteger:SSDKPlatformTypeAny],        KTAG, nil]];
     }
     
     return _arrDataSource;
@@ -163,8 +163,8 @@
 
 -(void)shareButtonAciton:(UIButton*)sender{
     __strong typeof(EHSharePageView*) _self = self;
-    ShareType shareType = (ShareType)sender.tag;
-    NSString* m_url = @"www.baidu.com";
+    SSDKPlatformType shareType = (SSDKPlatformType)sender.tag;
+    NSString* m_url = @"http://itunes.apple.com/cn/app/id1473829260?mt=8";
     NSString*  m_shareContent = NSLocalizedString(@"我正在用的这款承兑贴现计算工具很不错，也推荐给你用呀。。。。", nil);
     
     //内容。
@@ -172,200 +172,186 @@
         m_shareContent = self.mShareContent;
     }
     
-    //图片
-    id<ISSCAttachment> imagePath = nil;
-    if (self.mShareImage) {
-        imagePath = [ShareSDK pngImageWithImage:self.mShareImage];
-    }
-    else{
-        imagePath = [ShareSDK pngImageWithImage:[UIImage imageNamed:@"AppIcon-2"]];
-    }
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params SSDKSetupShareParamsByText:m_shareContent
+                                images:[UIImage imageNamed:@"AppIcon-2.png"]
+                                   url:[NSURL URLWithString:@"http://www.baidu.com/"]
+                                 title:@"分享给你一个好东西"
+                                  type:SSDKContentTypeAuto];
     
-    NSString *m_title = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     
-    [ShareSDK hideStatusbarMessage];
     
-    //
-    id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
-                                                         allowCallback:YES
-                                                         authViewStyle:SSAuthViewStyleFullScreenPopup
-                                                          viewDelegate:nil
-                                               authManagerViewDelegate:nil];
-    
-     // 分享内容协议
-    id<ISSContent> shareContent = [ShareSDK content:m_shareContent
-                                defaultContent:m_shareContent
-                                         image:(id)imagePath
-                                         title:m_title
-                                           url:m_url
-                                   description:m_shareContent
-                                     mediaType:SSPublishContentMediaTypeNews];
+//    //图片
+//    id<ISSCAttachment> imagePath = nil;
+//    if (self.mShareImage) {
+//        imagePath = [ShareSDK pngImageWithImage:self.mShareImage];
+//    }
+//    else{
+//        imagePath = [ShareSDK pngImageWithImage:[UIImage imageNamed:@"AppIcon-2"]];
+//    }
+//    
+//    NSString *m_title = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+//    
+//    [ShareSDK hideStatusbarMessage];
+//    
+//    //
+//    id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
+//                                                         allowCallback:YES
+//                                                         authViewStyle:SSAuthViewStyleFullScreenPopup
+//                                                          viewDelegate:nil
+//                                               authManagerViewDelegate:nil];
+//    
+//     // 分享内容协议
+//    id<ISSContent> shareContent = [ShareSDK content:m_shareContent
+//                                defaultContent:m_shareContent
+//                                         image:(id)imagePath
+//                                         title:m_title
+//                                           url:m_url
+//                                   description:m_shareContent
+//                                     mediaType:SSPublishContentMediaTypeNews];
     //qq
-    if (ShareTypeQQ == shareType ) {
+    if (shareType == SSDKPlatformTypeAny ) {
+
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                [pasteboard setString:[NSString stringWithFormat:@"%@%@", m_shareContent, m_url]];
+                [_self notiySuperView:YES withMessage:@"分享链接已经复制到粘贴板中,可以粘贴发送给朋友啦。。"];
         
-        [ShareSDK shareContent:shareContent
-                          type:ShareTypeQQ
-                   authOptions:authOptions
-                 statusBarTips:YES
-                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                            if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ分享成功", nil)];
-                            }
-                            else if (state == SSPublishContentStateFail){
-                                if ([QQApi isQQInstalled]) {
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装QQ", nil)];
-                                }
-                                else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ分享失败", nil)];
-                                }
-                            }
-                            else if (state == SSPublishContentStateCancel){
-//                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ share faild!", nil)];
-                            }
-                        }];
-        
+        //
+//        [ShareSDK shareContent:shareContent
+//                          type:ShareTypeQQ
+//                   authOptions:authOptions
+//                 statusBarTips:YES
+//                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                            if (state == SSPublishContentStateSuccess){
+//                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ分享成功", nil)];
+//                            }
+//                            else if (state == SSPublishContentStateFail){
+//                                if ([QQApi isQQInstalled]) {
+//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装QQ", nil)];
+//                                }
+//                                else{
+//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ分享失败", nil)];
+//                                }
+//                            }
+//                            else if (state == SSPublishContentStateCancel){
+////                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ share faild!", nil)];
+//                            }
+//                        }];
+//        
     }
     //qq 空间
-    else if (ShareTypeQQSpace == shareType){
-        [ShareSDK shareContent:shareContent
-                          type:ShareTypeQQSpace
-                   authOptions:authOptions
-                 statusBarTips:YES
-                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                            
-                            if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ空间分享成功", nil)];
-                            }
-                            else if (state == SSPublishContentStateFail){
-                                if ([QQApi isQQInstalled]) {
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装QQ空间", nil)];
-                                }
-                                else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ空间分享失败", nil)];
-                                }
-                            }
-                            else if (state == SSPublishContentStateCancel){
-                            }
-                        }];
-    }
+//    else if (ShareTypeQQSpace == shareType){
+//        [ShareSDK shareContent:shareContent
+//                          type:ShareTypeQQSpace
+//                   authOptions:authOptions
+//                 statusBarTips:YES
+//                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                            
+//                            if (state == SSPublishContentStateSuccess){
+//                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"QQ空间分享成功", nil)];
+//                            }
+//                            else if (state == SSPublishContentStateFail){
+//                                if ([QQApi isQQInstalled]) {
+//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装QQ空间", nil)];
+//                                }
+//                                else{
+//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"QQ空间分享失败", nil)];
+//                                }
+//                            }
+//                            else if (state == SSPublishContentStateCancel){
+//                            }
+//                        }];
+//    }
     //新浪微博
-    else  if (ShareTypeSinaWeibo == shareType ) {
-        m_shareContent = [m_shareContent stringByAppendingString:@"http://www.spotmau.cn"];
-        id<ISSContent> shareContent = [ShareSDK content:m_shareContent
-                                         defaultContent:m_shareContent
-                                                  image:(id)imagePath
-                                                  title:m_title
-                                                    url:m_url
-                                            description:m_shareContent
-                                              mediaType:SSPublishContentMediaTypeNews];
-        [self showSharePageView:NO];
-        BOOL hasSinaWeb = [WeiboSDK isWeiboAppInstalled];
-        if (hasSinaWeb) {
-            [ShareSDK clientShareContent:shareContent
-                                    type:ShareTypeSinaWeibo
-                           statusBarTips:NO
-                                  result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                      if (state == SSPublishContentStateSuccess){
-                                          [_self notiySuperView:YES withMessage:NSLocalizedString(@"新浪微博分享成功", nil)];
-                                      }
-                                      else if (state == SSPublishContentStateFail){
-                                          [_self notiySuperView:NO withMessage:NSLocalizedString(@"新浪微博分享失败", nil)];
-//                                          DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
-                                      }
-                                      else if (state == SSPublishContentStateCancel){
-//                                          [_self notiySuperView:NO withMessage:NSLocalizedString(@"sina share faild!", nil)];
-                                      }
-                                  }];
-        }
-        else{
-            if (self.m_delegate && [self.m_delegate respondsToSelector:@selector(sharePageViewWillPopWindow:)]) {
-                [self.m_delegate sharePageViewWillPopWindow:self];
-            }
-            
-            [ShareSDK shareContent:shareContent
-                              type:ShareTypeSinaWeibo
-                       authOptions:authOptions
-                     statusBarTips:YES
-                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                                if (state == SSPublishContentStateSuccess){
-                                    [_self notiySuperView:YES withMessage:NSLocalizedString(@"新浪微博分享成功", nil)];
-                                }
-                                else if (state == SSPublishContentStateFail){
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"新浪微博分享失败", nil)];
-//                                    DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
-                                }
-                                else if (state == SSPublishContentStateCancel){
-//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"sina share faild!", nil)];
-                                }
-
-                            }];
-        }
+    else /* if (ShareTypeSinaWeibo == shareType )*/ {
+        [ShareSDK share:sender.tag
+             parameters:params
+         onStateChanged:^(SSDKResponseState state, NSDictionary *userData,
+                          SSDKContentEntity *contentEntity, NSError *error) {
+             switch (state) {
+                 case SSDKResponseStateSuccess:
+                     NSLog(@"成功");//成功
+                     break;
+                 case SSDKResponseStateFail:
+                 {
+                     NSLog(@"--%@",error.description);
+                     //失败
+                     break;
+                 }
+                 case SSDKResponseStateCancel:
+                     //取消
+                     break;
+                     
+                 default:
+                     break;
+             }
+         }];
     }
-    //微信好友。
-    else if (ShareTypeWeixiSession == shareType){
-        [ShareSDK shareContent:shareContent
-                          type:ShareTypeWeixiSession
-                   authOptions:authOptions
-                 statusBarTips:NO
-                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                            if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"微信分享成功", nil)];
-                            }
-                            else  if (state == SSPublishContentStateFail){
-                                    if ([WXApi isWXAppInstalled]) {
-                                        [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装微信", nil)];
-                                    }
-                                    else{
-                                        [_self notiySuperView:NO withMessage:NSLocalizedString(@"微信分享失败", nil)];
-                                    }
-                            }
-                            else if (state == SSPublishContentStateCancel){
-//                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
-                            }
-                            
-                        }];
-    }
-    //微信朋友圈
-    else if (ShareTypeWeixiTimeline == shareType ) {
-        id<ISSContent> shareContent = [ShareSDK content:m_shareContent
-                                         defaultContent:m_shareContent
-                                                  image:(id)imagePath
-                                                  title:m_shareContent
-                                                    url:m_url
-                                            description:m_shareContent
-                                              mediaType:SSPublishContentMediaTypeNews];
-
-        
-        [ShareSDK shareContent:shareContent
-                          type:ShareTypeWeixiTimeline
-                   authOptions:authOptions
-                 statusBarTips:NO
-                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
-                            if (state == SSPublishContentStateSuccess){
-                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"朋友圈分享成功", nil)];
-                            }
-                            else if (state == SSPublishContentStateFail){
-                                if ([WXApi isWXAppInstalled]) {
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装微信", nil)];
-                                }
-                                else{
-                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"朋友圈分享失败", nil)];
-                                }
-                                
-//                                DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
-                            }
-                            else if (state == SSPublishContentStateCancel){
-//                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
-                            }
-
-                        }];
-    }
-    //复制链接
-    else{
-        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-        [pasteboard setString:[NSString stringWithFormat:@"%@%@", m_shareContent, m_url]];
-        [_self notiySuperView:YES withMessage:@"分享链接已经复制到粘贴板中,可以粘贴发送给朋友啦。。"];
-    }
+//    //微信好友。
+//    else if (ShareTypeWeixiSession == shareType){
+//        [ShareSDK shareContent:shareContent
+//                          type:ShareTypeWeixiSession
+//                   authOptions:authOptions
+//                 statusBarTips:NO
+//                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                            if (state == SSPublishContentStateSuccess){
+//                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"微信分享成功", nil)];
+//                            }
+//                            else  if (state == SSPublishContentStateFail){
+//                                    if ([WXApi isWXAppInstalled]) {
+//                                        [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装微信", nil)];
+//                                    }
+//                                    else{
+//                                        [_self notiySuperView:NO withMessage:NSLocalizedString(@"微信分享失败", nil)];
+//                                    }
+//                            }
+//                            else if (state == SSPublishContentStateCancel){
+////                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
+//                            }
+//                            
+//                        }];
+//    }
+//    //微信朋友圈
+//    else if (ShareTypeWeixiTimeline == shareType ) {
+//        id<ISSContent> shareContent = [ShareSDK content:m_shareContent
+//                                         defaultContent:m_shareContent
+//                                                  image:(id)imagePath
+//                                                  title:m_shareContent
+//                                                    url:m_url
+//                                            description:m_shareContent
+//                                              mediaType:SSPublishContentMediaTypeNews];
+//
+//        
+//        [ShareSDK shareContent:shareContent
+//                          type:ShareTypeWeixiTimeline
+//                   authOptions:authOptions
+//                 statusBarTips:NO
+//                        result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+//                            if (state == SSPublishContentStateSuccess){
+//                                [_self notiySuperView:YES withMessage:NSLocalizedString(@"朋友圈分享成功", nil)];
+//                            }
+//                            else if (state == SSPublishContentStateFail){
+//                                if ([WXApi isWXAppInstalled]) {
+//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"尚未安装微信", nil)];
+//                                }
+//                                else{
+//                                    [_self notiySuperView:NO withMessage:NSLocalizedString(@"朋友圈分享失败", nil)];
+//                                }
+//                                
+////                                DDLogError(@"发布失败!error code == %ld, error code == %@", (long)[error errorCode], [error errorDescription]);
+//                            }
+//                            else if (state == SSPublishContentStateCancel){
+////                                [_self notiySuperView:NO withMessage:NSLocalizedString(@"wechat share faild!", nil)];
+//                            }
+//
+//                        }];
+//    }
+//    //复制链接
+//    else{
+//        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+//        [pasteboard setString:[NSString stringWithFormat:@"%@%@", m_shareContent, m_url]];
+//        [_self notiySuperView:YES withMessage:@"分享链接已经复制到粘贴板中,可以粘贴发送给朋友啦。。"];
+//    }
 }
 
 @end

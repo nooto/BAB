@@ -12,8 +12,6 @@
 #import <ShareSDK/ShareSDK.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
-//#import "WeiboApi.h"
-//#import <i>
 @implementation CAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -29,7 +27,7 @@
     NSLog(@"AppType: %d", [Utility AppType]);
     
     
-    [self setupRemoteNotification];
+//    [self setupRemoteNotification];
     [self initShareSDK];
     UIDevice *device = [UIDevice currentDevice];
     float sysVersion = [device.systemVersion floatValue];
@@ -131,37 +129,37 @@
 /**
  *  远程推送消息相关
  */
-- (void)setupRemoteNotification{
-    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
-    if (badge > 0) {
-        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
-    }
-    
-    NSString *token = [Utility getApnsTokenStrored];
-    if (token.length <= 0) {
-        //    DDLogInfo(@"Registering for push notifications...");
-        if ([[UIApplication sharedApplication] respondsToSelector: @selector(registerForRemoteNotifications)]) {
-            // iOS 8
-            UIUserNotificationType notificationTypes =
-            UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
-            UIUserNotificationSettings *userNotificationSettings =
-            [UIUserNotificationSettings settingsForTypes: notificationTypes categories: nil];
-            [[UIApplication sharedApplication] registerUserNotificationSettings: userNotificationSettings];
-            
-            [[UIApplication sharedApplication] registerForRemoteNotifications];
-        }else{
-            // iOS 8 以下系统
-            UIRemoteNotificationType remoteNotificationType =
-            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound;
-            [[UIApplication sharedApplication] registerForRemoteNotificationTypes: remoteNotificationType];
-        }
-    }
-}
+//- (void)setupRemoteNotification{
+//    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+//    if (badge > 0) {
+//        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+//    }
+//
+//    NSString *token = [Utility getApnsTokenStrored];
+//    if (token.length <= 0) {
+//        //    DDLogInfo(@"Registering for push notifications...");
+//        if ([[UIApplication sharedApplication] respondsToSelector: @selector(registerForRemoteNotifications)]) {
+//            // iOS 8
+//            UIUserNotificationType notificationTypes =
+//            UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert;
+//            UIUserNotificationSettings *userNotificationSettings =
+//            [UIUserNotificationSettings settingsForTypes: notificationTypes categories: nil];
+//            [[UIApplication sharedApplication] registerUserNotificationSettings: userNotificationSettings];
+//
+//            [[UIApplication sharedApplication] registerForRemoteNotifications];
+//        }else{
+//            // iOS 8 以下系统
+//            UIRemoteNotificationType remoteNotificationType =
+//            UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound;
+//            [[UIApplication sharedApplication] registerForRemoteNotificationTypes: remoteNotificationType];
+//        }
+//    }
+//}
 
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    NSString *deviceTokenString = [NSString stringWithFormat: @"%@", deviceToken];
-    [Utility saveApnsToken:deviceTokenString];
-}
+//- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+//    NSString *deviceTokenString = [NSString stringWithFormat: @"%@", deviceToken];
+//    [Utility saveApnsToken:deviceTokenString];
+//}
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
 }
