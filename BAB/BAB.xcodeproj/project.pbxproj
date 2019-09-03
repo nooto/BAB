@@ -119,6 +119,7 @@
 		E2A8D9D622EED3B0006EF7CA /* icon-57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A8D9BE22EED3B0006EF7CA /* icon-57@2x.png */; };
 		E2A8D9D722EED3B0006EF7CA /* icon-29-ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = E2A8D9BF22EED3B0006EF7CA /* icon-29-ipad.png */; };
 		E2A8D9DA22EEDD01006EF7CA /* UIViewController+LQNoPresent.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A8D9D922EEDD01006EF7CA /* UIViewController+LQNoPresent.m */; };
+		E2ADE58E231E550B006BA7C7 /* icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = E2ADE58D231E550B006BA7C7 /* icon-80.png */; };
 		E2B3697F1BFAFADF00D21579 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B369661BFAFADF00D21579 /* MASCompositeConstraint.m */; };
 		E2B369801BFAFADF00D21579 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B369691BFAFADF00D21579 /* MASConstraint.m */; };
 		E2B369811BFAFADF00D21579 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B3696B1BFAFADF00D21579 /* MASConstraintMaker.m */; };
@@ -410,6 +411,7 @@
 		E2A8D9D822EEDD01006EF7CA /* UIViewController+LQNoPresent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LQNoPresent.h"; sourceTree = "<group>"; };
 		E2A8D9D922EEDD01006EF7CA /* UIViewController+LQNoPresent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LQNoPresent.m"; sourceTree = "<group>"; };
 		E2ADE58B231E40B9006BA7C7 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShareSDK.framework; path = Pods/mob_sharesdk/ShareSDK/ShareSDK.framework; sourceTree = "<group>"; };
+		E2ADE58D231E550B006BA7C7 /* icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-80.png"; path = "../../../../../../Desktop/iot_root/icon-80.png"; sourceTree = "<group>"; };
 		E2B369641BFAFADF00D21579 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2B369651BFAFADF00D21579 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		E2B369661BFAFADF00D21579 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
@@ -826,6 +828,7 @@
 				E2A8D9A922EED3B0006EF7CA /* icon-76@2x.png */,
 				E2A8D9AA22EED3B0006EF7CA /* icon-40@2x.png */,
 				E2A8D9AB22EED3B0006EF7CA /* icon-40@3x.png */,
+				E2ADE58D231E550B006BA7C7 /* icon-80.png */,
 				E2A8D9AC22EED3B0006EF7CA /* icon-50@2x.png */,
 				E2A8D9AD22EED3B0006EF7CA /* icon-83.5@2x.png */,
 				E2A8D9AE22EED3B0006EF7CA /* icon-60@3x.png */,
@@ -1001,6 +1004,7 @@
 				E2A8D9C222EED3B0006EF7CA /* icon-40@2x.png in Resources */,
 				3E16CB40190793D300C64E8D /* Default~iphone.png in Resources */,
 				E2A8D9CB22EED3B0006EF7CA /* icon-72.png in Resources */,
+				E2ADE58E231E550B006BA7C7 /* icon-80.png in Resources */,
 				E2A8D9D722EED3B0006EF7CA /* icon-29-ipad.png in Resources */,
 				E2A8D9C122EED3B0006EF7CA /* icon-76@2x.png in Resources */,
 				3E16CB38190793D300C64E8D /* bank_57_57.png in Resources */,
