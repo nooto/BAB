@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BABNavigationController.h"
+
+//#define ROOTNAV ((CAppDelegate *)([UIApplication sharedApplication].delegate)).rootNav
+
 
 @interface CAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong) BABNavigationController *rootNav;
 @end

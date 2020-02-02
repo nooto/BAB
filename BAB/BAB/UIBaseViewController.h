@@ -25,5 +25,5 @@
 
 
 - (void)updateTheme;
-
+- (void)debugView:(UIView*)view;
 @end

@@ -30,7 +30,7 @@
     [_mImageView setImage:[Utility imageFromColor:[ThemeManager navBarBackgroudColor] withSize:CGSizeMake(SCREEN_W, NAVBAR_H)]];
     [self addSubview:_mImageView];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame) - 20)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 25, CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame) - 20)];
     [self addSubview:titleLabel];
     titleLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds) + CGRectGetHeight(titleLabel.frame)/2);
     titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -40,7 +40,7 @@
 //    titleLabel.text = [RootViewController getSceneTitle];
     self.mTextLabel = titleLabel;
     
-    EHNavButton* leftButton =  [[EHNavButton alloc] initWithFrame:CGRectMake(0, 0, NAVBAR_H*2, NAVBAR_H)];
+    EHNavButton* leftButton =  [[EHNavButton alloc] initWithFrame:CGRectMake(0, 20, NAVBAR_H*2, NAVBAR_H-20)];
     [leftButton setImage:[UIImage imageNamed:@"btn_login_back_normal"] forState:UIControlStateNormal];
     [leftButton setImage:[UIImage imageNamed:@"btn_login_back_pressed"] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(leftButonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -53,7 +53,7 @@
 -(void)setTitle:(NSString *)title{
     _title = title;
     [self.mTextLabel setText:title];
-    self.mTextLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 10);
+    self.mTextLabel.center = CGPointMake(SCREEN_W/2, CGRectGetHeight(self.bounds)/2 + 20);
 }
 -(void)leftButonAction:(UIButton*)sender{
     if (_m_delegate && [_m_delegate respondsToSelector:@selector(backBtnPressed:)]) {

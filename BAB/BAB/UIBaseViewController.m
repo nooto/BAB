@@ -69,4 +69,10 @@
     [self.mNavBarView.mLeftButton setTitle:text forState:UIControlStateNormal];
 }
 
+- (void)debugView:(UIView*)view{
+    view.layer.cornerRadius = 10;
+    view.layer.borderColor = [UIColor redColor].CGColor;
+    view.layer.borderWidth = 5.f;
+}
+
 @end

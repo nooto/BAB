@@ -16,6 +16,8 @@
 #import "View+MASShorthandAdditions.h"
 #import "Utility/UtilityHelper.h"
 #import "CBabResultView.h"
+#import "CMenuViewController.h"
+#import "CMenuView.h"
 @interface CMainViewController () <EHSharePageViewdDelegate, UITextFieldDelegate, ADBannerViewDelegate>
 
 @property (nonatomic, strong)  UIImageView *mBgView;
@@ -50,7 +52,7 @@
 
 
 @property (nonatomic, assign) APPType  mAppType; //App le
-
+@property (nonatomic, strong) CMenuView *menuView;//菜单页面
 @end
 
 @implementation CMainViewController
@@ -133,64 +135,66 @@
     
     //日期选择控件。
     [self.view addSubview:self.datePickerView];
+    [self.view addSubview:self.menuView];
+    
 
     __weak typeof(self.view )weaskSuperView = self.view;
     
     [_mBgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.width.mas_equalTo(SCREEN_W);
-        make.size.height.mas_equalTo(SCREEN_H);
+//        make.size.width.mas_equalTo(SCREEN_W);
+//        make.size.height.mas_equalTo(SCREEN_H);
         make.edges.equalTo(weaskSuperView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    
+//
     //票面金额
     [self.pmjeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weaskSuperView).with.offset(NAVBAR_H + 20);
         make.left.equalTo(weaskSuperView).with.offset(20);
         make.size.mas_equalTo(CGSizeMake(100, 35));
     }];
-    
+
     [self.pmjeUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(weaskSuperView).with.offset(20);
         make.centerY.equalTo(_pmjeLabel.mas_centerY);
         make.width.mas_equalTo(50);
         make.height.mas_equalTo(_pmjeLabel.mas_height);
     }];
-    
+
     [self.pmjeTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_pmjeLabel.mas_right).with.offset(5);
         make.right.equalTo(_pmjeUintLabel.mas_left).with.offset(-5);
         make.centerY.equalTo(_pmjeLabel.mas_centerY);
         make.height.mas_equalTo(_pmjeLabel.mas_height);
     }];
-    
+
     //月利率
     [self.yllLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_pmjeLabel.mas_bottom).with.offset(20);
         make.left.equalTo(weaskSuperView).with.offset(20);
         make.size.equalTo(_pmjeLabel);
     }];
-    
+
     [self.yllUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(weaskSuperView).with.offset(20);
         make.centerY.equalTo(_yllLabel.mas_centerY);
         make.size.equalTo(_pmjeUintLabel);
     }];
-    
+
     [self.yllTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_yllLabel.mas_right).with.offset(5);
         make.right.equalTo(_yllUintLabel.mas_left).with.offset(-5);
         make.centerY.equalTo(_yllLabel.mas_centerY);
         make.height.mas_equalTo(_yllLabel.mas_height);
     }];
-    
+
     //贴现日
     [self.txrqLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_yllLabel.mas_bottom).with.offset(20);
         make.left.equalTo(weaskSuperView).with.offset(20);
         make.size.equalTo(_pmjeLabel);
     }];
-    
+
     [self.txrqButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_txrqLabel.mas_right).with.offset(5);
         make.centerY.equalTo(_txrqLabel.mas_centerY);
@@ -205,29 +209,29 @@
         make.left.equalTo(weaskSuperView).with.offset(20);
         make.size.equalTo(_pmjeLabel);
     }];
-    
-    
+
+
     [self.dqrqButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_dqrqLabel.mas_right).with.offset(5);
         make.centerY.equalTo(_dqrqLabel.mas_centerY);
         make.width.mas_equalTo(_yllTextField.mas_width);
         make.height.mas_equalTo(_yllLabel.mas_height);
     }];
-    
-    
+
+
     //调整天数
     [self.tztsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_dqrqLabel.mas_bottom).with.offset(20);
         make.left.equalTo(weaskSuperView).with.offset(20);
         make.size.equalTo(_pmjeLabel);
     }];
-    
+
     [self.tztsUintLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(weaskSuperView).with.offset(20);
         make.centerY.equalTo(_tztsLabel.mas_centerY);
         make.size.equalTo(_pmjeUintLabel);
     }];
-    
+
     [self.tztsTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_tztsLabel.mas_right).with.offset(5);
         make.right.equalTo(_tztsUintLabel.mas_left).with.offset(-5);
@@ -284,8 +288,11 @@
 }
 
 -(void)backBtnPressed:(UIButton *)sender{
-    EHSharePageView *view = [[EHSharePageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) withDelegate:self];
-    [view showSharePageView:YES];
+//    EHSharePageView *view = [[EHSharePageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H) withDelegate:self];
+//    [view showSharePageView:YES];
+//    CMenuViewController *vc = [[CMenuViewController alloc] init];
+//    [self.navigationController pushViewController:vc animated:NO];
+    [self.menuView showMenuView:YES];
 }
 
 -(void)autoLayOutView{
@@ -369,6 +376,12 @@
         [_pmjeLabel setTextColor:[ThemeManager mainTextColor]];
     }
     return _pmjeLabel;
+}
+- (CMenuView*)menuView{
+    if (!_menuView) {
+        _menuView = [[CMenuView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H)];
+    }
+    return _menuView;
 }
 
 -(UITextField*)pmjeTextField{

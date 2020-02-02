@@ -26,6 +26,7 @@
     self.window.backgroundColor = [UIColor clearColor];
 	CMainViewController *listViewController = [[CMainViewController alloc] init];
     BABNavigationController *navigationController = [[BABNavigationController alloc] initWithRootViewController:listViewController];
+    self.rootNav = navigationController;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 

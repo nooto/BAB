@@ -5,6 +5,7 @@
 #import "EHSysProperty.h"
 #import "CAppDelegate.h"
 //#define APPDelegate ((CAppDelegate *)([UIApplication sharedApplication].delegate))
+#define ROOTNAV ((CAppDelegate *)([UIApplication sharedApplication].delegate)).rootNav
 #define MainScreenBbounds       [[UIScreen mainScreen] bounds]
 #define SCREEN_W                [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_H              [[UIScreen mainScreen] bounds].size.height
