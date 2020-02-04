@@ -95,8 +95,9 @@
     [self setTitle:@"承兑贴现计算"];
 //    [self hiddeBackButton];
     [self setBackButtonImage:nil];
-    [self setBackButtonText:@"分享"];
-    
+//    [self setBackButtonText:@"分享"];
+    [self setBackButtonText:@"···"];
+
     self.mAppType = [Utility AppType];
     
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_W - 40 - 15 ,20, NAVBAR_H - 20, NAVBAR_H - 20)];

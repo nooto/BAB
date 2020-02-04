@@ -85,6 +85,8 @@
 		E27AD97423E70A6000F1684A /* CScreenTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27AD97323E70A6000F1684A /* CScreenTestViewController.m */; };
 		E27AD97723E7146500F1684A /* CDeviceInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27AD97623E7146500F1684A /* CDeviceInfoViewController.m */; };
 		E27AD97923E71AAB00F1684A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27AD97823E71AAB00F1684A /* CoreMotion.framework */; };
+		E27AD97C23E9A6EE00F1684A /* CDeviceIDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27AD97B23E9A6EE00F1684A /* CDeviceIDViewController.m */; };
+		E27AD97F23E9AF5900F1684A /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = E27AD97E23E9AF5900F1684A /* Tool.m */; };
 		E286DE8E22E5D49800B76ECE /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E286DE8D22E5D49800B76ECE /* libc++.tbd */; };
 		E28B9F2D1E5ED8A600EBB8CB /* CThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */; };
 		E2954DA91C87DDAD00F99A85 /* CBabResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2954DA81C87DDAD00F99A85 /* CBabResultView.m */; };
@@ -383,6 +385,10 @@
 		E27AD97523E7146500F1684A /* CDeviceInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDeviceInfoViewController.h; sourceTree = "<group>"; };
 		E27AD97623E7146500F1684A /* CDeviceInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDeviceInfoViewController.m; sourceTree = "<group>"; };
 		E27AD97823E71AAB00F1684A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E27AD97A23E9A6EE00F1684A /* CDeviceIDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDeviceIDViewController.h; sourceTree = "<group>"; };
+		E27AD97B23E9A6EE00F1684A /* CDeviceIDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDeviceIDViewController.m; sourceTree = "<group>"; };
+		E27AD97D23E9AF5900F1684A /* Tool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tool.h; sourceTree = "<group>"; };
+		E27AD97E23E9AF5900F1684A /* Tool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tool.m; sourceTree = "<group>"; };
 		E286DE8D22E5D49800B76ECE /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		E28B9F2B1E5ED8A600EBB8CB /* CThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CThemeManager.h; sourceTree = "<group>"; };
 		E28B9F2C1E5ED8A600EBB8CB /* CThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CThemeManager.m; sourceTree = "<group>"; };
@@ -782,6 +788,8 @@
 				E24796191BD9EE1C0040D410 /* UITextField+Placeholder.m */,
 				E247961A1BD9EE1C0040D410 /* UIView+Frame.h */,
 				E247961B1BD9EE1C0040D410 /* UIView+Frame.m */,
+				E27AD97D23E9AF5900F1684A /* Tool.h */,
+				E27AD97E23E9AF5900F1684A /* Tool.m */,
 			);
 			path = categories;
 			sourceTree = "<group>";
@@ -839,6 +847,8 @@
 				E27AD97323E70A6000F1684A /* CScreenTestViewController.m */,
 				E27AD97523E7146500F1684A /* CDeviceInfoViewController.h */,
 				E27AD97623E7146500F1684A /* CDeviceInfoViewController.m */,
+				E27AD97A23E9A6EE00F1684A /* CDeviceIDViewController.h */,
+				E27AD97B23E9A6EE00F1684A /* CDeviceIDViewController.m */,
 				E27AD96C23E470E500F1684A /* CMenuView.h */,
 				E27AD96D23E470E500F1684A /* CMenuView.m */,
 				E27AD96F23E47AB700F1684A /* CMenuItemCell.h */,
@@ -1201,12 +1211,14 @@
 				E2C7D0611BE785DC0017C04F /* UIBaseViewController.m in Sources */,
 				E24796421BD9EE1C0040D410 /* UIView+Frame.m in Sources */,
 				E24796491BD9EE1C0040D410 /* NSObject+MJCoding.m in Sources */,
+				E27AD97F23E9AF5900F1684A /* Tool.m in Sources */,
 				E26F05901BE1F55A007918B2 /* TWMessageViewCell.m in Sources */,
 				E24796441BD9EE1C0040D410 /* EHSysScreen.m in Sources */,
 				3E81A20918F3CAF800A42207 /* main.m in Sources */,
 				E2B369801BFAFADF00D21579 /* MASConstraint.m in Sources */,
 				E21BB1F31B9C60C00020ECA4 /* README.md in Sources */,
 				E27AD97723E7146500F1684A /* CDeviceInfoViewController.m in Sources */,
+				E27AD97C23E9A6EE00F1684A /* CDeviceIDViewController.m in Sources */,
 				E247963C1BD9EE1C0040D410 /* NSString+hex.m in Sources */,
 				E247963A1BD9EE1C0040D410 /* NSDictionary+Category.m in Sources */,
 				E247964B1BD9EE1C0040D410 /* NSObject+MJKeyValue.m in Sources */,

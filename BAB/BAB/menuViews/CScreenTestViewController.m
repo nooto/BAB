@@ -62,7 +62,7 @@
         
 //        [self debugView:view];
     }
-    [self.scrollView setContentSize:CGSizeMake(SCREEN_W * colors.count, CGRectGetHeight(self.scrollView.bounds))];
+    [self.scrollView setContentSize:CGSizeMake(SCREEN_W * colors.count, 0)];
 }
 
 @end
