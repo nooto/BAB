@@ -1448,6 +1448,7 @@
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
+				MARKETING_VERSION = 4.0.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BAB.selfWork;
 				PRODUCT_NAME = BAB;
@@ -1482,6 +1483,7 @@
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/SinaWeiboSDK",
 					"$(PROJECT_DIR)/BAB/ShareSDK/Extend/WeChatSDK",
 				);
+				MARKETING_VERSION = 4.0.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BAB.selfWork;
 				PRODUCT_NAME = BAB;
