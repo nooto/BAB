@@ -24,6 +24,7 @@
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.mBackGroundView];
         [self addSubview:self.contentView];
+        self.hidden = YES;
         [self.contentView addSubview:self.tableView];
     }
     return self;
@@ -138,17 +139,18 @@
 
 -(void)showMenuView:(BOOL)show{
     if (show) {
+        self.hidden = NO;
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.5f;
             [_contentView setFrame:CGRectMake(0, CGRectGetMinY(_contentView.frame), CGRectGetWidth(_contentView.frame), CGRectGetHeight(_contentView.frame))];
         }];
     }
     else{
-        
         [UIView animateWithDuration:0.3f animations:^{
             _mBackGroundView.alpha = 0.0f;
             [_contentView setFrame:CGRectMake(-CGRectGetWidth(_contentView.frame), CGRectGetMinY(_contentView.frame), CGRectGetWidth(_contentView.frame), CGRectGetHeight(_contentView.frame))];
         }completion:^(BOOL finished) {
+            self.hidden = YES;
         }];
     }
 }

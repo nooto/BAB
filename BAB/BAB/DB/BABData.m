@@ -12,7 +12,8 @@
 @implementation CBABData: NSObject
 -(CBABData*)init{
     if (self = [super init]) {
-        
+        NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+        self.timestamp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
     }
     return self;
 }
@@ -27,6 +28,12 @@
         return;
     }
 }
+
+-(void)refreshTimeStamp{
+    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    self.timestamp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]];
+}
+
 //-(id)initWithCoder:(NSCoder *)aDecoder
 //{
 //    if (self = [super init]) {

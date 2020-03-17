@@ -15,18 +15,20 @@
 #pragma mark- JSON
 
 +(APPType)AppType{
-    NSString *bundleIdntifier = [[NSBundle mainBundle] bundleIdentifier];
-    if ([bundleIdntifier  containsString:@"com.1719.babAD"]) {
-        [ThemeManager setCurrenType:theme_white];
-        return APP_FREE;
-    }
-    else if ([bundleIdntifier containsString:@"com.1719.bab"]){
-        [ThemeManager setCurrenType:theme_defalut];
-        return APP_CHARGE;
-    }
-    else{
-        return APP_FREE;
-    }
+    return APP_CHARGE;
+
+//    NSString *bundleIdntifier = [[NSBundle mainBundle] bundleIdentifier];
+//    if ([bundleIdntifier  containsString:@"com.1719.babAD"]) {
+//        [ThemeManager setCurrenType:theme_white];
+//        return APP_FREE;
+//    }
+//    else if ([bundleIdntifier containsString:@"com.1719.bab"]){
+//        [ThemeManager setCurrenType:theme_defalut];
+//        return APP_CHARGE;
+//    }
+//    else{
+//        return APP_FREE;
+//    }
 }
 
 /**

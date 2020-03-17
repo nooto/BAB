@@ -33,8 +33,8 @@
     NSLog(@"AppType: %d", [Utility AppType]);
     
     
-    [self setupRemoteNotification];
-    [self initShareSDK];
+//    [self setupRemoteNotification];
+//    [self initShareSDK];
     UIDevice *device = [UIDevice currentDevice];
     float sysVersion = [device.systemVersion floatValue];
 //    if (sysVersion >= 9.0f) {

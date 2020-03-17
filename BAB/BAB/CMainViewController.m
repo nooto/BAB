@@ -18,9 +18,11 @@
 #import "CBabResultView.h"
 #import "CMenuViewController.h"
 #import "CMenuView.h"
-@interface CMainViewController () <EHSharePageViewdDelegate, UITextFieldDelegate, ADBannerViewDelegate>
+#import "CDataSelectViewController.h"
 
-@property (nonatomic, strong)  UIImageView *mBgView;
+@interface CMainViewController () <EHSharePageViewdDelegate, UITextFieldDelegate>
+
+//@property (nonatomic, strong)  UIImageView *mBgView;
 
 @property (nonatomic, strong)  UIButton *clearnButton;
 @property (nonatomic, strong)  UIButton *calculateButton;
@@ -36,9 +38,11 @@
 
 @property (nonatomic, strong)  UILabel *txrqLabel;
 @property (nonatomic, strong)  UIButton   *txrqButton;
+@property (nonatomic, strong)  UIButton   *txrqButtonTwo;
 
 @property (nonatomic, strong)  UILabel *dqrqLabel;
 @property (nonatomic, strong)  UIButton   *dqrqButton;
+@property (nonatomic, strong)  UIButton   *dqrqButtonTwo;
 
 @property (nonatomic, strong)  UILabel *tztsLabel;
 @property (nonatomic, strong)  UITextField *tztsTextField;
@@ -90,7 +94,11 @@
 
 - (void)viewDidLoad
 {
+    //*//
+
     [super viewDidLoad];
+    
+
     [[EHDataMgrModule shareInstance] initQueue];
     [self setTitle:@"承兑贴现计算"];
 //    [self hiddeBackButton];
@@ -108,7 +116,7 @@
     rightBtn.titleLabel.font = Font17;
     [self addRightButton:rightBtn];
 
-    [self.view addSubview:self.mBgView];
+//    [self.view addSubview:self.mBgView];
     [self.view addSubview:self.pmjeLabel];
     [self.view addSubview:self.pmjeTextField];
     [self.view addSubview:self.pmjeUintLabel];
@@ -119,9 +127,11 @@
     
     [self.view addSubview:self.txrqLabel];
     [self.view addSubview:self.txrqButton];
+    [self.view addSubview:self.txrqButtonTwo];
     
     [self.view addSubview:self.dqrqLabel];
     [self.view addSubview:self.dqrqButton];
+    [self.view addSubview:self.dqrqButtonTwo];
 
     
     [self.view addSubview:self.tztsLabel];
@@ -141,11 +151,6 @@
 
     __weak typeof(self.view )weaskSuperView = self.view;
     
-    [_mBgView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.width.mas_equalTo(SCREEN_W);
-//        make.size.height.mas_equalTo(SCREEN_H);
-        make.edges.equalTo(weaskSuperView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
     
 //
     //票面金额
@@ -202,6 +207,12 @@
         make.width.mas_equalTo(_yllTextField.mas_width);
         make.height.mas_equalTo(_yllLabel.mas_height);
     }];
+    
+    [self.txrqButtonTwo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_txrqButton.mas_right).with.offset(5);
+        make.centerY.equalTo(_txrqButton.mas_centerY);
+        make.height.width.mas_equalTo(30);
+    }];
 
     //到期日
 //    self.dqrqLabel.backgroundColor = [UIColor redColor];
@@ -211,12 +222,17 @@
         make.size.equalTo(_pmjeLabel);
     }];
 
-
     [self.dqrqButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_dqrqLabel.mas_right).with.offset(5);
         make.centerY.equalTo(_dqrqLabel.mas_centerY);
         make.width.mas_equalTo(_yllTextField.mas_width);
         make.height.mas_equalTo(_yllLabel.mas_height);
+    }];
+    
+    [self.dqrqButtonTwo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(_dqrqButton.mas_right).with.offset(5);
+        make.centerY.equalTo(_dqrqButton.mas_centerY);
+        make.height.width.mas_equalTo(30);
     }];
 
 
@@ -286,6 +302,7 @@
 
     [self initViewAndData];
     self.txrqButton.showsTouchWhenHighlighted = self.dqrqButton.showsTouchWhenHighlighted = YES;
+    //*/
 }
 
 -(void)backBtnPressed:(UIButton *)sender{
@@ -304,7 +321,7 @@
     [self.calculateButton setEnabled:NO];
     [self.clearnButton setEnabled:NO];
 
-    [self.pmjeTextField setText:nil];
+    [self.pmjeTextField setText:@""];
     self.yllTextField.text = nil;
     self.tztsTextField.text = nil;
     self.resultLabel.text = nil;
@@ -324,7 +341,6 @@
 -(void)updateTheme{
 
     [self.view setBackgroundColor:ThemeManager.backGroundColor];
-    [self.mBgView setImage:[ThemeManager imageNamed:@"bg"]];
 
     self.pmjeLabel.textColor = self.pmjeUintLabel.textColor = self.yllLabel.textColor = self.yllUintLabel.textColor = self.txrqLabel.textColor = self.dqrqLabel.textColor = self.tztsLabel.textColor = self.tztsUintLabel.textColor = ThemeManager.mainTextColor;
     self.pmjeTextField.textColor = self.yllTextField.textColor = self.tztsTextField.textColor = ThemeManager.subTextColor;
@@ -349,26 +365,26 @@
     return _datePickerView;
 }
 
--(UIImageView*)mBgView{
-    if (!_mBgView) {
-        _mBgView = [[UIImageView alloc] initWithImage:[ThemeManager backGroundImage]];
-        [_mBgView setFrame:self.view.bounds];
-        [_mBgView setContentMode:UIViewContentModeScaleAspectFill];
-    }
-    return _mBgView;
-}
+//-(UIImageView*)mBgView{
+//    if (!_mBgView) {
+//        _mBgView = [[UIImageView alloc] initWithImage:[ThemeManager backGroundImage]];
+//        [_mBgView setFrame:self.view.bounds];
+//        [_mBgView setContentMode:UIViewContentModeScaleAspectFill];
+//    }
+//    return _mBgView;
+//}
 
 
--(ADBannerView*)mBannerView{
-    if (!_mBannerView) {
-        _mBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
-//        _mBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
-        [_mBannerView setFrame:CGRectMake(0, SCREEN_H - 45 , SCREEN_W, 45)];
-        _mBannerView.delegate = self;
-        _mBannerView.alpha = 0.0f;
-    }
-    return _mBannerView;
-}
+//-(ADBannerView*)mBannerView{
+//    if (!_mBannerView) {
+//        _mBannerView = [[ADBannerView alloc] initWithAdType:ADAdTypeBanner];
+////        _mBannerView.currentContentSizeIdentifier = ADBannerContentSizeIdentifierPortrait;
+//        [_mBannerView setFrame:CGRectMake(0, SCREEN_H - 45 , SCREEN_W, 45)];
+//        _mBannerView.delegate = self;
+//        _mBannerView.alpha = 0.0f;
+//    }
+//    return _mBannerView;
+//}
 -(UILabel*)pmjeLabel{
     if (!_pmjeLabel) {
         _pmjeLabel = [UILabel new];
@@ -388,10 +404,12 @@
 -(UITextField*)pmjeTextField{
     if (!_pmjeTextField) {
         _pmjeTextField = [UITextField new];
+        _pmjeTextField.backgroundColor = [UIColor redColor];
         [_pmjeTextField setBackgroundColor:[UIColor whiteColor]];
         _pmjeTextField.textAlignment = NSTextAlignmentCenter;
         _pmjeTextField.borderStyle = UITextBorderStyleRoundedRect;
         _pmjeTextField.keyboardType = UIKeyboardTypeDecimalPad;
+        _pmjeTextField.enabled = YES;
         _pmjeTextField.delegate = self;
     }
     return _pmjeTextField;
@@ -423,7 +441,7 @@
         [_yllTextField setBackgroundColor:[UIColor whiteColor]];
         _yllTextField.textAlignment = NSTextAlignmentCenter;
         _yllTextField.borderStyle = UITextBorderStyleRoundedRect;
-        _yllTextField.keyboardType = UIKeyboardTypeDecimalPad;
+        _yllTextField.keyboardType = UIKeyboardTypePhonePad;
         _yllTextField.delegate = self;
     }
     return _yllTextField;
@@ -462,6 +480,17 @@
     }
     return _txrqButton;
 }
+-(UIButton*)txrqButtonTwo{
+    if (!_txrqButtonTwo) {
+        _txrqButtonTwo = [UIButton new];
+        [_txrqButtonTwo setBackgroundColor:[UIColor clearColor]];
+        [_txrqButtonTwo setBackgroundImage:[UIImage imageNamed:@"ico_grzx_ljkt"] forState:UIControlStateNormal];
+        [_txrqButtonTwo addTarget:self action:@selector(txrqButtonTWOAction:) forControlEvents:UIControlEventTouchUpInside];
+        _txrqButtonTwo.hidden = YES;
+    }
+    return _txrqButtonTwo;
+}
+
 
 
 -(UILabel*)dqrqLabel{
@@ -487,6 +516,17 @@
     }
     return _dqrqButton;
 }
+
+-(UIButton*)dqrqButtonTwo{
+    if (!_dqrqButtonTwo) {
+        _dqrqButtonTwo = [UIButton new];
+        [_dqrqButtonTwo setBackgroundColor:[UIColor clearColor]];
+        [_dqrqButtonTwo setBackgroundImage:[UIImage imageNamed:@"ico_grzx_ljkt"] forState:UIControlStateNormal];
+        [_dqrqButtonTwo addTarget:self action:@selector(dqrqButtonTwoAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _dqrqButtonTwo;
+}
+
 
 -(UILabel*)tztsLabel{
     if (!_tztsLabel) {
@@ -646,12 +686,40 @@
     [_datePickerView setDatePickerMaxData:self.babData.dqrq];
 }
 
+- (void)txrqButtonTWOAction:(UIButton*)sender{
+    CDataSelectViewController *vc = [[CDataSelectViewController alloc] initWithCompletet:^(NSInteger index) {
+        
+    }];
+    [ROOTNAV pushViewController:vc animated:YES];
+
+}
+
+
 -(IBAction)dqrqButtonAction:(UIButton*)sender{
 	[self closeKeyBoarad];
 	_datePickerView.tag = 2;
 	[_datePickerView showDatePickerView:YES WithDate:self.babData.dqrq];
     [_datePickerView setDatePickerMinData:self.babData.txrq];
 }
+
+
+- (void)dqrqButtonTwoAction:(UIButton*)sender{
+    
+    CDataSelectViewController *vc = [[CDataSelectViewController alloc] initWithCompletet:^(NSInteger index) {
+        
+        unsigned units  = NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitYear;
+        NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        NSDateComponents *comps = [calendar components:units fromDate:self.babData.txrq];
+        [comps setMonth: comps.month + index];
+        NSDate *date = [calendar dateFromComponents:comps];
+        self.babData.dqrq = date;
+        [self.dqrqButton setTitle:_babData.dqrqstr forState:UIControlStateNormal];
+    }];
+    [ROOTNAV pushViewController:vc animated:YES];
+
+    
+}
+
 
 -(IBAction)calculateButtonAction:(id)sender{
 	[self closeKeyBoarad];
@@ -722,6 +790,7 @@
     [self.resultLabel setAttributedText:[_babData getResultString]];
     self.resultLabel.hidden = NO;
 
+    [self.babData refreshTimeStamp];
     [DBHelper inserTtBABData:self.babData];
 }
 
@@ -764,16 +833,18 @@
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner
 {
-    [UIView animateWithDuration:.25f animations:^{
-        self.mBannerView.alpha = 1.f;
-    }];}
+//    [UIView animateWithDuration:.25f animations:^{
+//        self.mBannerView.alpha = 1.f;
+//    }];
+//
+}
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error
 {
-    [UIView animateWithDuration:.25f animations:^{
-        self.mBannerView.alpha = .0f;
-    }];
-    NSLog(@"didFailToReceiveAdWithError");
+//    [UIView animateWithDuration:.25f animations:^{
+//        self.mBannerView.alpha = .0f;
+//    }];
+//    NSLog(@"didFailToReceiveAdWithError");
 }
 
 // 用户点击广告是响应，返回值BOOL指定广告是否打开 // 参数willLeaveApplication是指是否用其他的程序打开该广告 // 一般在该函数内让当前View停止，以及准备全画面表示广告 -

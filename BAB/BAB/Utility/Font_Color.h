@@ -37,36 +37,36 @@
 //#define Color_AFAFAF            ColorFromHex(0xAFAFAF)//灰色  发现设备中的背景色
 //
 #define Color_white_100         ColorFromHex(0xffffff)      //[Utility colorFromColorString:@"#ffffff" alpha:1.0f]       //浅灰（用于文本框内提示文字）
-#define Color_white_90          [UIColor colorWithWhite:255 alpha:0.9f]
-#define Color_white_80          [UIColor colorWithWhite:255 alpha:0.8f]
-#define Color_white_70          [UIColor colorWithWhite:255 alpha:0.7f]
-#define Color_white_60          [UIColor colorWithWhite:255 alpha:0.6f]
+#define Color_white_90          [UIColor colorWithWhite:255/255.0 alpha:0.9f]
+#define Color_white_80          [UIColor colorWithWhite:255/255.0 alpha:0.8f]
+#define Color_white_70          [UIColor colorWithWhite:255/255.0 alpha:0.7f]
+#define Color_white_60          [UIColor colorWithWhite:255/255.0 alpha:0.6f]
 #define Color_white_50          ColorFromHexRGBA(0xffffff7f)//[Utility colorFromColorString:@"#ffffff" alpha:0.5f]  //浅灰（用于文本框内提示文字）
 //
-#define Color_white_40          [UIColor colorWithWhite:255 alpha:0.4f]
-#define Color_white_30          [UIColor colorWithWhite:255 alpha:0.3f]
+#define Color_white_40          [UIColor colorWithWhite:255/255.0 alpha:0.4f]
+#define Color_white_30          [UIColor colorWithWhite:255/255.0 alpha:0.3f]
 #define Color_white_20          ColorFromHexRGBA(0xffffff33)//[Utility colorFromColorString:@"#ffffff" alpha:0.2f]  //浅灰（用于文本框内提示文字）
 #define Color_white_10          ColorFromHexRGBA(0xffffff19)//[Utility colorFromColorString:@"#ffffff" alpha:0.2f]  //浅灰（用于文本框内提示文字）
-#define Color_white_3           [UIColor colorWithWhite:255 alpha:0.03f]
-#define Color_white_6           [UIColor colorWithWhite:255 alpha:0.06f]
-#define Color_white_5           [UIColor colorWithWhite:255 alpha:0.05f]
-#define Color_white_8           [UIColor colorWithWhite:255 alpha:0.08f]
+#define Color_white_3           [UIColor colorWithWhite:255/255.0 alpha:0.03f]
+#define Color_white_6           [UIColor colorWithWhite:255/255.0 alpha:0.06f]
+#define Color_white_5           [UIColor colorWithWhite:255/255.0 alpha:0.05f]
+#define Color_white_8           [UIColor colorWithWhite:255/255.0 alpha:0.08f]
 //
 ////新的分割线颜色
 #define Color_Split_Line        ColorFromHex(0xe0e0e0)
 #define Color_Back_Ground       ColorFromHex(0xf5f5f5)
 //
-#define Color_black_5           [UIColor colorWithRed:0 green:0 blue:0  alpha:0.05f]
-#define Color_black_10          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.1f]
-#define Color_black_20          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2f]
-#define Color_black_30          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3f]
-#define Color_black_40          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4f]
-#define Color_black_50          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5f]
-#define Color_black_60          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6f]
-#define Color_black_70          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7f]
-#define Color_black_80          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.8f]
-#define Color_black_90          [UIColor colorWithRed:0 green:0 blue:0 alpha:0.9f]
-#define Color_black_100          [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0f]
+#define Color_black_5           [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0  alpha:0.05f]
+#define Color_black_10          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.1f]
+#define Color_black_20          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.2f]
+#define Color_black_30          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.3f]
+#define Color_black_40          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.4f]
+#define Color_black_50          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.5f]
+#define Color_black_60          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.6f]
+#define Color_black_70          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.7f]
+#define Color_black_80          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.8f]
+#define Color_black_90          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.9f]
+#define Color_black_100          [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:1.0f]
 //
 ////2015-09-23 11:31:36
 #define Color_line              Color_Split_Line//[UIColor colorWithWhite:255 alpha:0.1f]

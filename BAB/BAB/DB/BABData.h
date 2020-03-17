@@ -10,6 +10,8 @@
 #import "MJExtension.h"
 @interface CBABData : NSObject
 
+@property (nonatomic, strong) NSString * timestamp;//时间戳保存到数据库时 的标记。
+
 //参数
 @property (nonatomic, strong)  NSString*  pmje;
 @property (nonatomic, strong) NSString*  yll;
@@ -34,4 +36,7 @@
 - (void)parseDictionary:(NSDictionary*)dict;
 
 - (NSAttributedString*)getResultString;
+
+-(void)refreshTimeStamp;
+
 @end

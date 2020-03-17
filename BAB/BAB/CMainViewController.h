@@ -13,7 +13,7 @@
 #import "BABData.h"
 #import "UIBaseViewController.h"
 #import "TTTAttributedLabel.h"
-@interface CMainViewController : UIBaseViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate, ADBannerViewDelegate>
+@interface CMainViewController : UIBaseViewController <RFDatePickerViewDelegate, UIGestureRecognizerDelegate>
 //@property (nonatomic, strong)  UIImageView *mBgView;
 //
 //@property (nonatomic, strong)  UIButton *clearnButton;

@@ -8,7 +8,12 @@
 
 #import "UIBaseViewController.h"
 #import "EHCustomNavBar.h"
-//#import "CThemeManager.h"
+#import "CThemeManager.h"
+
+@interface UIBaseViewController()
+
+@property (nonatomic, strong)  UIImageView *mBgView;
+@end
 
 @implementation UIBaseViewController
 
@@ -16,6 +21,13 @@
     [super viewDidLoad];
     [self.view addSubview:self.mNavBarView];
     self.navigationController.navigationBar.hidden = YES;
+    [self.mBgView setImage:[ThemeManager imageNamed:@"bg"]];
+    __weak typeof(self.view )weaskSuperView = self.view;
+    [self.view addSubview:self.mBgView];
+        
+
+
+    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateTheme) name:themeTypeChange object:nil];
 }
@@ -40,6 +52,14 @@
         _mNavBarView = [[EHCustomNavBar alloc] initWithdelegate:self];
     }
     return _mNavBarView;
+}
+
+-(UIImageView*)mBgView{
+    if (!_mBgView) {
+        _mBgView = [[UIImageView alloc] initWithImage:[ThemeManager backGroundImage]];
+        [_mBgView setFrame:self.view.bounds];
+    }
+    return _mBgView;
 }
 
 - (void)backBtnPressed:(UIButton *)sender {

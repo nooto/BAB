@@ -140,7 +140,7 @@ __strong static id sharedInstance = nil;
     if (![[db tableNames] containsObject:kDatabaseHistoryTableName]) {
         NSError *error;
         [db createTableWithName: (NSString *)kDatabaseHistoryTableName
-                        columns: @[ @"pmje TEXT PRIMARY KEY"
+                        columns: @[ @"timestamp TEXT PRIMARY KEY"
                                     ]
                     constraints: nil
                           error: &error];

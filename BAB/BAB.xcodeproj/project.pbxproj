@@ -24,7 +24,6 @@
 		3E16CB46190793D300C64E8D /* rf_sure_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E16CB34190793D300C64E8D /* rf_sure_sel.png */; };
 		3E16CB491907973000C64E8D /* bt_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E16CB471907973000C64E8D /* bt_button.png */; };
 		3E16CB4A1907973000C64E8D /* bt_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E16CB481907973000C64E8D /* bt_button@2x.png */; };
-		3E40DAE61A2CBE9F009C63BF /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E75635D18F6F6D1008F7B6B /* iAd.framework */; };
 		3E81A1FD18F3CAF800A42207 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A1FC18F3CAF800A42207 /* Foundation.framework */; };
 		3E81A1FF18F3CAF800A42207 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A1FE18F3CAF800A42207 /* CoreGraphics.framework */; };
 		3E81A20118F3CAF800A42207 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E81A20018F3CAF800A42207 /* UIKit.framework */; };
@@ -38,6 +37,7 @@
 		3EC0C9A918FEEA23005C778E /* CHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0C9A718FEEA23005C778E /* CHistoryViewController.xib */; };
 		3EC0C9AD18FEEE0E005C778E /* CHistoryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC0C9AB18FEEE0E005C778E /* CHistoryViewCell.m */; };
 		3EC0C9AE18FEEE0E005C778E /* CHistoryViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC0C9AC18FEEE0E005C778E /* CHistoryViewCell.xib */; };
+		E21969A62420EA320054B72B /* CDataSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21969A52420EA320054B72B /* CDataSelectViewController.m */; };
 		E21BB1EB1B9C60C00020ECA4 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = E21BB1D31B9C60C00020ECA4 /* LICENSE.txt */; };
 		E21BB1EC1B9C60C00020ECA4 /* README.markdown in Sources */ = {isa = PBXBuildFile; fileRef = E21BB1D41B9C60C00020ECA4 /* README.markdown */; };
 		E21BB1ED1B9C60C00020ECA4 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E21BB1D81B9C60C00020ECA4 /* FMDatabase.m */; };
@@ -290,6 +290,8 @@
 		3EC0C9AA18FEEE0E005C778E /* CHistoryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHistoryViewCell.h; sourceTree = "<group>"; };
 		3EC0C9AB18FEEE0E005C778E /* CHistoryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHistoryViewCell.m; sourceTree = "<group>"; };
 		3EC0C9AC18FEEE0E005C778E /* CHistoryViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHistoryViewCell.xib; sourceTree = "<group>"; };
+		E21969A42420EA320054B72B /* CDataSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDataSelectViewController.h; sourceTree = "<group>"; };
+		E21969A52420EA320054B72B /* CDataSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDataSelectViewController.m; sourceTree = "<group>"; };
 		E21BB1D31B9C60C00020ECA4 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		E21BB1D41B9C60C00020ECA4 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		E21BB1D71B9C60C00020ECA4 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -495,7 +497,6 @@
 				E2985C9C1BF1D3580060D167 /* AGCommon.framework in Frameworks */,
 				E2985CA61BF1D3580060D167 /* ShareSDK.framework in Frameworks */,
 				E2985CA31BF1D3580060D167 /* libWeiboSDK.a in Frameworks */,
-				3E40DAE61A2CBE9F009C63BF /* iAd.framework in Frameworks */,
 				E2985CA11BF1D3580060D167 /* TencentOpenAPI.framework in Frameworks */,
 				E2985CA01BF1D3580060D167 /* ShareSDKCoreService.framework in Frameworks */,
 				E2985C9A1BF1D3580060D167 /* SinaWeiboConnection.framework in Frameworks */,
@@ -636,6 +637,8 @@
 				3E81A20C18F3CAF800A42207 /* CAppDelegate.m */,
 				3E81A22B18F3CB1600A42207 /* CMainViewController.h */,
 				3E81A22C18F3CB1600A42207 /* CMainViewController.m */,
+				E21969A42420EA320054B72B /* CDataSelectViewController.h */,
+				E21969A52420EA320054B72B /* CDataSelectViewController.m */,
 				3EC0C9A518FEEA23005C778E /* CHistoryViewController.h */,
 				3EC0C9A618FEEA23005C778E /* CHistoryViewController.m */,
 				3EC0C9A718FEEA23005C778E /* CHistoryViewController.xib */,
@@ -1216,6 +1219,7 @@
 				E24796441BD9EE1C0040D410 /* EHSysScreen.m in Sources */,
 				3E81A20918F3CAF800A42207 /* main.m in Sources */,
 				E2B369801BFAFADF00D21579 /* MASConstraint.m in Sources */,
+				E21969A62420EA320054B72B /* CDataSelectViewController.m in Sources */,
 				E21BB1F31B9C60C00020ECA4 /* README.md in Sources */,
 				E27AD97723E7146500F1684A /* CDeviceInfoViewController.m in Sources */,
 				E27AD97C23E9A6EE00F1684A /* CDeviceIDViewController.m in Sources */,
@@ -1428,8 +1432,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Apple Development: On Gao (UUR2EUB3W9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development: On Gao (UUR2EUB3W9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: On Gao (UUR2EUB3W9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: On Gao (UUR2EUB3W9)";
 				DEVELOPMENT_TEAM = A34QYQ6A72;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
